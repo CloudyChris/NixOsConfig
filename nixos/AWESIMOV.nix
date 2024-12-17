@@ -22,6 +22,7 @@
 
     # services
     ./services/flatpak.nix
+    ./services/nginx.nix
     ./services/transmission.nix
     ./services/ratbagd.nix
   ];
