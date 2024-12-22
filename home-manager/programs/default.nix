@@ -21,6 +21,7 @@
     ./documents.nix
     ./ocr.nix
     ./games.nix
+    ./android-studio.nix
   ];
 
   programs.home-manager.enable = true;
