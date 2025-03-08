@@ -12,6 +12,7 @@
     ./modules/appimage.nix
     ./modules/alsa.nix
     ./modules/hotspot.nix
+    ./modules/android-studio.nix
 
     # hardware
     ./hardware/machines/ASIMOV.nix
