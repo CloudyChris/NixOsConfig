@@ -3,5 +3,7 @@
     pwvucontrol
     easyeffects
     noisetorch
+    ffmpeg-full
+    sox
   ];
 }
