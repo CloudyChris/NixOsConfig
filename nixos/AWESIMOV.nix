@@ -12,6 +12,7 @@
     ./modules/appimage.nix
     ./modules/alsa.nix
     ./modules/hotspot.nix
+    ./modules/virt.nix
 
     # I won't need this, not now anyway
     # ./modules/android-studio.nix
