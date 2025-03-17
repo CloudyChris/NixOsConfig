@@ -1,7 +1,7 @@
 {config, ...}: {
   home.file = {
     "${config.home.homeDirectory}/.config/awesome" = {
-      source = ./config;
+      source = ./awesome_wm_config;
       recursive = true;
     };
     "${config.home.homeDirectory}/.config/awesome/src/assets/userpfp/arthank.png" = {
