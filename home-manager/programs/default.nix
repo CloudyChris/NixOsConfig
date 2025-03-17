@@ -9,6 +9,7 @@
     ./fish.nix
     ./xorg.nix
     ./git.nix
+    ./awesome.nix
     ./alacritty.nix
     ./kitty.nix
     ./doom_emacs.nix
