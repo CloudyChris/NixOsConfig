@@ -32,6 +32,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    nitrogen
+  ];
+
   environment.extraInit = ''
     xset s off -dpms
   '';
