@@ -10,6 +10,7 @@
     ./xorg.nix
     ./git.nix
     ./alacritty.nix
+    ./kitty.nix
     ./doom_emacs.nix
     ./gnome.nix
     ./mime.nix
@@ -61,6 +62,7 @@
 
     # apps
     unstable.vesktop
+    kdePackages.dolphin
 
     # vlc
     vlc

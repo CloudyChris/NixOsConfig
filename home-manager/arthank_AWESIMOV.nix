@@ -4,6 +4,7 @@
     ./modules/nvidia_opengl_fix.nix
     ./users/arthank.nix
     ./awesome
+    ./kitty
     ./rofi
   ];
 }
