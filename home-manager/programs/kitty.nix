@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.kitty = {
     enable = true;
     shellIntegration = {
@@ -6,6 +6,6 @@
       enableZshIntegration = true;
       enableFishIntegration = true;
     };
-    themeFile = "nordic";
+    themeFile = "${config.home.homeDirectory}/.config/kitty/nordic.conf";
   };
 }
