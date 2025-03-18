@@ -63,7 +63,6 @@
 
     # apps
     unstable.vesktop
-    kdePackages.dolphin
 
     # vlc
     vlc

@@ -20,10 +20,9 @@
     blueberry
 
     # file explorer
-    nautilus
-    nautilus-python
-    sushi
-    nautilus-open-any-terminal
+    mate.caja-with-extensions
+    mate.python-caja
+    folder-color-switcher
 
     # keyring
     gnome-keyring
