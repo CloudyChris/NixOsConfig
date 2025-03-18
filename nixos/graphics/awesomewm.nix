@@ -33,7 +33,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    nitrogen
+    arandr
   ];
 
   environment.extraInit = ''

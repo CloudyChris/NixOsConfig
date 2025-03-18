@@ -4,7 +4,7 @@
   # example = pkgs.callPackage ./example { };
 
   # pkgs
-  sddm-themes = pkgs.callPackage ./sddm-themes.nix {};
+  sddm-themes = pkgs.callPackage ./sddm-themes {};
 
   # lua
   extraLuaPackages = pkgs.callPackage ./lua {};
