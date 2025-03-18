@@ -202,7 +202,7 @@
     papirus-nord
 
     # cursors
-    nordzy-cursor-theme
+    nordic-cursor-theme
 
     # utils
     pciutils
@@ -262,7 +262,7 @@
     xsettingsd
 
     # sddm
-    sddm-themes.nord
+    nord-sddm
     libsForQt5.full
     libsForQt5.plasma-framework
     libsForQt5.breeze-qt5

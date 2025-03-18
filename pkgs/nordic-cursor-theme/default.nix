@@ -5,7 +5,6 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "nordic-cursor-theme";
-  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "CloudyChris";
@@ -20,7 +19,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "Cursor theme using a darker nord-based color palette and based on nordzy-cursor-theme";
+    description = "Cursor theme forked from alvatip's radioactive-nord";
     homepage = "https://github.com/CloudyChris/nordic-cursors";
     license = licenses.gpl3;
     platforms = platforms.all;

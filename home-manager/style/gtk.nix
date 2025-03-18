@@ -10,8 +10,8 @@
       name = "Papirus-Dark";
     };
     cursorTheme = {
-      name = "Nordzy-cursors";
-      package = pkgs.nordzy-cursor-theme;
+      name = "nordic-cursors";
+      package = pkgs.nordic-cursor-theme;
     };
   };
 }
