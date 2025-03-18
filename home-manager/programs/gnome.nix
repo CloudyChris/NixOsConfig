@@ -19,6 +19,12 @@
     # bluetooth
     blueberry
 
+    # file explorer
+    nautilus
+    nautilus-python
+    sushi
+    nautilus-open-any-terminal
+
     # keyring
     gnome-keyring
     libgnome-keyring
