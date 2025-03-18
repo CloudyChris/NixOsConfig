@@ -3,7 +3,7 @@
 , lib
 }:
 stdenvNoCC.mkDerivation rec {
-  pname = "nord-sddm";
+  name = "nord-sddm";
 
   src = fetchFromGitHub {
     owner = "CloudyChris";

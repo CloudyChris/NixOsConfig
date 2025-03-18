@@ -4,18 +4,19 @@
 }:
 
 stdenvNoCC.mkDerivation rec {
-  pname = "nordic-cursor-theme";
+  name = "nordic-cursor-theme";
 
   src = fetchFromGitHub {
     owner = "CloudyChris";
     repo = "nordic-cursors";
-    rev = "main";
-    sha256 = "";
+    rev = "447bb1468fbc957a30f961f45cdd1ed2ffaaafe8";
+    sha256 = "sha256-q1LEUEd/AgHwXejFNGAQKJSuPJ2bpPdgPVesClmxESQ=";
   };
 
   installPhase = ''
     mkdir -p $out/share/icons
-    cp -r nordic-cursors $out/share/icons
+    mkdir -p $out/share/icons/nordic-cursors/
+    cp -r $src/* $out/share/icons/nordic-cursors/
   '';
 
   meta = with lib; {
