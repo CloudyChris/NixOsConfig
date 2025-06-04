@@ -1,18 +1,13 @@
 {
-  description = "Your new nix config";
-
+  description = "Personal, modular nix config";
+########################################################################################################
   inputs = {
-    # Nixpkgs
+    ################ Nixpkgs channels
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    # You can access packages and modules from different nixpkgs revs
-    # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
     nur.url = "github:nix-community/NUR";
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    # Libraries
+    ################ Libraries
     systems-dep.url = "github:nix-systems/default";
     flake-utils-dep = {
       url = "github:numtide/flake-utils";
@@ -24,20 +19,24 @@
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    # NixOS utils
+    ################ NixOS utils
     hardware.url = "github:nixos/nixos-hardware/master";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Home manager
+    ################ Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ################ Modules flakes
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
+########################################################################################################
   outputs = {
     self,
     nixpkgs,
@@ -54,43 +53,28 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # Your custom packages
-    # Accessible through 'nix build', 'nix shell', etc
+    ################ Custom packages
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
-    # Formatter for your nix files, available through 'nix fmt'
-    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    ################ Formatter
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    # Your custom packages and modifications, exported as overlays
+    ################ Overlays
     overlays = import ./overlays {inherit inputs;};
-    # Reusable nixos modules you might want to export
-    # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
-    # Reusable home-manager modules you might want to export
-    # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
 
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+    ################ Entrypoint
+    # `nixos-rebuild --flake .#target`
     nixosConfigurations = {
-      AWESIMOV = nixpkgs.lib.nixosSystem {
+      "arthank_i3"= nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/AWESIMOV.nix
-        ];
-      };
-    };
+          ./targets/arthank_i3
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      "arthank@AWESIMOV" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/arthank_AWESIMOV.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.arthank = import ./users/arthank_i3;
+          }
         ];
       };
     };
