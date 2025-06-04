@@ -1,4 +1,0 @@
-[submodule "home-manager/awesome/awesome_wm_config"]
-	path = home-manager/awesome/awesome_wm_config
-	url = git@github.com:CloudyChris/awesome_wm_config.git
-	branch = main

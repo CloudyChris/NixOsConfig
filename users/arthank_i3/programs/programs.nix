@@ -7,6 +7,7 @@
     colordiff
     neofetch
     eza
+    rofi
 
     # file manager
     xfce.thunar

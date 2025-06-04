@@ -47,10 +47,10 @@ in
         set $ws_social "7: Social"
         set $ws_box_1 "8: Box 1"
         set $ws_box_2 "9: Box 2"
-        set $ws_zero "0"
+        set $ws_zero "0: Panel"
 
         #~ Change container focus (Alt-Tab)
-        bindysm Mod1+Tab rofi -- show containers to focus to TODO
+        bindysm Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
 
         #~ Audio Keybinds
         bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -63,7 +63,7 @@ in
         bindsym XF86AudioPrev exec --no-startup-id playerctl prev
 
         #################################################################################################################### Evil Keybinds
-        set $mode_leader Leader: [a]udio [b]luetooth [c]lient [h]elp [i]3wm [l]ayout [o]pen [p]anel [r]un [s]ysmenu [v]iew [w]orkspace
+        set $mode_leader Leader: [a]udio [b]luetooth [c]lient [h]elp [i]3wm [l]ayout [o]pen [r]un [s]ysmenu [v]iew [w]orkspace
 
         set $mode_client Client: [f]ullscreen [k]ill f[l]oat [m]ove [s]mark [u]nmark
         set $mode_i3wm i3wm: [c]ommand [e]xit re[l]oad [r]estart
@@ -80,16 +80,18 @@ in
         bindsym Mod4+Space mode $mode_leader
 
         mode "$mode_leader" {
-             bindsym a eww -- audio widget; mode default TODO
-             bindsym b eww -- bluetooth widget; mode default TODO
+             # TODO 2
+             bindsym a exec "notify-send \\"Audio widget not implemented\\""; mode default
+             bindsym b exec "notify-send \\"Bluetooth widget not implemented\\""; mode default
              bindsym c mode $mode_client
-             bindsym h eww -- help widget; mode default TODO
+             # TODO 1
+             bindsym h exec "notify-send \\"Help not implemented\\""; mode default
              bindsym i mode $mode_i3wm
              bindsym l mode $mode_layout
              bindsym o mode $mode_open
-             bindsym p eww -- panel widgets; mode default TODO
-             bindsym r mode $mode_run
-             bindsym s rofi -- sysmenu menu; mode $mode_sysmenu TODO
+             bindsym r exec "rofi -show run -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_RUN\\""; mode default
+             # TODO 1
+             bindsym s exec "notify-send \\"System menu not implemented\\""; mode $mode_sysmenu
              bindsym v mode $mode_view
              bindsym w mode $mode_window
              bindysm Escape mode default;
@@ -101,14 +103,16 @@ in
              bindsym k kill; mode default
              bindsym l floating toggle; mode default
              bindsym m mode $mode_client_move;
-             bindsym s rofi -- mark menu; mode default TODO
-             bindsym u rofi -- unmark menu; mode default TODO;
+             # TODO 2
+             bindsym s exec "notify-send \\"Mark menu not implemented\\""; mode default
+             bindsym u exec "notify-send \\"Unmark menu not implemented\\""; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }
 
         mode "$mode_i3wm" {
-             bindsym c rofi -- i3 command; mode default TODO
+             # TODO 1
+             bindsym c exec "notify-send \\"i3 command dialogue not implemented\\""; mode default
              bindsym e exit
              bindsym l reload
              bindsym r restart
@@ -124,44 +128,41 @@ in
         }
 
         mode "$mode_open" {
-             bindsym b -- open browser; mode default TODO
-             bindsym e -- open editor; mode default TODO
-             bindsym f -- open files explorer; mode default TODO
-             bindsym h -- open htop in default terminal; mode default TODO
-             bindsym p rofi -- drun programs list; mode default TODO
-             bindsym s -- run steam; mode default TODO
-             bindsym t -- open default terminal; mode default TODO
-             bindsym Escape mode default
-             bindsym Return mode default
-        }
-
-        mode "$mode_run" {
-             bindsym r rofi -- run command; mode default TODO
-             bindsym s rofi -- run as superuser; mode default TODO
+             bindsym b exec $BROWSER; mode default
+             bindsym e exec $EDITOR; mode default
+             bindsym f exec $FILEX; mode default
+             bindsym h exec "$TERMINAL -e htop"; mode default
+             bindsym p exec "rofi -show drun -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_DRUN\\"" ; mode default
+             bindsym s exec steam; mode default
+             bindsym t exec $TERMINAL; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }
 
         mode "$mode_sysmenu" {
-             bindsym h -- hibernate; mode default TODO
-             bindsym l -- lock (i3lock); mode default TODO
-             bindsym o -- log out; mode default TODO
+             # TODO 3
+             bindsym h exec "notify-send \\"Hibernate not implemented\\""; mode default
+             bindsym l exec "notify-send \\"Lock not implemented\\""; mode default
+             bindsym o exec "notify-send \\"Log out not implemented\\""; mode default
              bindsym p systemctl poweroff
              bindsym r systemctl reboot
-             bindsym s -- sleep (+i3lock); mode default TODO
+             # TODO 1
+             bindsym s exec "notify-send \\"Sleep not implemented\\""; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }
 
         mode "$mode_view" {
-             bindsym c rofi -- clipboard history; mode default TODO
-             bindsym k rofi -- keyboard layouts; mode default TODO
+             # TODO 2
+             bindsym c exec "notify-send \\"Clipboard history not implemented\\""; mode default
+             bindsym k exec "notify-send \\"Keyboard layouts not implemented\\""; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }
 
         mode "$mode_workspace" {
-             bindsym m rofi -- move to workspace; mode default TODO
+             # TODO 1
+             bindsym m exec "notify-send \\"Workspace move menu not implemented\\""; mode default
              bindsym n workspace next; mode default
              bindsym p workspace prev; mode default
              bindsym Escape mode default
@@ -173,8 +174,9 @@ in
              bindsym r move right
              bindsym u move up
              bindsym d move down
-             bindsym s rofi -- move to screen menu; mode default TODO
-             bindsym w rofi -- move to workspace menu; mode default TODO
+             # TODO 2
+             bindsym s exec "notify-send \\"Move to screen menu not implemented\\""; mode default
+             bindsym w exec "notify-send \\"Move to workspace menu not implemented\\""; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }

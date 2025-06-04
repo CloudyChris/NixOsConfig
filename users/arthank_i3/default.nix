@@ -11,6 +11,9 @@
     sessionVariables = {
       EDITOR = "emacs";
       TERMINAL = "alacritty";
+      FILEX = "thunar";
+      BROWSER = "librewolf";
+      ICON_THEME = "Papirus Dark";
     };
   };
 
