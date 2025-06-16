@@ -69,6 +69,10 @@
         "networkmanager"
         "audio"
         "video"
+        "kvm"
+        "gamemode"
+        "render"
+        "rtkit"
       ];
     };
   };

@@ -1,21 +1,21 @@
 {
   imports = [
-    ./configs
+    #./configs
     ./programs
-    ./style
+    #./style
 
-    ##################### COMMON
+    ##################### HM-COMPONENTS
     # PROGRAMS
-    ../common/programs/bat.nix
-    ../common/programs/dunst.nix
-    ../common/programs/eww.nix
-    ../common/programs/lmms.nix
+    ../../../hm-components/programs/bat.nix
+    ../../../hm-components/programs/dunst.nix
+    ../../../hm-components/programs/eww.nix
+    ../../../hm-components/programs/lmms.nix
 
     # CONFIGS
-    ../common/configs/evil_i3wm
+    ../../hm-components/configs/evil_i3wm
 
     # STYLE
-    ../common/style/darkened_nordic
+    ../../hm-components/style/darkened_nordic
   ];
 
   home = {

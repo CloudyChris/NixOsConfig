@@ -16,8 +16,6 @@ in
       };
       # TODO make eww widget for whichkey to launch after entering any mode whatsoever
       extraConfig = ''
-        # Mod1 = Alt
-        # Mod4 = Win/Super
         #~ Mouse behavior
         mouse_warping output
         focus_follows_mouse yes
@@ -151,8 +149,8 @@ in
         }
 
         mode "$mode_view" {
-             # TODO 2
-             bindsym c exec "notify-send \\"Clipboard history not implemented\\""; mode default
+             bindsym c exec "clipmenu"; mode default
+             # TODO 1
              bindsym k exec "notify-send \\"Keyboard layouts not implemented\\""; mode default
              bindsym Escape mode default
              bindsym Return mode default
