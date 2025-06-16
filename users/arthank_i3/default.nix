@@ -35,4 +35,6 @@
       createDirectories = true;
     };
   };
+
+  home.stateVersion = "25.05";
 }
