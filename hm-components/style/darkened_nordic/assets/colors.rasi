@@ -11,14 +11,14 @@
     gray5: #60728a;
 
     white0: #bbc3d4;
-    white1: #d8dee9;
-    white2: #e5e9f0;
-    white3: #eceff4;
-    white-alt: #c0c8d8;
+    white1: #c0c8d8;
+    white2: #d8dee9;
+    white3: #e5e9f0;
+    white4: #eceff4;
 
-    blue0: #5e81ac;
-    blue1: #81a1c1;
-    blue2: #88c0d0;
+    blue: #81a1c1;
+    blue-b: #88c0d0;
+    blue-d: #5e81ac;
 
     cyan: #8fbcbb;
     cyan-b: #9fc6c5;
@@ -43,5 +43,4 @@
     magenta: #b48ead;
     mangeta-b: #be9db8;
     magenta-d: #a97ea1;
-
 }

@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     # utils
     btop
-    bat
     colordiff
     neofetch
     eza

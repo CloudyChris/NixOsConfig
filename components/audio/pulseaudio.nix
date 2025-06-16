@@ -5,7 +5,7 @@
   ];
 
   nixpkgs.config.pulseaudio = true;
-  hardware.pulseaudio = {
+  services.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
     extraModules = with pkgs; [

@@ -10,6 +10,7 @@
     ./kitty.nix
     ./bash.nix
     ./zsh.nix
+    ./doom_emacs.nix
   ];
 
   home.sessionPath = ["$HOME/.local/bin"];

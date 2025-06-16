@@ -1,6 +1,5 @@
 {pkgs, ...}:
 {
-
   # Dependinces
   home.packages = with pkgs; [
     xdg-utils
@@ -16,9 +15,9 @@
         height = 80;
         origin = "top-right";
         offset = "10x48";
-        corner_radius = 0;
+        corner_radius = 10;
         scale = 0;
-        notification_limit = 0;
+        notification_limit = 3;
         progress_bar = true;
         progress_bar_height = 80;
         progress_bar_frame_width = 2;
@@ -31,7 +30,7 @@
         horizontal_padding = 15;
         text_icon_padding = 0;
         frame_width = 2;
-        gap_size = 0;
+        gap_size = 10;
         separator_color = "frame";
         sort = "yes";
         idle_threshold = 120;

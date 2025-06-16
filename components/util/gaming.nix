@@ -7,6 +7,10 @@
       general = {
         renice = 10;
       };
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
     };
   };
 
@@ -44,6 +48,9 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin
       vkd3d-proton
+    ];
+    fontPackages = with pkgs; [
+      source-han-sans
     ];
   };
 

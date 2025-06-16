@@ -3,7 +3,7 @@
   lib,
   config,
   ...
-}: {
+}: { # TODO
   home.activation.lmmsInstallScript = lib.hm.dag.entryAfter ["writeBoundary"] ''
       if [[ -d "${config.home.homeDirectory}/.appimages/" ]]; then
         echo "[ INFO ] .appimages dir exists"

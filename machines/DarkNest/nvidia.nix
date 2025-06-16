@@ -15,12 +15,17 @@
       finegrained = false;
     };
 
-    open = false;
+    open = true;
 
     nvidiaSettings = true;
 
+    videoAcceleration = true;
+    gsp.enable = true;
+
     package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ nvidia_x11 ];
 
   hardware.graphics.extraPackages = with pkgs; [
     nvidia-vaapi-driver

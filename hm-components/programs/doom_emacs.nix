@@ -11,6 +11,7 @@ in
   #####################################################
 
   options.programs.doomemacs = {
+    enable = lib.mkEnableOption "DoomEmacs";
     doomRepo = lib.mkOption {
       description = "Doom Emacs git repository url";
       type = lib.types.str;
@@ -23,7 +24,7 @@ in
     };
   };
 
-  config = lib.mkIf ((cfg.doomRepo == "") || (cfg.configRepo == "")) {
+  config = lib.mkIf ((cfg.enable) && ((cfg.doomRepo != "") && (cfg.configRepo != ""))) {
     home.packages = with pkgs; [
       # deps
       git

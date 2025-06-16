@@ -16,6 +16,8 @@ in
       };
       # TODO make eww widget for whichkey to launch after entering any mode whatsoever
       extraConfig = ''
+        # Mod1 = Alt
+        # Mod4 = Win/Super
         #~ Mouse behavior
         mouse_warping output
         focus_follows_mouse yes
@@ -42,12 +44,7 @@ in
         set $ws_2 "2"
         set $ws_3 "3"
         set $ws_4 "4"
-        set $ws_editor "5: Editor"
-        set $ws_browser "6: Browser"
-        set $ws_social "7: Social"
-        set $ws_box_1 "8: Box 1"
-        set $ws_box_2 "9: Box 2"
-        set $ws_zero "0: Panel"
+        set $ws_5 "5"
 
         #~ Change container focus (Alt-Tab)
         bindysm Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
@@ -76,6 +73,7 @@ in
 
         set $mode_client_move Move client: [l]eft [r]ight [u]p [d]own to-[s]creen to-[workspace]
         set $mode_client_after_move And: [g]o [s]tay
+        set $mode_client_resize Resize client: [←] [→] [↑] [↓]
 
         bindsym Mod4+Space mode $mode_leader
 
@@ -102,7 +100,8 @@ in
              bindsym f fullscreen toggle; mode default
              bindsym k kill; mode default
              bindsym l floating toggle; mode default
-             bindsym m mode $mode_client_move;
+             bindsym m mode $mode_client_move
+             bindysm r mode $mode_client_resize
              # TODO 2
              bindsym s exec "notify-send \\"Mark menu not implemented\\""; mode default
              bindsym u exec "notify-send \\"Unmark menu not implemented\\""; mode default
@@ -149,7 +148,6 @@ in
              # TODO 1
              bindsym s exec "notify-send \\"Sleep not implemented\\""; mode default
              bindsym Escape mode default
-             bindsym Return mode default
         }
 
         mode "$mode_view" {
@@ -175,8 +173,26 @@ in
              bindsym u move up
              bindsym d move down
              # TODO 2
+             # the menu these open should set a var somewhere to be used by mode_client_after_move
              bindsym s exec "notify-send \\"Move to screen menu not implemented\\""; mode default
              bindsym w exec "notify-send \\"Move to workspace menu not implemented\\""; mode default
+             bindsym Escape mode default
+             bindsym Return mode default
+        }
+
+        mode "$mode_client_after_move" {
+             # TODO 1
+             bindsym g exec "notify-send \\"Client move to screen and workspace menus not implemented\\""; mode default
+             bindsym s mode default
+             bindsym Escape mode default
+             bindsym Return mode default
+        }
+
+        mode "$mode_client_resize" {
+             bindsym Left resize shrink width 10 px or 10 ppt
+             bindsym Right resize grow width 10 px or 10 ppt
+             bindsym Up resize grow height 10 px or 10 ppt
+             bindsym Down resize shrink height 10px or 10 ppt
              bindsym Escape mode default
              bindsym Return mode default
         }

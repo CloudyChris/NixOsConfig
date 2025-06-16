@@ -2,13 +2,18 @@
 {
   imports = [
 
-    ../../machines/BlackCradle
+    # MACHINE
+    ../../machines/DarkNest
 
+    # BASE
     ../../components/base.nix
 
     # HARDWARE
-    ../../components/hardware/mesa_hardware_acceleration.nix
+    ../../components/hardware/mesa.nix
     ../../components/hardware/virt.nix
+
+    # KEYBOARD
+    ../../components/kb_layouts/ro_programmer.nix
 
     # DISPLAY MANAGER
     ../../components/display_managers/lightdm.nix
@@ -34,6 +39,7 @@
 
     # UTIL
     ../../components/util/appimage.nix
+    ../../components/util/console_early.nix
     ../../components/util/fonts.nix
     ../../components/util/gaming.nix
     ../../components/util/portals.nix
@@ -51,7 +57,8 @@
 
   users.users = {
     arthank = {
-      initialPassword = "correcthorsebatterystaple";
+      enable = true;
+      initialPassword = "thisismyinitialpassword";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -69,32 +76,6 @@
   time.timeZone = "Europe/Bucharest";
 
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  console = {
-    earlySetup = true;
-    font = "${pkgs.kbd}/share/consolefonts/Lat2-Terminus16.psfu.gz";
-    packages = with pkgs; [
-      terminus_font
-      kbd
-    ];
-    useXkbConfig = true;
-  };
-
-  services = {
-    libinput.mouse.middleEmulation = false;
-    xserver = {
-      xkb = {
-        layout = "ro";
-        model = "p105+inet";
-        variant = "";
-        options = "lv3:ralt_switch, compose:sclk, grp:menu_switch";
-      };
-    };
-  };
-
-  environment.sessionVariables.TERMINAL = "alacritty";
-
-  networking.hostName = "BlackCradle";
 
   services.transmission.home = "/bigboy/Torrents";
 }

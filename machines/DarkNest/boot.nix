@@ -19,8 +19,6 @@
         storePaths = [config.console.font];
       };
     };
-    extraModulePackages = with config.boot.kernelPackages; [ nvidia_x11 ];
-    kernelModules = ["kvm-intel"];
     kernelParams = [
       "quiet"
       "splash"

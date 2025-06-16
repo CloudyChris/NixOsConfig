@@ -1,11 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   boot.plymouth = {
     enable = true;
-    theme = "black_hud";
+    font = config.console.font;
+    theme = "owl";
     themePackages = with pkgs; [
       (adi1090x-plymouth-themes.override {
-        selected_themes = ["black_hud"];
+        selected_themes = ["owl"];
       })
     ];
   };
