@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../../user-components/programs/doom_emacs.nix
+    ../../../hmcomponents/programs/doom_emacs.nix
   ];
 
   programs.doomemacs = {
