@@ -5,7 +5,7 @@ let
   home_i3 = config.xsession.windowManager.i3.enable;
 in
 {
-  config = lib.mkif (global_i3 && home_i3) {
+  config = lib.mkIf (global_i3 && home_i3) {
     xsession.windowManager.i3 = {
       package = pkgs.i3-rounded;
       extraConfig = ''
