@@ -6,9 +6,7 @@
 
     ##################### HM-COMPONENTS
     # PROGRAMS
-    ../../hm-components/programs/bat.nix
     ../../hm-components/programs/dunst.nix
-    ../../hm-components/programs/eww.nix
     ../../hm-components/programs/lmms.nix
 
     # CONFIGS

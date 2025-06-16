@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # utils
+    bat
     btop
     colordiff
     neofetch
