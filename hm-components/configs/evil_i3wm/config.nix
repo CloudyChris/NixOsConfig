@@ -5,7 +5,7 @@ let
   modifier = config.xsession.windowManager.i3.config.modifier;
 in
 {
-  config = lib.mkif (global_i3) {
+  config = lib.mkIf (global_i3) {
     xsession.windowManager.i3 = {
       enable = true;
       package = pkgs.i3-rounded;
