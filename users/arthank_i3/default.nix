@@ -4,18 +4,18 @@
     ./programs
     #./style
 
-    ##################### HM-COMPONENTS
+    ##################### USER-COMPONENTS
     # PROGRAMS
-    ../../../hm-components/programs/bat.nix
-    ../../../hm-components/programs/dunst.nix
-    ../../../hm-components/programs/eww.nix
-    ../../../hm-components/programs/lmms.nix
+    ../../../user-components/programs/bat.nix
+    ../../../user-components/programs/dunst.nix
+    ../../../user-components/programs/eww.nix
+    ../../../user-components/programs/lmms.nix
 
     # CONFIGS
-    ../../hm-components/configs/evil_i3wm
+    ../../user-components/configs/evil_i3wm
 
     # STYLE
-    ../../hm-components/style/darkened_nordic
+    ../../user-components/style/darkened_nordic
   ];
 
   home = {
