@@ -6,7 +6,7 @@ let
 in
 {
   config = lib.mkIf (global_i3) {
-    xsession.windowManager.i3 = {
+    services.xsession.windowManager.i3 = {
       enable = true;
       package = pkgs.i3-rounded;
       config = {
