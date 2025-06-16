@@ -32,7 +32,6 @@
 
     # SERVICES
     ../../components/services/cups.nix
-    ../../components/services/flatpak.nix
     ../../components/services/nginx.nix
     ../../components/services/openssh.nix
     ../../components/services/ratbagd.nix
