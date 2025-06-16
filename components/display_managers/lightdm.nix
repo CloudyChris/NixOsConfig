@@ -7,7 +7,7 @@
 
   services.xserver.displayManager.lightdm = {
     enable = true;
-    greetes.gtk = {
+    greeters.gtk = {
       enable = true;
     };
   };
