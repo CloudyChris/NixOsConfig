@@ -1,6 +1,6 @@
 {
   imports = [
-    ../../../hmcomponents/style/darkened_nordic/alacritty.nix
+    ../../../hm-components/style/darkened_nordic/alacritty.nix
   ];
 
   programs.alacritty = {

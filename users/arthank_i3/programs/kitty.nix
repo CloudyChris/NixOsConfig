@@ -1,6 +1,6 @@
 {
   includes = [
-    ../../../hmcomponents/style/darkened_nordic/kitty.nix
+    ../../../hm-components/style/darkened_nordic/kitty.nix
   ];
 
   programs.kitty = {

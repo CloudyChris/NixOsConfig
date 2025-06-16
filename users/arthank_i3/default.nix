@@ -6,16 +6,16 @@
 
     ##################### HM-COMPONENTS
     # PROGRAMS
-    ../../../hmcomponents/programs/bat.nix
-    ../../../hmcomponents/programs/dunst.nix
-    ../../../hmcomponents/programs/eww.nix
-    ../../../hmcomponents/programs/lmms.nix
+    ../../../hm-components/programs/bat.nix
+    ../../../hm-components/programs/dunst.nix
+    ../../../hm-components/programs/eww.nix
+    ../../../hm-components/programs/lmms.nix
 
     # CONFIGS
-    ../../hmcomponents/configs/evil_i3wm
+    ../../hm-components/configs/evil_i3wm
 
     # STYLE
-    ../../hmcomponents/style/darkened_nordic
+    ../../hm-components/style/darkened_nordic
   ];
 
   home = {
