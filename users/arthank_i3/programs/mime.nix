@@ -6,14 +6,14 @@
       defaultApplications = {
         # ~/.nix-profile/share/applications/mimeinfo.cache has a much more complete list
         # no need for an exhaustive list here, just some basics
-        "text/html" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
-        "x-scheme-handler/about" = "librewolf.desktop";
-        "x-scheme-handler/unknown" = "librewolf.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
         "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop" "com.github.junrrein.PDFSlicer.desktop"];
-        "application/http" = "librewolf.desktop";
-        "application/https" = "librewolf.desktop";
+        "application/http" = "firefox.desktop";
+        "application/https" = "firefox.desktop";
         "application/octet-stream" = "emacs.desktop";
         "image/*" = "org.gnome.eog.desktop";
         "image/jpg" = "org.gnome.eog.desktop";

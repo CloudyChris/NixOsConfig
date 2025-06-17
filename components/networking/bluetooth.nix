@@ -3,7 +3,6 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    hsphfpd.enable = true;
   };
 
   services.blueman.enable = true;

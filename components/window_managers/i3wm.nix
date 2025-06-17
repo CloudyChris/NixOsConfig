@@ -10,7 +10,6 @@
   services = {
     xserver.windowManager.i3 = {
       enable = true;
-      package = pkgs.i3-rounded;
     };
     displayManager = {
       defaultSession = "none+i3";

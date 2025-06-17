@@ -8,6 +8,7 @@
     neofetch
     eza
     rofi
+    neovim
 
     # file manager
     xfce.thunar
@@ -17,6 +18,7 @@
     yazi
 
     # web browsers
+    firefox
     librewolf
     nyxt
 
@@ -37,10 +39,7 @@
     cmus
 
     # graphics
-    gimp-with-plugins
-    gimpPlugin.gap
-    gimpPlugin.fourier
-    gimpPlugin.texturize
+    gimp3-with-plugins
     inkscape
     imagemagick
     qiv

@@ -1,7 +1,6 @@
 { config, ...}:
 {
-  home.file."${config.home.homeDirectory}/.config/rofi/colors.rasi" = {
+  home.file."${config.home.homeDirectory}/.local/share/rofi/themes/colors.rasi" = {
     source = ./assets/colors.rasi;
-    force = true;
   };
 }

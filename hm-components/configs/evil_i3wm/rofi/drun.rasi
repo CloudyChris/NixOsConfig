@@ -1,4 +1,4 @@
-@import "colors.rasi"
+@import "~/.local/share/rofi/themes/colors.rasi"
 
 * {
     font: "JetBrains Mono Bold 9";

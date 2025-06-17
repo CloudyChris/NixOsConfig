@@ -1,18 +1,15 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, osConfig, ... }:
 
 let
-  global_i3 = config.services.xserver.windowManager.i3.enable;
-  modifier = config.xsession.windowManager.i3.config.modifier;
+  global_i3 = osConfig.services.xserver.windowManager.i3.enable;
 in
 {
   config = lib.mkIf (global_i3) {
-    services.xsession.windowManager.i3 = {
+    xsession.windowManager.i3 = {
       enable = true;
-      package = pkgs.i3-rounded;
       config = {
-        modifier = "Mod4";
-        # making sure no default keybinds stick around
-        keybindings = "";
+        keybindings = {};
+        modes = {};
       };
       # TODO make eww widget for whichkey to launch after entering any mode whatsoever
       extraConfig = ''
@@ -25,7 +22,6 @@ in
 
         #~ Tiled windows drag
         tiling_drag modifier titlebar
-        tiling_drag swap_modifier Mod4
 
         #~ Urgent windows and hits
         force_display_urgency_hint 1000 ms
@@ -44,8 +40,17 @@ in
         set $ws_4 "4"
         set $ws_5 "5"
 
+        bindsym Mod4+1 workspace $ws_1
+        bindsym Mod4+2 workspace $ws_2
+        bindsym Mod4+3 workspace $ws_3
+        bindsym Mod4+4 workspace $ws_4
+        bindsym Mod4+5 workspace $ws_5
+
+        # TODO this is for safety's sake
+        bindsym Mod4+0 exec alacritty
+
         #~ Change container focus (Alt-Tab)
-        bindysm Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
+        bindsym Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
 
         #~ Audio Keybinds
         bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -73,24 +78,24 @@ in
         set $mode_client_after_move And: [g]o [s]tay
         set $mode_client_resize Resize client: [←] [→] [↑] [↓]
 
-        bindsym Mod4+Space mode $mode_leader
+        bindsym Mod4+z mode "$mode_leader"; exec notify-send \\"Leader mode\\"
 
         mode "$mode_leader" {
              # TODO 2
              bindsym a exec "notify-send \\"Audio widget not implemented\\""; mode default
              bindsym b exec "notify-send \\"Bluetooth widget not implemented\\""; mode default
-             bindsym c mode $mode_client
+             bindsym c mode "$mode_client"
              # TODO 1
              bindsym h exec "notify-send \\"Help not implemented\\""; mode default
-             bindsym i mode $mode_i3wm
-             bindsym l mode $mode_layout
-             bindsym o mode $mode_open
+             bindsym i mode "$mode_i3wm"
+             bindsym l mode "$mode_layout"
+             bindsym o mode "$mode_open"
              bindsym r exec "rofi -show run -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_RUN\\""; mode default
              # TODO 1
-             bindsym s exec "notify-send \\"System menu not implemented\\""; mode $mode_sysmenu
-             bindsym v mode $mode_view
-             bindsym w mode $mode_window
-             bindysm Escape mode default;
+             bindsym s exec "notify-send \\"System menu not implemented\\""; mode "$mode_sysmenu"
+             bindsym v mode "$mode_view"
+             bindsym w mode "$mode_window"
+             bindsym Escape mode default;
              bindsym Return mode default
         }
 
@@ -98,8 +103,8 @@ in
              bindsym f fullscreen toggle; mode default
              bindsym k kill; mode default
              bindsym l floating toggle; mode default
-             bindsym m mode $mode_client_move
-             bindysm r mode $mode_client_resize
+             bindsym m mode "$mode_client_move"
+             bindsym r mode "$mode_client_resize"
              # TODO 2
              bindsym s exec "notify-send \\"Mark menu not implemented\\""; mode default
              bindsym u exec "notify-send \\"Unmark menu not implemented\\""; mode default
