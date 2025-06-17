@@ -15,7 +15,7 @@
         height = 80;
         origin = "top-right";
         offset = "10x48";
-        corner_radius = 10;
+        corner_radius = 5;
         scale = 0;
         notification_limit = 3;
         progress_bar = true;
@@ -34,7 +34,7 @@
         separator_color = "frame";
         sort = "yes";
         idle_threshold = 120;
-        font = "JetBrainsMono Nerd Font 10";
+        font = "JetBrainsMono Nerd Font 8";
         line_height = 2;
         markup = "full";
         format = "%s\n%b";
@@ -63,23 +63,23 @@
 
       urgency_low = {
         timeout = 2;
-        background = "\"#1e222a\"";
-        foreground = "\"#a3be8c\"";
-        frame_color = "\"#a3be8c\"";
+        background = "#1e222a";
+        foreground = "#a3be8c";
+        frame_color = "#a3be8c";
       };
 
       urgency_normal = {
         timeout = 5;
-        background = "\"#1e222a\"";
-        foreground = "\"#ebcb8b\"";
-        frame_color = "\"#ebcb8b\"";
+        background = "#1e222a";
+        foreground = "#ebcb8b";
+        frame_color = "#ebcb8b";
       };
 
       urgency_critical = {
         timeout = 0;
-        background = "\"#1e222a\"";
-        foreground = "\"#bf616a\"";
-        frame_color = "\"#bf616a\"";
+        background = "#1e222a";
+        foreground = "#bf616a";
+        frame_color = "#bf616a";
       };
     };
   };

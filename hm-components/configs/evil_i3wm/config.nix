@@ -46,9 +46,6 @@ in
         bindsym Mod4+4 workspace $ws_4
         bindsym Mod4+5 workspace $ws_5
 
-        # TODO this is for safety's sake
-        bindsym Mod4+0 exec alacritty
-
         #~ Change container focus (Alt-Tab)
         bindsym Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
 
@@ -78,7 +75,7 @@ in
         set $mode_client_after_move And: [g]o [s]tay
         set $mode_client_resize Resize client: [←] [→] [↑] [↓]
 
-        bindsym Mod4+z mode "$mode_leader"; exec notify-send \\"Leader mode\\"
+        bindsym Mod4+z mode "$mode_leader"
 
         mode "$mode_leader" {
              # TODO 2

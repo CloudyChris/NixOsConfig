@@ -24,7 +24,7 @@
       #################################
       #   Transparency / Opacity      #
       #################################
-      "frame-opacity" = 1.0;
+      "frame-opacity" = 0.5;
 
       #################################
       #           Corners             #
@@ -56,17 +56,17 @@
         match = "window_type = 'tooltip'";
         fade = true;
         shadow = true;
-        opacity = 0.95;
+        opacity = 0.5;
         focus = true;
         full-shadow = false;
       }, {
         match = "window_type = 'popup_menu' || "
                 "window_type = 'dropdown_menu'";
-        opacity = 1.0;
+        opacity = 0.5;
       }, {
         match = "window_type = 'utility'";
         shadow = true;
-        opacity = 1.0;
+        opacity = 0.5;
       }, {
         match = "window_type = 'dock'    || "
                 "window_type = 'desktop' || "

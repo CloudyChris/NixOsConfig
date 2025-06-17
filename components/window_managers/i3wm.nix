@@ -10,6 +10,9 @@
   services = {
     xserver.windowManager.i3 = {
       enable = true;
+      extraSessionCommands = ''
+        picom -b
+      '';
     };
     displayManager = {
       defaultSession = "none+i3";
