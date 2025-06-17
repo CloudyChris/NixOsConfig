@@ -9,9 +9,6 @@ in
       enable = true;
       config = null;
       extraConfig = ''
-        #~ Compositor
-        exec --no-startup-id picom -b
-
         #~ Mouse behavior
         mouse_warping output
         focus_follows_mouse yes
