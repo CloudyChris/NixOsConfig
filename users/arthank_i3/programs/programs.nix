@@ -45,6 +45,7 @@
     qiv
     eog
     fontforge
+    themix-gui
 
     # documents
     libreoffice

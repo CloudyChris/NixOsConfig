@@ -7,12 +7,11 @@ in
   config = lib.mkIf (global_i3) {
     xsession.windowManager.i3 = {
       enable = true;
-      config = {
-        keybindings = {};
-        modes = {};
-      };
-      # TODO make eww widget for whichkey to launch after entering any mode whatsoever
+      config = null;
       extraConfig = ''
+        #~ Compositor
+        exec --no-startup-id picom -b
+
         #~ Mouse behavior
         mouse_warping output
         focus_follows_mouse yes
@@ -28,23 +27,49 @@ in
 
         #~ Focus
         focus_on_window_activation urgent
+        focus_wrapping no
 
         #~ Popups
         popup_during_fullscreen smart
 
         #~ Workspaces
+        workspace_layout tabbed
         workspace_auto_back_and_forth no
-        set $ws_1 "1"
-        set $ws_2 "2"
-        set $ws_3 "3"
-        set $ws_4 "4"
-        set $ws_5 "5"
+        set $ws_m1_1 "1:1"
+        set $ws_m1_2 "1:2"
+        set $ws_m1_3 "1:3"
+        set $ws_m1_4 "1:4"
+        set $ws_m1_5 "1:5"
 
-        bindsym Mod4+1 workspace $ws_1
-        bindsym Mod4+2 workspace $ws_2
-        bindsym Mod4+3 workspace $ws_3
-        bindsym Mod4+4 workspace $ws_4
-        bindsym Mod4+5 workspace $ws_5
+        set $ws_m2_1 "2:1"
+        set $ws_m2_2 "2:2"
+        set $ws_m2_3 "2:3"
+        set $ws_m2_4 "2:4"
+        set $ws_m2_5 "2:5"
+
+        bindsym Mod4+1 workspace $ws_m1_1
+        bindsym Mod4+2 workspace $ws_m1_2
+        bindsym Mod4+3 workspace $ws_m1_3
+        bindsym Mod4+4 workspace $ws_m1_4
+        bindsym Mod4+5 workspace $ws_m1_5
+
+        bindsym Mod4+6 workspace $ws_m2_1
+        bindsym Mod4+7 workspace $ws_m2_2
+        bindsym Mod4+8 workspace $ws_m2_3
+        bindsym Mod4+9 workspace $ws_m2_4
+        bindsym Mod4+0 workspace $ws_m2_5
+
+        workspace $ws_m1_1 output HDMI-1
+        workspace $ws_m1_2 output HDMI-1
+        workspace $ws_m1_3 output HDMI-1
+        workspace $ws_m1_4 output HDMI-1
+        workspace $ws_m1_5 output HDMI-1
+
+        workspace $ws_m2_1 output HDMI-2
+        workspace $ws_m2_2 output HDMI-2
+        workspace $ws_m2_3 output HDMI-2
+        workspace $ws_m2_4 output HDMI-2
+        workspace $ws_m2_5 output HDMI-2
 
         #~ Change container focus (Alt-Tab)
         bindsym Mod1+Tab exec "rofi -show window -show-icons -icon-theme \\"$ICON_THEME\\" -theme \\"$ROFI_WIN\\""
@@ -64,7 +89,7 @@ in
 
         set $mode_client Client: [f]ullscreen [k]ill f[l]oat [m]ove [s]mark [u]nmark
         set $mode_i3wm i3wm: [c]ommand [e]xit re[l]oad [r]estart
-        set $mode_layout Layout: [h]orizontal-split [v]ertical-split
+        set $mode_layout Layout: [h]orizontal-split [v]ertical-split [s]plit-toggle [t]abbed [c]ycle
         set $mode_open Open: [b]rowser [e]ditor [f]iles [h]top [p]rograms [s]team [t]erminal
         set $mode_run Run: [r]un as-[s]uperuser
         set $mode_systemnu System Menu: [h]ibernate [l]ock log-[o]ut [p]oweroff [r]estart [s]leep
@@ -120,8 +145,11 @@ in
         }
 
         mode "$mode_layout" {
-             bindsym h split h; mode default
-             bindsym v split v; mode default
+             bindsym h split horizontal; mode default
+             bindsym v split vertical; mode default
+             bindsym s split toggle; mode default
+             bindsym t layout tabbed; mode default
+             bindsym c layout toggle; mode default
              bindsym Escape mode default
              bindsym Return mode default
         }

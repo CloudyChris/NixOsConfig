@@ -1,3 +1,4 @@
+{ pkgs, config, ...}:
 {
   imports = [
     ./i3wm.nix
@@ -10,5 +11,10 @@
     ./alacritty.nix
     ./kitty.nix
     ./rofi.nix
+  ];
+
+  home.packages = with pkgs; [
+    papirus-icon-theme
+    papirus-nord
   ];
 }
