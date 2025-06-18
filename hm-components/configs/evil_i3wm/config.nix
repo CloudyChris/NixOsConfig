@@ -30,7 +30,7 @@ in
         popup_during_fullscreen smart
 
         #~ Workspaces
-        workspace_layout tabbed
+        workspace_layout default
         workspace_auto_back_and_forth no
         set $ws_m1_1 "1:1"
         set $ws_m1_2 "1:2"
@@ -97,7 +97,7 @@ in
         set $mode_client_after_move And: [g]o [s]tay
         set $mode_client_resize Resize client: [←] [→] [↑] [↓]
 
-        bindsym Mod4+z mode "$mode_leader"
+        bindsym Mod4+space mode "$mode_leader"
 
         mode "$mode_leader" {
              # TODO 2
