@@ -65,7 +65,7 @@
         timeout = 2;
         background = config.colorsh.black0;
         foreground = config.colorsh.green;
-        frame_color = config.colorsh-green;
+        frame_color = config.colorsh.green;
       };
 
       urgency_normal = {
