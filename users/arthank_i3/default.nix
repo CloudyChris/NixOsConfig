@@ -7,7 +7,6 @@
     ##################### HM-COMPONENTS
     # PROGRAMS
     ../../hm-components/programs/dunst.nix
-    ../../hm-components/programs/lmms.nix
 
     # CONFIGS
     ../../hm-components/configs/evil_i3wm
