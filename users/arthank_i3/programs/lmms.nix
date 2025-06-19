@@ -3,7 +3,7 @@
     ../../../hm-components/modules/lmms.nix
   ];
 
-  programs.llms-appimage = {
+  programs.lmms-appimage = {
     enable = true;
     version = "1.2.2";
   };
