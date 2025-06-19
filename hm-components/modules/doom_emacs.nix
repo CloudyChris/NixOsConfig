@@ -75,7 +75,7 @@ in
         rm -r ${config.home.homeDirectory}/.config/emacs/*
       fi
     else
-      echo "[ INFO ] ${config.home.homeDirectory}/.config/emacs does not exist, it will be created"
+      echo "[ INFO ] ${config.home.homeDirectory}/.config/emacs does not exist, and will be created"
       if [[ -v DRY_RUN ]]; then
         echo "[ DRY ] mkdir ${config.home.homeDirectory}/.config/emacs"
       else
@@ -108,12 +108,6 @@ in
       else
         ${pkgs.git}/bin/git clone --depth 1 ${cfg.configRepo} ${config.home.homeDirectory}/.config/doom
       fi
-    fi
-    echo "[ INFO ] Syncing/Installing the doom configuration"
-    if [[ -v DRY_RUN ]]; then
-      echo "[ DRY ] ${config.home.homeDirectory}/.config/emacs/bin/doom sync"
-    else
-      ${config.home.homeDirectory}/.config/emacs/bin/doom sync
     fi
     '';
   };

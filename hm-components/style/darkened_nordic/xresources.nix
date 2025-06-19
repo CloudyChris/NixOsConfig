@@ -1,78 +1,87 @@
+{ config, ...}:
 {
   xresources.properties = {
       ####### DARKNEST PALETTE
-      "*.black0" = "#191d24";
-      "*.black1" = "#1e222a";
-      "*.black2" = "#222630";
+      "*.black0" = config.colorsh.black0;
+      "*.black1" = config.colorsh.black1;
+      "*.black2" = config.colorsh.black2;
 
-      "*.gray0" = "#242933";
-      "*.gray1" = "#2e3440";
-      "*.gray2" = "#3b4282";
-      "*.gray3" = "#434c5e";
-      "*.gray4" = "#4c566a";
-      "*.gray5" = "#60728a";
+      "*.gray0" = config.colorsh.gray0;
+      "*.gray1" = config.colorsh.gray1;
+      "*.gray2" = config.colorsh.gray2;
+      "*.gray3" = config.colorsh.gray3;
+      "*.gray4" = config.colorsh.gray4;
+      "*.gray5" = config.colorsh.gray5;
 
-      "*.white0" = "#bbc3d4";
-      "*.white1" = "#c0c8d8";
-      "*.white2" = "#d8dee9";
-      "*.white3" = "#e5e9f0";
-      "*.white4" = "#eceff4";
+      "*.white0" = config.colorsh.white0;
+      "*.white1" = config.colorsh.white1;
+      "*.white2" = config.colorsh.white2;
+      "*.white3" = config.colorsh.white3;
+      "*.white4" = config.colorsh.white4;
 
-      "*.blue" = "#81a1c1";
-      "*.blue-b" = "#88c0d0";
-      "*.blue-d" = "#5e81ac";
+      "*.blue" = config.colorsh.blue;
+      "*.blue-b" = config.colorsh.blue-b;
+      "*.blue-d" = config.colorsh.blue-d;
 
-      "*.cyan" = "#8fbcbb";
-      "*.cyan-b" = "#9fc6c5";
-      "*.cyan-d" = "#80b3b2";
+      "*.cyan" = config.colorsh.cyan;
+      "*.cyan-b" = config.colorsh.cyan-b;
+      "*.cyan-d" = config.colorsh.cyan-d;
 
-      "*.red" = "#bf616a";
-      "*.red-b" = "#c5727a";
-      "*.red-d" = "#b74e58";
+      "*.red" = config.colorsh.red;
+      "*.red-b" = config.colorsh.red-b;
+      "*.red-d" = config.colorsh.red-d;
 
-      "*.orange" = "#d08770";
-      "*.orange-b" = "#d79784";
-      "*.orange-d" = "#cb775d";
+      "*.orange" = config.colorsh.orange;
+      "*.orange-b" = config.colorsh.orange-b;
+      "*.orange-d" = config.colorsh.orange-d;
 
-      "*.yellow" = "#ebcb8b";
-      "*.yellow-b" = "#efd49f";
-      "*.yellow-d" = "#e7c173";
+      "*.yellow" = config.colorsh.yellow;
+      "*.yellow-b" = config.colorsh.yellow-b;
+      "*.yellow-d" = config.colorsh.yellow-d;
 
-      "*.green" = "#a3be8c";
-      "*.green-b" = "#b1c89d";
-      "*.green-d" = "#97b67c";
+      "*.green" = config.colorsh.green;
+      "*.green-b" = config.colorsh.green-b;
+      "*.green-d" = config.colorsh.green-d;
 
-      "*.magenta" = "#b48ead";
-      "*.mangeta-b" = "#be9db8";
-      "*.magenta-d" = "#a97ea1";
+      "*.magenta" = config.colorsh.magenta;
+      "*.mangeta-b" = config.colorsh.mangeta-b;
+      "*.magenta-d" = config.colorsh.magenta-d;
 
       ####### XRESOURCE COLORS
-      "*.foreground" = "#d8dee9";
-      "*.background" = "#242933";
-      "*.cursorColor" = "#242933";
+      "*.foreground" = config.colorsh.yellow;
+      "*.background" = config.colorsh.black0;
+      "*.cursorColor" = config.colorsh.yellow;
 
-      "*.color0" = "#191d24";
-      "*.color8" = "#3b4252";
+      # black
+      "*.color0" = config.colorsh.black0;
+      "*.color8" = config.colorsh.gray2;
 
-      "*.color1" = "#bf616a";
-      "*.color9" = "#d06f79";
+      # red
+      "*.color1" = config.colorsh.red;
+      "*.color9" = config.colorsh.red-b;
 
-      "*.color2" = "#a3be8c";
-      "*.color10" = "#b1d196";
+      # green
+      "*.color2" = config.colorsh.green;
+      "*.color10" = config.colorsh.green-b;
 
-      "*.color3" = "#ebcb8b";
-      "*.color11" = "#f0d399";
+      # yellow
+      "*.color3" = config.colorsh.yellow;
+      "*.color11" = config.colorsh.yellow-b;
 
-      "*.color4" = "#81a1c1";
-      "*.color12" = "#88c0d0";
+      # blue
+      "*.color4" = config.colorsh.blue;
+      "*.color12" = config.colorsh.blue-b;
 
-      "*.color5" = "#b48ead";
-      "*.color13" = "#c895bf";
+      # magenta
+      "*.color5" = config.colorsh.magenta;
+      "*.color13" = config.colorsh.mangeta-b;
 
-      "*.color6" = "#8fbcbb";
-      "*.color14" = "#93ccdc";
+      # cyan
+      "*.color6" = config.colorsh.cyan;
+      "*.color14" = config.colorsh.cyan-b;
 
-      "*.color7" = "#d8dee9";
-      "*.color15" = "#e5e9f0";
+      # white
+      "*.color7" = config.colorsh.white0;
+      "*.color15" = config.colorsh.white3;
   };
 }

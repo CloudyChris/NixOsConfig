@@ -6,28 +6,38 @@ in
   config = lib.mkIf (global_kitty) {
     programs.kitty = {
       settings = {
-        foreground = "#D8DEE9";
-        background = "#242933";
-        selection_foreground = "#D8DEE9";
-        selection_background = "#2E3440";
-        url_color = "#88C0D0";
-        cursor = "#D8DEE9";
-        color0 = "#191D24";
-        color8 = "#3B4252";
-        color1 = "#BF616A";
-        color9 = "#D06F79";
-        color2 = "#A3BE8C";
-        color10 = "#B1D196";
-        color3 = "#EBCB8B";
-        color11 = "#F0D399";
-        color4 = "#81A1C1";
-        color12 = "#88C0D0";
-        color5 = "#B48EAD";
-        color13 = "#C895BF";
-        color6 = "#8FBCBB";
-        color14 = "#93CCDC";
-        color7 = "#D8DEE9";
-        color15 = "#E5E9F0";
+        foreground = config.colorsh.yellow;
+        background = config.colorsh.black0;
+
+        selection_foreground = config.colorsh.black0;
+        selection_background = config.colorsh.yellow;
+
+        url_color = config.colorsh.green;
+        cursor = config.colorsh.yellow;
+
+        color0 = config.colorsh.black0;
+        color8 = config.colorsh.gray2;
+
+        color1 = config.colorsh.red;
+        color9 = config.colorsh.red-b;
+
+        color2 = config.colorsh.green;
+        color10 = config.colorsh.green-b;
+
+        color3 = config.colorsh.yellow;
+        color11 = config.colorsh.yellow-b;
+
+        color4 = config.colorsh.blue;
+        color12 = config.colorsh.blue-b;
+
+        color5 = config.colorsh.magenta;
+        color13 = config.colorsh.magenta-b;
+
+        color6 = config.colorsh.cyan;
+        color14 =config.colorsh.cyan-b;
+
+        color7 = config.colorsh.white0;
+        color15 = config.colorsh.white3;
       };
     };
   };

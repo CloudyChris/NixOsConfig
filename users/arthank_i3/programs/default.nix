@@ -11,6 +11,7 @@
     ./bash.nix
     ./zsh.nix
     ./doom_emacs.nix
+    ./lmms.nix
   ];
 
   home.sessionPath = ["$HOME/.local/bin"];

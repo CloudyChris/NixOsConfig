@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 {
   # Dependinces
   home.packages = with pkgs; [
@@ -63,23 +63,23 @@
 
       urgency_low = {
         timeout = 2;
-        background = "#1e222a";
-        foreground = "#a3be8c";
-        frame_color = "#a3be8c";
+        background = config.colorsh.black0;
+        foreground = config.colorsh.green;
+        frame_color = config.colorsh-green;
       };
 
       urgency_normal = {
         timeout = 5;
-        background = "#1e222a";
-        foreground = "#ebcb8b";
-        frame_color = "#ebcb8b";
+        background = config.colorsh.black0;
+        foreground = config.colorsh.yellow;
+        frame_color = config.colorsh.yellow;
       };
 
       urgency_critical = {
         timeout = 0;
-        background = "#1e222a";
-        foreground = "#bf616a";
-        frame_color = "#bf616a";
+        background = config.colorsh.black0;
+        foreground = config.colorsh.red;
+        frame_color = config.colorsh.red;
       };
     };
   };
