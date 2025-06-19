@@ -178,7 +178,7 @@ in
       type = lib.types.str;
       default = "#b48ead";
     };
-    mangeta-b = lib.mkOption {
+    magenta-b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#be9db8";
@@ -233,7 +233,7 @@ in
     green-d = "#97b67c";
 
     magenta = "#b48ead";
-    mangeta-b = "#be9db8";
+    magenta-b = "#be9db8";
     magenta-d = "#a97ea1";
   };
 }

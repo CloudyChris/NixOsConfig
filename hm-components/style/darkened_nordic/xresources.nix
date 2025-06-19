@@ -44,7 +44,7 @@
       "*.green-d" = config.colorsh.green-d;
 
       "*.magenta" = config.colorsh.magenta;
-      "*.mangeta-b" = config.colorsh.mangeta-b;
+      "*.magenta-b" = config.colorsh.magenta-b;
       "*.magenta-d" = config.colorsh.magenta-d;
 
       ####### XRESOURCE COLORS
@@ -74,7 +74,7 @@
 
       # magenta
       "*.color5" = config.colorsh.magenta;
-      "*.color13" = config.colorsh.mangeta-b;
+      "*.color13" = config.colorsh.magenta-b;
 
       # cyan
       "*.color6" = config.colorsh.cyan;

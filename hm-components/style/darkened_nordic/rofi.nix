@@ -45,7 +45,7 @@
         green-d: ${config.colorsh.green-d};
 
         magenta: ${config.colorsh.magenta};
-        mangeta-b: ${config.colorsh.mangeta-b};
+        magenta-b: ${config.colorsh.magenta-b};
         magenta-d: ${config.colorsh.magenta-d};
     }
     '';

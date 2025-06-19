@@ -46,7 +46,7 @@
     green-d = "#97b67c";
 
     magenta = "#b48ead";
-    mangeta-b = "#be9db8";
+    magenta-b = "#be9db8";
     magenta-d = "#a97ea1";
   };
 }
