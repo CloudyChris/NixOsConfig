@@ -1,7 +1,7 @@
 { config, ...}:
 {
   home.file."${config.home.homeDirectory}/.local/share/rofi/themes/colors.rasi" = {
-    source = ''
+    text = ''
     * {
         black0: ${config.colorsh.black0};
         black1: ${config.colorsh.black1};
