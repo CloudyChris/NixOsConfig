@@ -44,7 +44,7 @@ in
     '';
 
     home.file."${config.home.homeDirectory}/.local/share/applications/lmms.desktop" = {
-      source = ''
+      text = ''
         [Desktop Entry]
         Name=LMMS
         GenericName=Music production suite
@@ -61,6 +61,7 @@ in
         Categories=Qt;AudioVideo;Audio;Midi;
         MimeType=application/x-lmms-project;
       '';
+      executable = true;
     };
   };
 }
