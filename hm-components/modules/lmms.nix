@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  cfg = config.programs.llms-appimage;
+  cfg = config.programs.lmms-appimage;
 in
 {
   options.programs.lmms-appimage = {
