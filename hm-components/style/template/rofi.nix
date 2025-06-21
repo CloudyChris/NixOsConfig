@@ -56,8 +56,8 @@
         background = ${config.colorsh.background};
         background-b = ${config.colorsh.background-b};
 
-        selected-foreground = ${config.colorsh.background};
-        selected-background = ${config.colorsh.foreground};
+        selection-foreground = ${config.colorsh.selection-background};
+        selection-background = ${config.colorsh.selection-foreground};
 
         url-color = ${config.colorsh.url-color};
     }

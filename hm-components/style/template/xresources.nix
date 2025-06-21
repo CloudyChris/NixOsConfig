@@ -48,9 +48,19 @@
       "*.magenta-d" = config.colorsh.magenta-d;
 
       ####### XRESOURCE COLORS
-      "*.foreground" = config.colorsh.yellow;
-      "*.background" = config.colorsh.black0;
-      "*.cursorColor" = config.colorsh.yellow;
+      "*.accent-1" = config.colorsh.accent-1;
+      "*.accent-2" = config.colorsh.accent-2;
+
+      "*.foreground" = config.colorsh.foreground;
+      "*.foreground-d" = config.colorsh.foreground-d;
+      "*.background" = config.colorsh.background;
+      "*.background-b" = config.colorsh.background-b;
+
+      "*.selection-foreground" = config.colorsh.selection-foreground;
+      "*.selection-background" = config.colorsh.selection-background;
+
+      "*.cursorColor" = config.colorsh.accent-1;
+      "*.url-color" = config.colorsh.url-color;
 
       # black
       "*.color0" = config.colorsh.black0;

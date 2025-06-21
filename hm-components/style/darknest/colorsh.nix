@@ -58,8 +58,8 @@
     background = config.colorsh.black0;
     background-b = config.colorsh.gray0;
 
-    selected-foreground = config.colorsh.background;
-    selected-background = config.colorsh.foreground;
+    selection-foreground = config.colorsh.background;
+    selection-background = config.colorsh.foreground;
 
     url-color = config.colorsh.accent-2;
   };

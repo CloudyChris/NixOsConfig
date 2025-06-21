@@ -9,8 +9,8 @@ in
         foreground = config.colorsh.foreground;
         background = config.colorsh.background;
 
-        selection_foreground = config.colorsh.selected-foreground;
-        selection_background = config.colorsh.selected-background;
+        selection_foreground = config.colorsh.selection-foreground;
+        selection_background = config.colorsh.selection-background;
 
         url_color = config.colorsh.url-color;
         cursor = config.colorsh.accent-1;
