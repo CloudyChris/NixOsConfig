@@ -43,7 +43,7 @@ prompt {
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @yellow-d;
+    placeholder-color:  @foreground-d;
     font:               "JetBrains Mono Bold 16";
     text-color: @yellow;
 }

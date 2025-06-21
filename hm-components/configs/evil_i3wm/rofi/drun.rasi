@@ -45,7 +45,7 @@ icon-search {
 entry {
   text-color:         @foreground;
   placeholder:        "Search";
-  placeholder-color:  @yellow-d;
+  placeholder-color:  @foreground-d;
   font:               "JetBrains Mono Bold 16";
 }
 
