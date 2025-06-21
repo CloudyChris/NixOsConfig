@@ -221,12 +221,12 @@ in
       default = "#242933";
     };
 
-    selected-foreground = lib.mkOption {
+    selection-foreground = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#191d24";
     };
-    selected-background = lib.mkOption {
+    selection-background = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#ebcb8b";
