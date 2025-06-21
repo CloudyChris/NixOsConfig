@@ -12,7 +12,8 @@
     ../../hm-components/configs/evil_i3wm
 
     # STYLE
-    ../../hm-components/style/darkened_nordic
+    ../../hm-components/style/darknest
+    ../../hm-components/style/template
   ];
 
   home = {

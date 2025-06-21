@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   imports = [
     ../../modules/colorsh.nix
@@ -48,5 +49,18 @@
     magenta = "#b48ead";
     magenta-b = "#be9db8";
     magenta-d = "#a97ea1";
+
+    accent-1 = config.colorsh.yellow;
+    accent-2 = config.colorsh.green;
+
+    foreground = config.colorsh.accent-1;
+    foreground-d = config.colorsh.gray5;
+    background = config.colorsh.black0;
+    background-b = config.colorsh.gray0;
+
+    selected-foreground = config.colorsh.background;
+    selected-background = config.colorsh.foreground;
+
+    url-color = config.colorsh.accent-2;
   };
 }

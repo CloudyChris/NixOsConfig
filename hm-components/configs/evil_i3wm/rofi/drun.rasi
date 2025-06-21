@@ -11,7 +11,7 @@
 window {
   fullscreen: true;
   padding: 1em;
-  background-color: @gray0;
+  background-color: @background;
 }
 
 mainbox {
@@ -27,7 +27,7 @@ inputbar {
 
   border:         1px;
   border-radius:  20px;
-  border-color:   @yellow;
+  border-color:   @accent-1;
 
   children: [icon-search,entry];
 }
@@ -43,7 +43,7 @@ icon-search {
 }
 
 entry {
-  text-color: @yellow;
+  text-color:         @foreground;
   placeholder:        "Search";
   placeholder-color:  @yellow-d;
   font:               "JetBrains Mono Bold 16";
@@ -67,10 +67,11 @@ element {
 
   orientation:    vertical;
   border-radius:  16px;
+  border:         2px;
 }
 
 element selected {
-  background-color: @black1;
+  border-color:   @accent-1;
 }
 
 element-icon {
@@ -79,10 +80,10 @@ element-icon {
 }
 
 element-text {
-  text-color: @yellow;
+  text-color: @foreground-d;
   horizontal-align: 0.5;
 }
 
 element-text selected {
-  text-color: @yellow;
+  text-color: @foreground;
 }

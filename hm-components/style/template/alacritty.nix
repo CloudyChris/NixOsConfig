@@ -5,8 +5,8 @@
     settings = {
       colors = {
         primary = {
-          foreground = config.colorsh.yellow;
-          background = config.colorsh.black0;
+          foreground = config.colorsh.foreground;
+          background = config.colorsh.background;
         };
         normal = {
           black = config.colorsh.black0;
@@ -29,8 +29,8 @@
           white = config.colorsh.white3;
         };
         selection = {
-          text = config.colorsh.black0;
-          background = config.colorsh.yellow;
+          text = config.colorsh.selection-foreground;
+          background = config.colorsh.selection-background;
         };
       };
     };

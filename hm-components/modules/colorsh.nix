@@ -188,6 +188,55 @@ in
       type = lib.types.str;
       default = "#a97ea1";
     };
+
+    accent-1 = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#ebcb8b";
+    };
+    accent-2 = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#a3be8c";
+    };
+
+    foreground = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#ebcb8b";
+    };
+    foreground-d = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#60728a";
+    };
+    background = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#191d24";
+    };
+    background-b = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#242933";
+    };
+
+    selected-foreground = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#191d24";
+    };
+    selected-background = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#ebcb8b";
+    };
+
+    url-color = lib.mkOption {
+      description = "";
+      type = lib.types.str;
+      default = "#a3be8c";
+    };
   };
 
   config.colorsh = {
@@ -235,5 +284,18 @@ in
     magenta = "#b48ead";
     magenta-b = "#be9db8";
     magenta-d = "#a97ea1";
+
+    accent-1 = config.colorsh.yellow;
+    accent-2 = config.colorsh.green;
+
+    foreground = config.colorsh.accent-1;
+    foreground-d = config.colorsh.gray5;
+    background = config.colorsh.black0;
+    background-b = config.colorsh.gray0;
+
+    selected-foreground = config.colorsh.background;
+    selected-background = config.colorsh.foreground;
+
+    url-color = config.colorsh.accent-2;
   };
 }

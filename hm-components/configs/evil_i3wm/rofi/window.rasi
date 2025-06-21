@@ -14,8 +14,10 @@ window {
     location:       center;
     width:          480;
     border-radius:  24px;
+    border:         2px;
+    border-color:   @accent-1;
 
-    background-color:   @gray0;
+    background-color:   @background;
 }
 
 mainbox {
@@ -24,7 +26,7 @@ mainbox {
 
 inputbar {
     background-color:   @black1;
-    border-color:       @black0;
+    border-color:       @accent-1;
 
     border:         2px;
     border-radius:  16px;
@@ -35,20 +37,21 @@ inputbar {
 }
 
 prompt {
-    text-color: @white0;
+    text-color: @accent-2;
+    font:       "JetBrains Mono Bold 16";
 }
 
 entry {
     placeholder:        "Search";
     placeholder-color:  @yellow-d;
     font:               "JetBrains Mono Bold 16";
+    text-color: @yellow;
 }
 
 message {
     margin:             12px 0 0;
     border-radius:      16px;
-    border-color:       @gray0;
-    background-color:   @gray0;
+    background-color:   @background;
 }
 
 textbox {
@@ -69,26 +72,25 @@ element {
     padding:        8px 16px;
     spacing:        8px;
     border-radius:  16px;
-}
-
-element normal active {
-    text-color: @gray5;
-}
-
-element alternate active {
-    text-color: @gray4;
+    border:         2px;
 }
 
 element selected active {
-    background-color:   @black0;
+    background-color:   @background;
+    border-color:       @accent-1;
+    text-color: @foreground;
 }
 
 element selected normal {
-    background-color:   @black0;
+    background-color:   @background;
+    border-color:       @accent-1;
+    text-color: @foreground;
 }
 
 element selected urgent {
-    background-color:   @black0;
+    background-color:   @background;
+    border-color:       @accent-1;
+    text-color: @red;
 }
 
 element-icon {
@@ -97,9 +99,9 @@ element-icon {
 }
 
 element-text {
-    text-color: inherit;
+    text-color: @foreground-d;
 }
 
-element selected {
-    text-color: @yellow;
+element-text selected {
+    text-color: @foreground;
 }

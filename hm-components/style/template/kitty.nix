@@ -6,14 +6,14 @@ in
   config = lib.mkIf (global_kitty) {
     programs.kitty = {
       settings = {
-        foreground = config.colorsh.yellow;
-        background = config.colorsh.black0;
+        foreground = config.colorsh.foreground;
+        background = config.colorsh.background;
 
-        selection_foreground = config.colorsh.black0;
-        selection_background = config.colorsh.yellow;
+        selection_foreground = config.colorsh.selected-foreground;
+        selection_background = config.colorsh.selected-background;
 
-        url_color = config.colorsh.green;
-        cursor = config.colorsh.yellow;
+        url_color = config.colorsh.url-color;
+        cursor = config.colorsh.accent-1;
 
         color0 = config.colorsh.black0;
         color8 = config.colorsh.gray2;

@@ -47,6 +47,19 @@
         magenta: ${config.colorsh.magenta};
         magenta-b: ${config.colorsh.magenta-b};
         magenta-d: ${config.colorsh.magenta-d};
+
+        accent-1 = ${config.colorsh.accent-1};
+        accent-2 = ${config.colorsh.accent-2};
+
+        foreground = ${config.colorsh.foreground};
+        foreground-d = ${config.colorsh.foreground-d};
+        background = ${config.colorsh.background};
+        background-b = ${config.colorsh.background-b};
+
+        selected-foreground = ${config.colorsh.background};
+        selected-background = ${config.colorsh.foreground};
+
+        url-color = ${config.colorsh.url-color};
     }
     '';
   };

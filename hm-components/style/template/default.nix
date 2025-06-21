@@ -1,8 +1,6 @@
 { pkgs, config, ...}:
 {
   imports = [
-    ./colors.nix
-
     ./i3wm.nix
     ./cursors.nix
     ./xresources.nix
