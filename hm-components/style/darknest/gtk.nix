@@ -4,14 +4,14 @@
     enable = true;
     gtk3.extraConfig.gtk-decoration-layout = "menu:";
     theme = {
-      name = config.home.sessionVariables.GTK_THEME;
+      name = "Nordic";
       package = pkgs.nordic;
     };
     iconTheme = {
-      name = config.home.sessionVariables.ICON_THEME;
+      name = "Papirus-Dark";
     };
     cursorTheme = {
-      name = config.home.sessionVariables.CURSOR_THEME;
+      name = "nordic-cursors";
       package = pkgs.nordic-cursor-theme;
     };
   };

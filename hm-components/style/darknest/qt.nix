@@ -3,7 +3,8 @@
   qt = {
     enable = true;
     style = {
-      name = config.home.sessionVariables.KDE_THEME;
+      name = "Nordic";
+      package = pkgs.nordic;
     };
   };
 }
