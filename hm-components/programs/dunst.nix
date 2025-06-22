@@ -63,21 +63,21 @@
 
       urgency_low = {
         timeout = 2;
-        background = config.colorsh.black0;
-        foreground = config.colorsh.green;
-        frame_color = config.colorsh.green;
+        background = config.colorsh.background;
+        foreground = config.colorsh.accent-2;
+        frame_color = config.colorsh.accent-2;
       };
 
       urgency_normal = {
         timeout = 5;
-        background = config.colorsh.black0;
-        foreground = config.colorsh.yellow;
-        frame_color = config.colorsh.yellow;
+        background = config.colorsh.background;
+        foreground = config.colorsh.foreground;
+        frame_color = config.colorsh.accent-1;
       };
 
       urgency_critical = {
         timeout = 0;
-        background = config.colorsh.black0;
+        background = config.colorsh.background;
         foreground = config.colorsh.red;
         frame_color = config.colorsh.red;
       };

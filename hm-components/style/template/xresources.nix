@@ -1,6 +1,9 @@
 { config, ...}:
 {
   xresources.properties = {
+      ####### GENERAL
+      "Xcursor.theme" = config.home.sessionVariables.CURSOR_THEME;
+
       ####### DARKNEST PALETTE
       "*.black0" = config.colorsh.black0;
       "*.black1" = config.colorsh.black1;

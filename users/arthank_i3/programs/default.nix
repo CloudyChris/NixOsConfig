@@ -1,5 +1,9 @@
 {
   imports = [
+    ######## common
+    ../../../hm-components/programs/dunst.nix
+
+    ######## local
     ./mime.nix
     ./fonts.nix
 

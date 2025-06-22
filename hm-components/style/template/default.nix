@@ -12,8 +12,4 @@
     ./kitty.nix
     ./rofi.nix
   ];
-
-  home.packages = with pkgs; [
-    papirus-nord
-  ];
 }

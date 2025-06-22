@@ -1,19 +1,8 @@
 {
   imports = [
-    #./configs
+    ./configs
     ./programs
-    #./style
-
-    ##################### HM-COMPONENTS
-    # PROGRAMS
-    ../../hm-components/programs/dunst.nix
-
-    # CONFIGS
-    ../../hm-components/configs/evil_i3wm
-
-    # STYLE
-    ../../hm-components/style/darknest
-    ../../hm-components/style/template
+    ./style
   ];
 
   home = {
@@ -25,6 +14,9 @@
       FILEX = "thunar";
       BROWSER = "firefox";
       ICON_THEME = "Papirus-Dark";
+      CURSOR_THEME = "nordic-cursors";
+      GTK_THEME = "Nordic";
+      KDE_THEME = "Nordic";
     };
   };
 
