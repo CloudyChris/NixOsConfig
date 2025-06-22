@@ -1,8 +1,8 @@
 {pkgs, ...}:
 {
   imports = [
-    ../../hm-components/style/darknest
-    ../../hm-components/style/template
+    ../../../hm-components/style/darknest
+    ../../../hm-components/style/template
   ];
 
   home.packages = with pkgs; [
