@@ -183,9 +183,8 @@ in
              bindsym Return mode default
         }
 
+        # TODO DIS
         mode "$mode_workspace" {
-             # TODO 1
-             bindsym m exec "notify-send \\"Workspace move menu not implemented\\""; mode default
              bindsym n workspace next; mode default
              bindsym p workspace prev; mode default
              bindsym Escape mode default

@@ -6,4 +6,6 @@
     xdg-user-dirs
     xdg-dbus-proxy
   ];
+
+  xdg.icons.enable = true;
 }

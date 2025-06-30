@@ -2,11 +2,12 @@
 {
   imports = [
     ./rofi
-    #./eww
+    ./eww
     ./config.nix
   ];
 
-  home.packages = with pkgs; [
-    clipmenu
-  ];
+  services.clipmenu = {
+    enable = true;
+    launcher = "rofi";
+  };
 }

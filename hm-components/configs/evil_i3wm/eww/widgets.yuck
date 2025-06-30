@@ -1,0 +1,140 @@
+(defwidget topbar [screen]
+  (centerbox :orientation "h"
+    (tleftstuff :screen "${screen}")
+    (tcenterstuff :screen "${screen}")
+    (trightstuff :screen "${screen}")
+  )
+)
+
+(defwidget bottombar [screen]
+  (centerbox :orientation "h"
+    (bleftstuff :screen "${screen}")
+    (bcenterstuff :screen "${screen}")
+    (brightstuff :screen "${screen}")
+  )
+)
+
+(defwidget tleftstuff [screen]
+  (box :class "tleftstuff" :orientation "h" :space-evenly false :halign "start"
+    (bar_systray :screen "${screen}")
+  )
+)
+
+(defwidget tcenterstuff [screen]
+  (box :class "tcenterstuff"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (bar_calendar :screen "${screen}")
+  )
+)
+
+(defwidget trightstuff [screen]
+  (box :class "trightstuff" :orientation "h" :space-evenly false :halign "end"
+    (bar_audio :screen "${screen}")
+    (bar_bluetooth :screen "${screen}")
+    (bar_network :screen "${screen}")
+    (bar_clipboard :screen "${screen}")
+    (bar_sysmenu :screen "${screen}")
+  )
+)
+
+(defwidget bleftstuff [screen]
+  (box :class "bleftstuff" :orientation "h" :space-evenly false :halign "start"
+    (workspaces :screen "${screen}")
+  )
+)
+
+(defwidget bcenterstuff [screen]
+  (box :class "bcenterstuff" :orientation "h" :space-evenly false :halign "center"
+    (bar_windows :screen "${screen}")
+  )
+)
+
+(defwidget brightstuff [screen]
+  (box :class "brightstuff" :orientation "h" :space-evenly false :halign "end"
+    (bar_keyboard :screen "${screen}")
+  )
+)
+
+(defwidget workspaces [screen]
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "end"
+       :spacing 10
+    (workspace :screen screen
+               :name 1
+    )
+    (workspace :screen screen
+               :name 2
+    )
+    (workspace :screen screen
+               :name 3
+    )
+    (workspace :screen screen
+               :name 4
+    )
+    (workspace :screen screen
+               :name 5
+    )
+  )
+)
+
+(defwidget workspace [screen name]
+  (button :class "workspace"
+          :onclick "i3-msg \"workspace ${screen}:${name}\""
+          "${name}"
+  )
+)
+
+(defwidget bar_calendar [screen]
+  (button :class "calendar"
+          :onclick "eww open pop_calendar"
+    (box :class "calendar-content"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+    time
+    )
+  )
+)
+
+(defpoll audio_sinks :interval "5m"
+  `bash gen_audio_sinks_eww.bash`
+)
+
+(defpoll audio_sources :interval "5m"
+  `bash gen_audio_sources_eww.bash`
+)
+
+(defwidget pop_audio
+  (box :class "pop_audio"
+       :orientation "v"
+       :space-evenly false
+       :halign "center"
+       :valign "start"
+    (box :class "pop_audio_sinks"
+         :orientation "v"
+         :space-evenly true
+         :halign "center"
+         :valign "start"
+      (literal :content audio_sinks)
+    )
+    (box :class "pop_audio_sources"
+         :orientation "v"
+         :space-evenly true
+         :halign "center"
+         :valign "start"
+      (literal :content audio_sources)
+    )
+  )
+)
+
+(defpoll volume :interval "1m"
+    `pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'`
+)
+
+(defpoll time :interval "1m"
+  "date '+%H:%M %d %b, %Y'"
+)

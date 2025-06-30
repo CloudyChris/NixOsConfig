@@ -39,6 +39,7 @@
     # UTIL
     ../../components/util/appimage.nix
     ../../components/util/console_early.nix
+    ../../components/util/file_management.nix
     ../../components/util/fonts.nix
     ../../components/util/gaming.nix
     ../../components/util/portals.nix
