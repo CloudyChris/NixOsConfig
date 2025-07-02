@@ -5,25 +5,28 @@
 
 (defwidget top_bar [screen]
   (centerbox :orientation "h"
-    (top_left_box :screen "${screen}")
-    (top_center_box :screen "${screen}")
-    (top_right_box :screen "${screen}")
+    (top_left_box :screen screen)
+    (top_center_box :screen screen)
+    (top_right_box :screen screen)
   )
 )
 
 (defwidget bottom_bar [screen]
   (centerbox :orientation "h"
-    (bottom_left_box :screen "${screen}")
-    (bottom_center_box :screen "${screen}")
-    (bottom_right_box :screen "${screen}")
+    (bottom_left_box :screen screen)
+    (bottom_center_box :screen screen)
+    (bottom_right_box :screen screen)
   )
 )
 
 ; —————— TOP BAR STUFF ———————————————————————————
 
 (defwidget top_left_box [screen]
-  (box :class "top_left_box" :orientation "h" :space-evenly false :halign "start"
-    (bar_systray :screen "${screen}")
+  (box :class "top_left_box"
+       :orientation "h"
+       :space-evenly false
+       :halign "start"
+    (bar_systray :screen screen)
   )
 )
 
@@ -32,37 +35,50 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
-    (bar_calendar :screen "${screen}")
+    (bar_calendar :screen screen)
+    (bar_notifications :screen screen)
   )
 )
 
 (defwidget top_right_box [screen]
-  (box :class "top_right_box" :orientation "h" :space-evenly false :halign "end"
-    (bar_audio :screen "${screen}")
-    (bar_bluetooth :screen "${screen}")
-    (bar_network :screen "${screen}")
-    (bar_clipboard :screen "${screen}")
-    (bar_sysmenu :screen "${screen}")
+  (box :class "top_right_box"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+    (bar_audio :screen screen)
+    (bar_bluetooth :screen screen)
+    (bar_network :screen screen)
+    (bar_sysmenu :screen screen)
   )
 )
 
 ; —————— BOTTOM BAR STUFF ————————————————————————
 
 (defwidget bottom_left_box [screen]
-  (box :class "bottom_left_box" :orientation "h" :space-evenly false :halign "start"
-    (bar_workspaces :screen "${screen}")
+  (box :class "bottom_left_box"
+       :orientation "h"
+       :space-evenly false
+       :halign "start"
+    (bar_workspaces :screen screen)
   )
 )
 
 (defwidget bottom_center_box [screen]
-  (box :class "bottom_center_box" :orientation "h" :space-evenly false :halign "center"
-    (bar_windows :screen "${screen}")
+  (box :class "bottom_center_box"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (bar_windows :screen screen)
   )
 )
 
 (defwidget bottom_right_box [screen]
-  (box :class "bottom_right_box" :orientation "h" :space-evenly false :halign "end"
-    (bar_keyboard :screen "${screen}")
+  (box :class "bottom_right_box"
+       :orientation "h"
+       :space-evenly true
+       :halign "end"
+    (bar_clipboard :screen screen)
+    (bar_keyboard :screen screen)
   )
 )
 
@@ -101,18 +117,50 @@
 
 ; —————— CALENDAR / TIME —————————————————————————
 
-(defpoll time :interval "1m"
-  "date '+%H:%M %d %b, %Y'"
+(defpoll time_full :interval "30s"
+  "date '+%H:%M %d/%m/%Y'"
 )
 
-(defwidget bar_calendar
+(defpoll time_day :interval "1h"
+  "date '%d'"
+)
+
+
+(defpoll time_month :interval "1h"
+  "date '%m'"
+)
+
+(defpoll time_year :interval "1h"
+  "date '%Y'"
+)
+
+(defwidget bar_calendar [screen]
   (button :class "bar-calendar"
-          :onclick "eww open pop_calendar"
+          :onclick "eww open pop_calendar_${screen}"
     (box :class "bar-calendar-content"
          :orientation "h"
          :space-evenly false
          :halign "center"
-    time
+         :valign "center"
+    time_full
+    )
+  )
+)
+
+(defwidget pop_calendar
+  (box :class "pop-calendar"
+       :orientation "v"
+       :space-evenly false
+       :halign "center"
+       :valign "center"
+    (calendar :class "pop-calendar-calendar"
+              :day time_day
+              :month time_month
+              :year time_year
+              :show-details false
+              :show-heading true
+              :show-dat-names true
+              :show-week-numbers true
     )
   )
 )
@@ -123,15 +171,23 @@
   `pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'`
 )
 
-(defwidget bar_audio
+(defwidget bar_audio [screen]
   (button :class "bar-audio"
-          :onclick "eww open pop_audio"
+          :onclick "eww open pop_audio_${screen}"
     (box :class "bar-audio-content"
          :orientation "h"
          :space-evenly false
          :halign "center"
-      (box :class "bar-audio-label" "${volume == 0 ? "🔇" : {volume < 30 ? "🔈" : {volume < 60 ? "🔉" : "🔊"}}}")
+         :valign "center"
+      (box :class "bar-audio-label"
+           :orientation "h"
+           :halign "start"
+           :valign "center"
+        "${volume == 0 ? "🔇" : {volume < 30 ? "🔈" : {volume < 60 ? "🔉" : "🔊"}}}"
+      )
       (scale :class "bar-audio-scale"
+             :halign "end"
+             :valign "center"
              :min 0
              :max 101
              :active true
