@@ -105,10 +105,10 @@
   "date '+%H:%M %d %b, %Y'"
 )
 
-(defwidget bar_calendar [screen]
-  (button :class "calendar"
+(defwidget bar_calendar
+  (button :class "bar-calendar"
           :onclick "eww open pop_calendar"
-    (box :class "calendar-content"
+    (box :class "bar-calendar-content"
          :orientation "h"
          :space-evenly false
          :halign "center"
@@ -120,11 +120,26 @@
 ; —————— AUDIO - BAR + POPUP —————————————————————
 
 (defpoll volume :interval "1m"
-    `pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'`
+  `pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'`
 )
 
-(defwidget bar_audio [screen]
-; TODO
+(defwidget bar_audio
+  (button :class "bar-audio"
+          :onclick "eww open pop_audio"
+    (box :class "bar-audio-content"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+      (box :class "bar-audio-label" "${volume == 0 ? "🔇" : {volume < 30 ? "🔈" : {volume < 60 ? "🔉" : "🔊"}}}")
+      (scale :class "bar-audio-scale"
+             :min 0
+             :max 101
+             :active true
+             :value volume
+             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+      )
+    )
+  )
 )
 
 (defpoll audio_sinks :interval "5m"
