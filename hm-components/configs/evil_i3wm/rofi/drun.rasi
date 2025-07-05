@@ -27,7 +27,7 @@ inputbar {
 
   border:         1px;
   border-radius:  20px;
-  border-color:   @accent-1;
+  border-color:   @accent_1;
 
   children: [icon-search,entry];
 }
@@ -45,7 +45,7 @@ icon-search {
 entry {
   text-color:         @foreground;
   placeholder:        "Search";
-  placeholder-color:  @foreground-d;
+  placeholder-color:  @foreground_d;
   font:               "JetBrains Mono Bold 16";
 }
 
@@ -71,7 +71,7 @@ element {
 }
 
 element selected {
-  border-color:   @accent-1;
+  border-color:   @accent_1;
 }
 
 element-icon {
@@ -80,7 +80,7 @@ element-icon {
 }
 
 element-text {
-  text-color: @foreground-d;
+  text-color: @foreground_d;
   horizontal-align: 0.5;
 }
 

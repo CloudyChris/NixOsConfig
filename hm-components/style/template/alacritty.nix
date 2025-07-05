@@ -20,17 +20,17 @@
         };
         bright = {
           black = config.colorsh.gray2;
-          red = config.colorsh.red-b;
-          green = config.colorsh.green-b;
-          yellow = config.colorsh.yellow-b;
-          blue = config.colorsh.blue-b;
-          magenta = config.colorsh.magenta-b;
-          cyan = config.colorsh.cyan-b;
+          red = config.colorsh.red_b;
+          green = config.colorsh.green_b;
+          yellow = config.colorsh.yellow_b;
+          blue = config.colorsh.blue_b;
+          magenta = config.colorsh.magenta_b;
+          cyan = config.colorsh.cyan_b;
           white = config.colorsh.white3;
         };
         selection = {
-          text = config.colorsh.selection-foreground;
-          background = config.colorsh.selection-background;
+          text = config.colorsh.selection_foreground;
+          background = config.colorsh.selection_background;
         };
       };
     };

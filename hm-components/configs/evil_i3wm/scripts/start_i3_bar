@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+mapfile -t monitors < <(evil_get_monitors)
+
+for monitor in $(echo "${monitors[*]}")
+do
+    marr=($(echo $monitor | awk '{str=$1; gsub(":", " ", str); print str}'))
+    eval "eww open topbar_${marr[0]}"
+    eval "eww open bottombar_${marr[0]}"
+done

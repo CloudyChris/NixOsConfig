@@ -82,12 +82,12 @@ in
       type = lib.types.str;
       default = "#81a1c1";
     };
-    blue-b = lib.mkOption {
+    blue_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#88c0d0";
     };
-    blue-d = lib.mkOption {
+    blue_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#5e81ac";
@@ -98,12 +98,12 @@ in
       type = lib.types.str;
       default = "#8fbcbb";
     };
-    cyan-b = lib.mkOption {
+    cyan_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#9fc6c5";
     };
-    cyan-d = lib.mkOption {
+    cyan_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#80b3b2";
@@ -114,12 +114,12 @@ in
       type = lib.types.str;
       default = "#bf616a";
     };
-    red-b = lib.mkOption {
+    red_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#c5727a";
     };
-    red-d = lib.mkOption {
+    red_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#b74e58";
@@ -130,12 +130,12 @@ in
       type = lib.types.str;
       default = "#d08770";
     };
-    orange-b = lib.mkOption {
+    orange_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#d79784";
     };
-    orange-d = lib.mkOption {
+    orange_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#cb775d";
@@ -146,12 +146,12 @@ in
       type = lib.types.str;
       default = "#ebcb8b";
     };
-    yellow-b = lib.mkOption {
+    yellow_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#efd49f";
     };
-    yellow-d = lib.mkOption {
+    yellow_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#e7c173";
@@ -162,12 +162,12 @@ in
       type = lib.types.str;
       default = "#a3be8c";
     };
-    green-b = lib.mkOption {
+    green_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#b1c89d";
     };
-    green-d = lib.mkOption {
+    green_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#97b67c";
@@ -178,23 +178,23 @@ in
       type = lib.types.str;
       default = "#b48ead";
     };
-    magenta-b = lib.mkOption {
+    magenta_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#be9db8";
     };
-    magenta-d = lib.mkOption {
+    magenta_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#a97ea1";
     };
 
-    accent-1 = lib.mkOption {
+    accent_1 = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#ebcb8b";
     };
-    accent-2 = lib.mkOption {
+    accent_2 = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#a3be8c";
@@ -205,7 +205,7 @@ in
       type = lib.types.str;
       default = "#ebcb8b";
     };
-    foreground-d = lib.mkOption {
+    foreground_d = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#60728a";
@@ -215,24 +215,24 @@ in
       type = lib.types.str;
       default = "#191d24";
     };
-    background-b = lib.mkOption {
+    background_b = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#242933";
     };
 
-    selection-foreground = lib.mkOption {
+    selection_foreground = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#191d24";
     };
-    selection-background = lib.mkOption {
+    selection_background = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#ebcb8b";
     };
 
-    url-color = lib.mkOption {
+    url_color = lib.mkOption {
       description = "";
       type = lib.types.str;
       default = "#a3be8c";
@@ -258,44 +258,44 @@ in
     white4 = "#eceff4";
 
     blue = "#81a1c1";
-    blue-b = "#88c0d0";
-    blue-d = "#5e81ac";
+    blue_b = "#88c0d0";
+    blue_d = "#5e81ac";
 
     cyan = "#8fbcbb";
-    cyan-b = "#9fc6c5";
-    cyan-d = "#80b3b2";
+    cyan_b = "#9fc6c5";
+    cyan_d = "#80b3b2";
 
     red = "#bf616a";
-    red-b = "#c5727a";
-    red-d = "#b74e58";
+    red_b = "#c5727a";
+    red_d = "#b74e58";
 
     orange = "#d08770";
-    orange-b = "#d79784";
-    orange-d = "#cb775d";
+    orange_b = "#d79784";
+    orange_d = "#cb775d";
 
     yellow = "#ebcb8b";
-    yellow-b = "#efd49f";
-    yellow-d = "#e7c173";
+    yellow_b = "#efd49f";
+    yellow_d = "#e7c173";
 
     green = "#a3be8c";
-    green-b = "#b1c89d";
-    green-d = "#97b67c";
+    green_b = "#b1c89d";
+    green_d = "#97b67c";
 
     magenta = "#b48ead";
-    magenta-b = "#be9db8";
-    magenta-d = "#a97ea1";
+    magenta_b = "#be9db8";
+    magenta_d = "#a97ea1";
 
-    accent-1 = config.colorsh.yellow;
-    accent-2 = config.colorsh.green;
+    accent_1 = config.colorsh.yellow;
+    accent_2 = config.colorsh.green;
 
-    foreground = config.colorsh.accent-1;
-    foreground-d = config.colorsh.gray5;
+    foreground = config.colorsh.accent_1;
+    foreground_d = config.colorsh.gray5;
     background = config.colorsh.black0;
-    background-b = config.colorsh.gray0;
+    background_b = config.colorsh.gray0;
 
-    selection-foreground = config.colorsh.background;
-    selection-background = config.colorsh.foreground;
+    selection_foreground = config.colorsh.background;
+    selection_background = config.colorsh.foreground;
 
-    url-color = config.colorsh.accent-2;
+    url_color = config.colorsh.accent_2;
   };
 }

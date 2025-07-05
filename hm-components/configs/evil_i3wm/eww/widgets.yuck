@@ -26,6 +26,7 @@
        :orientation "h"
        :space-evenly false
        :halign "start"
+       :valign "center"
     (bar_systray :screen screen)
   )
 )
@@ -35,6 +36,7 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
+       :valign "center"
     (bar_calendar :screen screen)
     (bar_notifications :screen screen)
   )
@@ -45,6 +47,7 @@
        :orientation "h"
        :space-evenly false
        :halign "end"
+       :valign "center"
     (bar_audio :screen screen)
     (bar_bluetooth :screen screen)
     (bar_network :screen screen)
@@ -59,6 +62,7 @@
        :orientation "h"
        :space-evenly false
        :halign "start"
+       :valign "center"
     (bar_workspaces :screen screen)
   )
 )
@@ -68,6 +72,7 @@
        :orientation "h"
        :space-evenly false
        :halign "center"
+       :valign "center"
     (bar_windows :screen screen)
   )
 )
@@ -77,6 +82,7 @@
        :orientation "h"
        :space-evenly true
        :halign "end"
+       :valign "center"
     (bar_clipboard :screen screen)
     (bar_keyboard :screen screen)
   )
@@ -85,10 +91,11 @@
 ; —————— WORKSPACES ——————————————————————————————
 
 (defwidget bar_workspaces [screen]
-  (box :class "workspaces"
+  (box :class "bar-workspaces"
        :orientation "h"
        :space-evenly true
-       :halign "end"
+       :halign "start"
+       :valign "center"
        :spacing 10
     (workspace :screen screen
                :name 1
@@ -112,6 +119,14 @@
   (button :class "workspace"
           :onclick "i3-msg \"workspace ${screen}:${name}\""
           "${name}"
+  )
+)
+
+; —————— WINDOWS —————————————————————————————————
+
+(defwidget bar_windows
+  (button :class "bar-windows"
+          :onclick "rofi_windows"
   )
 )
 
@@ -168,7 +183,7 @@
 ; —————— AUDIO - BAR + POPUP —————————————————————
 
 (defpoll volume :interval "1m"
-  `pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'`
+  `get_volume`
 )
 
 (defwidget bar_audio [screen]
@@ -199,11 +214,11 @@
 )
 
 (defpoll audio_sinks :interval "5m"
-  `bash gen_audio_sinks_eww.bash`
+  `evil_gen_audio_sinks_eww`
 )
 
 (defpoll audio_sources :interval "5m"
-  `bash gen_audio_sources_eww.bash`
+  `evil_gen_audio_sources_eww`
 )
 
 (defwidget pop_audio

@@ -21,45 +21,45 @@
         white4: ${config.colorsh.white4};
 
         blue: ${config.colorsh.blue};
-        blue-b: ${config.colorsh.blue-b};
-        blue-d: ${config.colorsh.blue-d};
+        blue_b: ${config.colorsh.blue_b};
+        blue_d: ${config.colorsh.blue_d};
 
         cyan: ${config.colorsh.cyan};
-        cyan-b: ${config.colorsh.cyan-b};
-        cyan-d: ${config.colorsh.cyan-d};
+        cyan_b: ${config.colorsh.cyan_b};
+        cyan_d: ${config.colorsh.cyan_d};
 
         red: ${config.colorsh.red};
-        red-b: ${config.colorsh.red-b};
-        red-d: ${config.colorsh.red-d};
+        red_b: ${config.colorsh.red_b};
+        red_d: ${config.colorsh.red_d};
 
         orange: ${config.colorsh.orange};
-        orange-b: ${config.colorsh.orange-b};
-        orange-d: ${config.colorsh.orange-d};
+        orange_b: ${config.colorsh.orange_b};
+        orange_d: ${config.colorsh.orange_d};
 
         yellow: ${config.colorsh.yellow};
-        yellow-b: ${config.colorsh.yellow-b};
-        yellow-d: ${config.colorsh.yellow-d};
+        yellow_b: ${config.colorsh.yellow_b};
+        yellow_d: ${config.colorsh.yellow_d};
 
         green: ${config.colorsh.green};
-        green-b: ${config.colorsh.green-b};
-        green-d: ${config.colorsh.green-d};
+        green_b: ${config.colorsh.green_b};
+        green_d: ${config.colorsh.green_d};
 
         magenta: ${config.colorsh.magenta};
-        magenta-b: ${config.colorsh.magenta-b};
-        magenta-d: ${config.colorsh.magenta-d};
+        magenta_b: ${config.colorsh.magenta_b};
+        magenta_d: ${config.colorsh.magenta_d};
 
-        accent-1: ${config.colorsh.accent-1};
-        accent-2: ${config.colorsh.accent-2};
+        accent_1: ${config.colorsh.accent_1};
+        accent_2: ${config.colorsh.accent_2};
 
         foreground: ${config.colorsh.foreground};
-        foreground-d: ${config.colorsh.foreground-d};
+        foreground_d: ${config.colorsh.foreground_d};
         background: ${config.colorsh.background};
-        background-b: ${config.colorsh.background-b};
+        background_b: ${config.colorsh.background_b};
 
-        selection-foreground: ${config.colorsh.selection-background};
-        selection-background: ${config.colorsh.selection-foreground};
+        selection_foreground: ${config.colorsh.selection_background};
+        selection_background: ${config.colorsh.selection_foreground};
 
-        url-color: ${config.colorsh.url-color};
+        url_color: ${config.colorsh.url_color};
     }
     '';
   };

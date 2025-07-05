@@ -1,7 +1,9 @@
-{ config, ...}:
+{ config, ... }:
 {
   programs.rofi = {
+    enable = true;
     theme = "${config.home.homeDirectory}/.local/share/rofi/themes/dmenu.rasi";
+    font = "JetBrains Mono Bold 16";
   };
 
   home.file."${config.home.homeDirectory}/.local/share/rofi/themes/dmenu.rasi" = {

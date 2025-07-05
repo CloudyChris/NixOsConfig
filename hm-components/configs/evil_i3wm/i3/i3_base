@@ -1,0 +1,19 @@
+#~ Mouse behavior
+mouse_warping output
+focus_follows_mouse yes
+
+#~ Floating windows drag
+floating_modifier Mod4
+
+#~ Tiled windows drag
+tiling_drag modifier titlebar
+
+#~ Urgent windows and hits
+force_display_urgency_hint 1000 ms
+
+#~ Focus
+focus_on_window_activation urgent
+focus_wrapping no
+
+#~ Popups
+popup_during_fullscreen smart

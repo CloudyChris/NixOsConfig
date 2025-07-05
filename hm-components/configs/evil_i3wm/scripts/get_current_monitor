@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+CURRENT_MONITOR_NAME=($(i3-msg -t get_tree | tr , "\n" | awk '/"focused":true|"output":/' | awk '/"focused":true/{getline;print;}' | awk '{outp=$1; gsub("\"", " ", outp); print outp;}' | awk '{print $3}'))
+
+evil_get_monitors | grep $CURRENT_MONITOR_NAME

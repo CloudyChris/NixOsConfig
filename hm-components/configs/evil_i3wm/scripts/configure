@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+evil_gen_eww > "$XDG_CONFIG_HOME/eww/eww.yuck"
+evil_gen_i3 > "$XDG_CONFIG_HOME/i3/config"
+
+i3-msg "reload"
+eww kill
+eww daemon
+evil_start_i3_bar

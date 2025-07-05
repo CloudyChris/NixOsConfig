@@ -1,7 +1,7 @@
 @import "~/.local/share/rofi/themes/colors.rasi"
 
 * {
-    font:   "JetBrains Mono Bold 9";
+    font:   "JetBrains Mono Bold 16";
 
     background-color:   transparent;
 
@@ -15,7 +15,7 @@ window {
     width:          480;
     border-radius:  24px;
     border:         2px;
-    border-color:   @accent-1;
+    border-color:   @accent_1;
 
     background-color:   @background;
 }
@@ -26,7 +26,7 @@ mainbox {
 
 inputbar {
     background-color:   @black1;
-    border-color:       @accent-1;
+    border-color:       @accent_1;
 
     border:         2px;
     border-radius:  16px;
@@ -37,13 +37,13 @@ inputbar {
 }
 
 prompt {
-    text-color: @accent-2;
+    text-color: @accent_2;
     font:       "JetBrains Mono Bold 16";
 }
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @foreground-d;
+    placeholder-color:  @foreground_d;
     font:               "JetBrains Mono Bold 16";
     text-color: @yellow;
 }
@@ -77,19 +77,19 @@ element {
 
 element selected active {
     background-color:   @background;
-    border-color:       @accent-1;
+    border-color:       @accent_1;
     text-color: @foreground;
 }
 
 element selected normal {
     background-color:   @background;
-    border-color:       @accent-1;
+    border-color:       @accent_1;
     text-color: @foreground;
 }
 
 element selected urgent {
     background-color:   @background;
-    border-color:       @accent-1;
+    border-color:       @accent_1;
     text-color: @red;
 }
 
@@ -99,7 +99,7 @@ element-icon {
 }
 
 element-text {
-    text-color: @foreground-d;
+    text-color: @foreground_d;
 }
 
 element-text selected {

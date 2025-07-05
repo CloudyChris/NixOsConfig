@@ -1,11 +1,12 @@
-{ lib, config, pkgs, ...}:
-
+{ config, ... }:
 {
+  programs.eww = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 
-  config = {
-
-    home.activation.ewwConfigScript = lib.hm.dag.entryAfter ["writeBoundary"] ''
-
-    '';
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/eww/widgets.yuck" = {
+    source = ./widgets.yuck;
+    force = true;
   };
 }

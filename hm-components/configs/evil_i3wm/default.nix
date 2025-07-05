@@ -1,9 +1,10 @@
-{ pkgs, config, ... }:
 {
   imports = [
     ./rofi
     ./eww
-    ./config.nix
+    ./i3
+    ./scripts
+    ./autorandr.nix
   ];
 
   services.clipmenu = {

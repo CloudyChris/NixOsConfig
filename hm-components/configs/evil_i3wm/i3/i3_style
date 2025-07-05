@@ -1,0 +1,67 @@
+#~ Font
+font JetBrainsMono Nerd Font 8
+
+#~ Border
+default_border pixel 2
+default_floating_border pixel 2
+
+hide_edge_borders none
+
+#~ Gaps
+gaps inner 10
+gaps outer 10
+
+#~ Colors
+set_from_resource $black0 i3wm.black0 #191d24
+set_from_resource $black1 i3wm.black1 #1e222a
+set_from_resource $black2 i3wm.black2 #222630
+set_from_resource $gray0 i3wm.gray0 #242933
+set_from_resource $gray1 i3wm.gray1 #2e3440
+set_from_resource $gray2 i3wm.gray2 #3b4252
+set_from_resource $gray3 i3wm.gray3 #434c5e
+set_from_resource $gray4 i3wm.gray4 #4c566a
+set_from_resource $gray5 i3wm.gray5 #60728a
+set_from_resource $white0 i3wm.white0 #bbc3d4
+set_from_resource $white1 i3wm.white1 #c0c8d8
+set_from_resource $white2 i3wm.white2 #d8dee9
+set_from_resource $white3 i3wm.white3 #e5e9f0
+set_from_resource $white4 i3wm.white4 #eceff4
+set_from_resource $blue i3wm.blue #81a1c1
+set_from_resource $blue_b i3wm.blue_b #88c0d0
+set_from_resource $blue_d i3wm.blue_d #5e81ac
+set_from_resource $cyan i3wm.cyan #8fbcbb
+set_from_resource $cyan_b i3wm.cyan_b #9fc6c5
+set_from_resource $cyan_d i3wm.cyan_d #80b3b2
+set_from_resource $red i3wm.red #bf616a
+set_from_resource $red_b i3wm.red_b #c5727a
+set_from_resource $red_d i3wm.red_d #b74e58
+set_from_resource $orange i3wm.orange #d08770
+set_from_resource $orange_b i3wm.orange_b #d79784
+set_from_resource $orange_d i3wm.orange_d #cb775d
+set_from_resource $yellow i3wm.yellow #ebcb8b
+set_from_resource $yellow_b i3wm.yellow_b #efd49f
+set_from_resource $yellow_d i3wm.yellow_d #e7c173
+set_from_resource $green i3wm.green #a3be8c
+set_from_resource $green_b i3wm.green_b #b1c89d
+set_from_resource $green_d i3wm.green_d #97b67c
+set_from_resource $magenta i3wm.magenta #b48ead
+set_from_resource $magenta_b i3wm.magenta_b #be9db8
+set_from_resource $magenta_d i3wm.magenta_d #a97ea1
+set_from_resource $accent_1 i3wm.accent_1 #ebcb8b
+set_from_resource $accent_2 i3wm.accent_2 #a3be8c
+set_from_resource $foreground i3wm.foreground #ebcb8b
+set_from_resource $foreground_d i3wm.foreground_d #60728a
+set_from_resource $background i3wm.background #191d24
+set_from_resource $background_b i3wm.background_b #242933
+set_from_resource $selection_foreground i3wm.selection_foreground #191d24
+set_from_resource $selection_background i3wm.selection_background #ebcb8b
+set_from_resource $url_color i3wm.url_color #a3be8c
+
+# class                 border                backgr.             text                indicator         child_border
+client.focused          $accent_1             $background         $accent1            $accent1          $accent1
+client.focused_inactive $foreground_d         $background         $foreground_d       $foreground_d     $foreground_d
+client.unfocused        $foreground_d         $background         $foreground_d       $foreground_d     $foreground_d
+client.urgent           $red                  $background         $red                $red              $red
+client.placeholder      $foreground_d         $background         $foreground_d       $foreground_d     $foreground_d
+
+client.background       $background

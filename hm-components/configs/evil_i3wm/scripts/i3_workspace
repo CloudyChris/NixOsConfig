@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+CURRENT_MONITOR=($(evil_get_current_monitor | tr "::" " " | awk '{print $1}'))
+
+i3-msg "workspace $CURRENT_MONITOR:$1"
