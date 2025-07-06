@@ -15,18 +15,13 @@
     force = true;
   };
 
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/i3/i3_startup" = {
+    source = ./i3_startup;
+    force = true;
+  };
+
   xsession.windowManager.i3 = {
     enable = osConfig.services.xserver.windowManager.i3.enable;
-    config = {
-      startup = [
-        {
-          command = "eww daemon";
-        }
-        {
-          command = "evil_configure";
-          always = true;
-        }
-      ];
-    };
+    config = null;
   };
 }

@@ -19,5 +19,5 @@ done
 
 cat "$XDG_CONFIG_HOME/.config/evil_i3wm/i3/i3_default_binds"
 printf "\n\n"
-
-
+cat "$XDG_CONFIG_HOME/.config/evil_i3wm/i3/i3_startup"
+printf "\n\n"

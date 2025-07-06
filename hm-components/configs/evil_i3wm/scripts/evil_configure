@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+mkdir -p "$XDG_CONFIG_HOME/eww"
+
+if [[ -f "$XDG_CONFIG_HOME/eww/eww.yuck" ]]; then
+    rm "$XDG_CONFIG_HOME/eww/eww.yuck"
+else
+    touch "$XDG_CONFIG_HOME/eww/eww.yuck"
+fi
+
+if [[ -f "$XDG_CONFIG_HOME/i3/config" ]]; then
+    rm "$XDG_CONFIG_HOME/i3/config"
+else
+    touch "$XDG_CONFIG_HOME/i3/config"
+fi
+
 evil_gen_eww > "$XDG_CONFIG_HOME/eww/eww.yuck"
 evil_gen_i3 > "$XDG_CONFIG_HOME/i3/config"
 
