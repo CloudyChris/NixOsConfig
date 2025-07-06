@@ -43,7 +43,7 @@ mode "$mode_leader" {
     # TODO 1
     bindsym s exec "notify-send \\"System menu not implemented\\""; mode "$mode_sysmenu"
     bindsym v mode "$mode_view"
-    bindsym w mode "$mode_window"
+    bindsym w mode "$mode_workspace"
     bindsym Escape mode default;
     bindsym Return mode default
 }

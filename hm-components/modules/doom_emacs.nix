@@ -69,46 +69,20 @@ in
     home.activation.doomInstallScript = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [[ -d "${config.home.homeDirectory}/.config/emacs" ]]; then
       echo "[ INFO ] ${config.home.homeDirectory}/.config/emacs directory exists, and will be emptied"
-      if [[ -v DRY_RUN ]]; then
-        echo "[ DRY ] rm -r ${config.home.homeDirectory}/.config/emacs/*"
-      else
-        rm -r ${config.home.homeDirectory}/.config/emacs/*
-      fi
-    else
-      echo "[ INFO ] ${config.home.homeDirectory}/.config/emacs does not exist, and will be created"
-      if [[ -v DRY_RUN ]]; then
-        echo "[ DRY ] mkdir ${config.home.homeDirectory}/.config/emacs"
-      else
-        mkdir ${config.home.homeDirectory}/.config/emacs
-      fi
-    fi
-    echo "[ INFO ] Cloning doom-emacs to ${config.home.homeDirectory}/.config/emacs"
-    if [[ -v DRY_RUN ]]; then
-      echo "[ DRY ] ${pkgs.git}/bin/git clone --depth 1 ${cfg.doomRepo} ${config.home.homeDirectory}/.config/emacs"
-    else
-      ${pkgs.git}/bin/git clone --depth 1 ${cfg.doomRepo} ${config.home.homeDirectory}/.config/emacs
-    fi
-    echo "[ INFO ] Installing doom"
-    if [[ -v DRY_RUN ]]; then
-      echo "[ DRY ] ${config.home.homeDirectory}/.config/emacs/bin/doom install"
-    else
-      ${config.home.homeDirectory}/.config/emacs/bin/doom install
+      yes | rm -r ${config.home.homeDirectory}/.config/emacs/
     fi
     if [[ -d "${config.home.homeDirectory}/.config/doom" ]]; then
       echo "[ INFO ] ${config.home.homeDirectory}/.config/doom/ directory exists, and will be emptied"
-      if [[ -v DRY_RUN ]]; then
-        echo "[ DRY ] rm -r ${config.home.homeDirectory}/.config/doom/*"
-      else
-        rm -r ${config.home.homeDirectory}/.config/doom/*
-      fi
-    else
-      echo "[ INFO ] cloning config into ${config.home.homeDirectory}/.config/doom"
-      if [[ -v DRY_RUN ]]; then
-        echo "[ DRY ] ${pkgs.git}/bin/git clone --depth 1 ${cfg.configRepo} ${config.home.homeDirectory}/.config/doom"
-      else
-        ${pkgs.git}/bin/git clone --depth 1 ${cfg.configRepo} ${config.home.homeDirectory}/.config/doom
-      fi
+      yes | rm -r ${config.home.homeDirectory}/.config/doom/
     fi
+    echo "[ INFO ] Cloning doom-emacs to ${config.home.homeDirectory}/.config/emacs"
+    ${pkgs.git}/bin/git clone --depth 1 ${cfg.doomRepo} ${config.home.homeDirectory}/.config/emacs
+    echo "[ INFO ] cloning config into ${config.home.homeDirectory}/.config/doom"
+    ${pkgs.git}/bin/git clone --depth 1 ${cfg.configRepo} ${config.home.homeDirectory}/.config/doom
+
+    echo "[ INFO ] Installing doom"
+    yes | ${config.home.homeDirectory}/.config/emacs/bin/doom install
+    ${config.home.homeDirectory}/.config/emacs/bin/doom sync
     '';
   };
 }

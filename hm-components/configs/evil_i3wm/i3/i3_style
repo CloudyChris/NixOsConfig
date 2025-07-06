@@ -58,7 +58,7 @@ set_from_resource $selection_background i3wm.selection_background #ebcb8b
 set_from_resource $url_color i3wm.url_color #a3be8c
 
 # class                 border                backgr.             text                indicator         child_border
-client.focused          $accent_1             $background         $accent1            $accent1          $accent1
+client.focused          $accent_1             $background         $accent_1           $accent_1         $accent_1
 client.focused_inactive $foreground_d         $background         $foreground_d       $foreground_d     $foreground_d
 client.unfocused        $foreground_d         $background         $foreground_d       $foreground_d     $foreground_d
 client.urgent           $red                  $background         $red                $red              $red

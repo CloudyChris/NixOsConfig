@@ -5,6 +5,7 @@
 
 (defwidget top_bar [screen]
   (centerbox :orientation "h"
+             :class "bar"
     (top_left_box :screen screen)
     (top_center_box :screen screen)
     (top_right_box :screen screen)
@@ -13,6 +14,7 @@
 
 (defwidget bottom_bar [screen]
   (centerbox :orientation "h"
+             :class "bar"
     (bottom_left_box :screen screen)
     (bottom_center_box :screen screen)
     (bottom_right_box :screen screen)

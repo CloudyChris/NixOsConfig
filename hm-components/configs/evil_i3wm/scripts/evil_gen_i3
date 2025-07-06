@@ -10,14 +10,15 @@ printf "\n\n"
 for monitor in $(echo "${monitors[*]}")
 do
     marr=($(echo $monitor | awk '{str=$1; gsub("::", " ", str); print str}'))
-    printf "workspace %s:1 output %s" $((marr[0])) ${marr[1]}
-    printf "workspace %s:2 output %s" $((marr[0])) ${marr[1]}
-    printf "workspace %s:3 output %s" $((marr[0])) ${marr[1]}
-    printf "workspace %s:4 output %s" $((marr[0])) ${marr[1]}
-    printf "workspace %s:5 output %s" $((marr[0])) ${marr[1]}
+    printf "workspace %s:1 output %s\n" $((marr[0])) ${marr[1]}
+    printf "workspace %s:2 output %s\n" $((marr[0])) ${marr[1]}
+    printf "workspace %s:3 output %s\n" $((marr[0])) ${marr[1]}
+    printf "workspace %s:4 output %s\n" $((marr[0])) ${marr[1]}
+    printf "workspace %s:5 output %s\n" $((marr[0])) ${marr[1]}
 done
+print "\n\n"
 
-cat "$XDG_CONFIG_HOME/.config/evil_i3wm/i3/i3_default_binds"
+cat "$XDG_CONFIG_HOME/evil_i3wm/i3/i3_default_binds"
 printf "\n\n"
-cat "$XDG_CONFIG_HOME/.config/evil_i3wm/i3/i3_startup"
+cat "$XDG_CONFIG_HOME/evil_i3wm/i3/i3_startup"
 printf "\n\n"
