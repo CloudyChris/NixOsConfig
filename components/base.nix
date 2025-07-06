@@ -74,6 +74,11 @@
   environment.systemPackages = with pkgs; [
     libnotify
   ];
+
+  # THIS IS FOR THE SAKE OF FUUUUUUUUUUUU
+  nix.settings.download-buffer-size = 1048576000;
+
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
 }
