@@ -45,6 +45,9 @@
     ../../components/util/portals.nix
     ../../components/util/xdg.nix
 
+    # GRAPHICAL FRAMEWORKS
+    ../../components/graphical_frameworks/gtk.nix
+
     # DEVELOPMENT
     ../../components/development/c_cpp.nix
     ../../components/development/tooling.nix
