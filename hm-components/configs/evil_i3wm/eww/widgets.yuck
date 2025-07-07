@@ -201,7 +201,7 @@
   )
 )
 
-(defwidget pop_sysmenu
+(defwidget pop_sysmenu []
     (box :class "pop-sysmenu"
          :orientation "v"
          :halign "center"
