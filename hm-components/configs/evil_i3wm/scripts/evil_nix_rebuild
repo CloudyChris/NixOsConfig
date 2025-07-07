@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+rm ~/.config/mimeapps.list
+rm ~/.config/i3/config
+
+sudo nixos-rebuild switch --flake /etc/nixos#$1
+
+evil_configure

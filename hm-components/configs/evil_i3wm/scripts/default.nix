@@ -12,8 +12,14 @@
     force = true;
   };
 
-  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_gen_eww" = {
-    source = ./evil_gen_eww;
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_gen_eww_yuck" = {
+    source = ./evil_gen_eww_yuck;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_gen_eww_scss" = {
+    source = ./evil_gen_eww_scss;
     executable = true;
     force = true;
   };
@@ -62,6 +68,12 @@
 
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_i3_workspace" = {
     source = ./evil_i3_workspace;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_nix_rebuild" = {
+    source = ./evil_nix_rebuild;
     executable = true;
     force = true;
   };

@@ -48,6 +48,7 @@ in
         MimeType=application/x-lmms-project;
       '';
       executable = true;
+      force = true;
     };
   };
 }

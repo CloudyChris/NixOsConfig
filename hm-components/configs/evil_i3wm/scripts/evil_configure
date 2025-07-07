@@ -6,11 +6,16 @@ if [[ -f "$XDG_CONFIG_HOME/eww/eww.yuck" ]]; then
     rm "$XDG_CONFIG_HOME/eww/eww.yuck"
 fi
 
+if [[ -f "$XDG_CONFIG_HOME/eww/eww.scss" ]]; then
+    rm "$XDG_CONFIG_HOME/eww/eww.scss"
+fi
+
 if [[ -f "$XDG_CONFIG_HOME/i3/config" ]]; then
     rm "$XDG_CONFIG_HOME/i3/config"
 fi
 
-evil_gen_eww > "$XDG_CONFIG_HOME/eww/eww.yuck"
+evil_gen_eww_yuck > "$XDG_CONFIG_HOME/eww/eww.yuck"
+evil_gen_eww_scss > "$XDG_CONFIG_HOME/eww/eww.scss"
 evil_gen_i3 > "$XDG_CONFIG_HOME/i3/config"
 
 i3-msg "reload"

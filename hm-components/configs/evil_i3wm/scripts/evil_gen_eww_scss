@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cat "$XDG_CONFIG_HOME/evil_i3wm/eww/colors.scss"
+printf "\n\n"
+cat "$XDG_CONFIG_HOME/evil_i3wm/eww/eww.scss"
