@@ -5,6 +5,13 @@ mapfile -t monitors < <(evil_get_monitors)
 for monitor in $(echo "${monitors[*]}")
 do
     marr=($(echo $monitor | awk '{str=$1; gsub(":", " ", str); print str}'))
-    eval "eww open top_bar_${marr[0]}"
-    eval "eww open bottom_bar_${marr[0]}"
+    eval "eww open bar_systray_${marr[0]}"
+    eval "eww open bar_calendar_${marr[0]}"
+    eval "eww open bar_audio_sinks_${marr[0]}"
+    eval "eww open bar_audio_sources_${marr[0]}"
+    eval "eww open bar_sysmenu_${marr[0]}"
+
+    eval "eww open bar_workspaces_${marr[0]}"
+    eval "eww open bar_windows_${marr[0]}"
+    eval "eww open bar_clipmenu_${marr[0]}"
 done

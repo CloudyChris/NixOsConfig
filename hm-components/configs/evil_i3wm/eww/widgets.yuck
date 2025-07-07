@@ -8,7 +8,7 @@
 ; —————— TOP BAR STUFF —————————————————————————————————————————————————————————
 ; —————— SYSTRAY —————————————————————————————————
 
-(defwidget bar_systray
+(defwidget bar_systray []
     (box :class "bar bar-systray"
          :orientation "h"
          :halign "center"
