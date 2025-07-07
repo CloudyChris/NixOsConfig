@@ -9,4 +9,9 @@
     source = ./widgets.yuck;
     force = true;
   };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/eww/eww.scss" = {
+    source = ./eww.scss;
+    force = true;
+  };
 }

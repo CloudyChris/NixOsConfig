@@ -116,11 +116,11 @@ mode "$mode_view" {
 mode "$mode_workspace" {
     bindsym n workspace next; mode default
     bindsym p workspace prev; mode default
-    bindsym 1 exec "evil_i3_workspace 1"
-    bindsym 2 exec "evil_i3_workspace 2"
-    bindsym 3 exec "evil_i3_workspace 3"
-    bindsym 4 exec "evil_i3_workspace 4"
-    bindsym 5 exec "evil_i3_workspace 5"
+    bindsym 1 exec "evil_i3_workspace 1"; mode default
+    bindsym 2 exec "evil_i3_workspace 2"; mode default
+    bindsym 3 exec "evil_i3_workspace 3"; mode default
+    bindsym 4 exec "evil_i3_workspace 4"; mode default
+    bindsym 5 exec "evil_i3_workspace 5"; mode default
     bindsym Escape mode default
     bindsym Return mode default
 }

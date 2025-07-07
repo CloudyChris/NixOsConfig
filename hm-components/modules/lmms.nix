@@ -21,8 +21,7 @@ in
           $DRY_RUN_CMD mkdir ${config.home.homeDirectory}/.appimages
         fi
         if [[ -f "${config.home.homeDirectory}/.appimages/lmms-${cfg.version}.AppImage" ]]; then
-          echo "[ INFO ] a file with the name lmms-${cfg.version}.AppImage exists and will be removed"
-          $DRY_RUN_CMD rm ${config.home.homeDirectory}/.appimages/lmms-${cfg.version}.AppImage
+          echo "[ INFO ] a file with the name lmms-${cfg.version}.AppImage exists, nothing to be done"
         else
           echo "[ INFO ] Downloading the LMMS appimage"
           $DRY_RUN_CMD ${pkgs.wget}/bin/wget -O ${config.home.homeDirectory}/.appimages/lmms-${cfg.version}.AppImage http://github.com/LMMS/lmms/releases/download/v${cfg.version}/lmms-${cfg.version}-linux-x86_64.AppImage

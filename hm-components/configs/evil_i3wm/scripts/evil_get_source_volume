@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pactl get-sink-mute @DEFAULT_SINK@ | awk '{if($2 == "yes") {print "0"} else {system("pactl get-sink-volume @DEFAULT_SINK@ | awk \047{vol=$5; gsub(\042%\042, \042\042, vol); print vol}\047")}}' | awk '$1 ~ /^[0123456789]/'

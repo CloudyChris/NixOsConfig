@@ -1,99 +1,252 @@
-; —————— CONFIG ———————————————————————————————————————————————————————————————
-; ———————————————————————————————————————————————————————————————
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ————————————————————————————————————————————————
+; —————— CONFIG ————————————————————————————————————————————————————————————————
+; ————————————————————————————————————————————————
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; —————— BARS ————————————————————————————————————
+;—————————————————————————————————————————————————
+; —————— TOP BAR STUFF —————————————————————————————————————————————————————————
+; —————— SYSTRAY —————————————————————————————————
 
-(defwidget top_bar [screen]
-  (centerbox :orientation "h"
-             :class "bar"
-    (top_left_box :screen screen)
-    (top_center_box :screen screen)
-    (top_right_box :screen screen)
+(defwidget bar_systray
+    (box :class "bar bar-systray"
+         :orientation "h"
+         :halign "center"
+         :valign "center"
+         :space-evenly false
+      (systray :orientation "h"
+               :space-evenly true
+               :spacing 5
+               :icon-size 10
+               :prepend-new false
+      )
+    )
+)
+
+;—————————————————————————————————————————————————
+; —————— CALENDAR / TIME —————————————————————————
+
+(defpoll time_full :interval "30s"
+  "date '+%H:%M %d/%m/%Y'"
+)
+
+(defpoll time_day :interval "1h"
+  "date '%d'"
+)
+
+
+(defpoll time_month :interval "1h"
+  "date '%m'"
+)
+
+(defpoll time_year :interval "1h"
+  "date '%Y'"
+)
+
+(defwidget bar_calendar [screen]
+  (button :class "bar bar-calendar"
+          :onclick "eww open pop_calendar_${screen}"
+    (box :class "bar-calendar-content"
+         :orientation "h"
+         :space-evenly false
+         :halign "center"
+         :valign "center"
+    time_full
+    )
   )
 )
 
-(defwidget bottom_bar [screen]
-  (centerbox :orientation "h"
-             :class "bar"
-    (bottom_left_box :screen screen)
-    (bottom_center_box :screen screen)
-    (bottom_right_box :screen screen)
-  )
-)
-
-; —————— TOP BAR STUFF ———————————————————————————
-
-(defwidget top_left_box [screen]
-  (box :class "top_left_box"
-       :orientation "h"
-       :space-evenly false
-       :halign "start"
-       :valign "center"
-    (bar_systray :screen screen)
-  )
-)
-
-(defwidget top_center_box [screen]
-  (box :class "top_center_box"
-       :orientation "h"
-       :space-evenly false
-       :halign "center"
-       :valign "center"
-    (bar_calendar :screen screen)
-    (bar_notifications :screen screen)
-  )
-)
-
-(defwidget top_right_box [screen]
-  (box :class "top_right_box"
-       :orientation "h"
-       :space-evenly false
-       :halign "end"
-       :valign "center"
-    (bar_audio :screen screen)
-    (bar_bluetooth :screen screen)
-    (bar_network :screen screen)
-    (bar_sysmenu :screen screen)
-  )
-)
-
-; —————— BOTTOM BAR STUFF ————————————————————————
-
-(defwidget bottom_left_box [screen]
-  (box :class "bottom_left_box"
-       :orientation "h"
-       :space-evenly false
-       :halign "start"
-       :valign "center"
-    (bar_workspaces :screen screen)
-  )
-)
-
-(defwidget bottom_center_box [screen]
-  (box :class "bottom_center_box"
-       :orientation "h"
+(defwidget pop_calendar []
+  (box :class "pop pop-calendar"
+       :orientation "v"
        :space-evenly false
        :halign "center"
        :valign "center"
-    (bar_windows :screen screen)
+    (calendar :class "pop-calendar-calendar"
+              :day time_day
+              :month time_month
+              :year time_year
+              :show-details false
+              :show-heading true
+              :show-dat-names true
+              :show-week-numbers true
+    )
   )
 )
 
-(defwidget bottom_right_box [screen]
-  (box :class "bottom_right_box"
-       :orientation "h"
-       :space-evenly true
-       :halign "end"
-       :valign "center"
-    (bar_clipboard :screen screen)
-    (bar_keyboard :screen screen)
+;—————————————————————————————————————————————————
+; —————— AUDIO - BAR + POPUP —————————————————————
+
+(defpoll sink_volume :interval "1m"
+  `evil_get_sink_volume`
+)
+
+(defpoll source_volume :interval "1m"
+  `evil_get_source_volume`
+)
+
+(defpoll audio_sinks :interval "5m"
+  `evil_gen_audio_sinks_eww`
+)
+
+(defpoll audio_sources :interval "5m"
+  `evil_gen_audio_sources_eww`
+)
+
+(defwidget bar_audio_sinks [screen]
+    (box :class "bar bar-audio"
+            :orientation "h"
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+        (button :class "bar-audio-label"
+                :halign "start"
+                :valign "center"
+                :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+            {sink_volume == 0 ? "" : ""}
+        )
+        (scale :class "bar-audio-scale"
+                :halign "center"
+                :valign "center"
+                :min 0
+                :max 101
+                :active true
+                :value sink_volume
+                :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+        )
+        (button :class "bar-audio-pop"
+                :halign "end"
+                :valign "center"
+                :onclick "eww open pop_audio_sinks_${screen}"
+            ""
+        )
+    )
+)
+
+(defwidget bar_audio_sources [screen]
+    (box :class "bar bar-audio"
+            :orientation "h"
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+        (button :class "bar-audio-label"
+                :halign "start"
+                :valign "center"
+                :onclick "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+            {source_volume == 0 ? "" : ""}
+        )
+        (scale :class "bar-audio-scale"
+                :halign "center"
+                :valign "center"
+                :min 0
+                :max 101
+                :active true
+                :value source_volume
+                :onchange "pactl set-source-volume @DEFAULT_SOURCE@ {}%"
+        )
+        (button :class "bar-audio-pop"
+                :halign "end"
+                :valign "center"
+                :onclick "eww open pop_audio_sources_${screen}"
+            ""
+        )
+    )
+)
+
+(defwidget pop_audio_sinks []
+  (box :class "pop pop_audio"
+       :orientation "v"
+       :space-evenly false
+       :halign "center"
+       :valign "start"
+    (scroll :class "pop_audio_scroll"
+            :hscroll false
+            :vscroll true
+        (box :class "pop_audio_content"
+             :orientation "v"
+             :halign "center"
+             :valign "center"
+             :space-evenly: true
+          (literal :content audio_sinks)
+        )
+    )
   )
 )
 
+(defwidget pop_audio_sources []
+  (box :class "pop pop_audio"
+       :orientation "v"
+       :space-evenly false
+       :halign "center"
+       :valign "start"
+    (scroll :class "pop_audio_scroll"
+        (box :class "pop_audio_content"
+             :orientation "v"
+             :halign "center"
+             :valign "center"
+             :space-evenly: true
+          (literal :content audio_sources)
+        )
+    )
+  )
+)
+
+;—————————————————————————————————————————————————
+; —————— SYSMENU —————————————————————————————————
+
+(defwidget bar_sysmenu [screen]
+  (button :class "bar bar-sysmenu"
+          :onclick "eww open pop_sysmenu_${screen}"
+    "⏻"
+  )
+)
+
+(defwidget pop_sysmenu
+    (box :class "pop-sysmenu"
+         :orientation "v"
+         :halign "center"
+         :valign "center"
+         :space-evenly true
+      (button :class "pop-sysmenu-button lock"
+              :onclick "i3lock"
+        ""
+      )
+      (button :class "pop-sysmenu-button logout"
+              :onclick "i3-msg exit"
+        ""
+      )
+      (button :class "pop-sysmenu-button suspend"
+              :onclick "i3lock && systemctl suspend"
+        ""
+      )
+      (button :class "pop-sysmenu-button hibernate"
+              :onclick "i3lock && systemctl hibernate"
+        ""
+      )
+      (button :class "pop-sysmenu-button reboot"
+              :onclick "systemctl reboot"
+        ""
+      )
+      (button :class "pop-sysmenu-button poweroff"
+              :onclick "systemctl poweroff"
+        "⏻"
+      )
+    )
+)
+
+;—————————————————————————————————————————————————
+; —————— BOTTOM BAR STUFF ——————————————————————————————————————————————————————
 ; —————— WORKSPACES ——————————————————————————————
 
+(defwidget workspace [screen name]
+  (button :class "workspace"
+          :onclick "i3-msg \"workspace ${screen}:${name}\""
+          "${name}"
+  )
+)
+
 (defwidget bar_workspaces [screen]
-  (box :class "bar-workspaces"
+  (box :class "bar bar-workspaces"
        :orientation "h"
        :space-evenly true
        :halign "start"
@@ -117,132 +270,24 @@
   )
 )
 
-(defwidget workspace [screen name]
-  (button :class "workspace"
-          :onclick "i3-msg \"workspace ${screen}:${name}\""
-          "${name}"
-  )
-)
-
+;—————————————————————————————————————————————————
 ; —————— WINDOWS —————————————————————————————————
 
-(defwidget bar_windows
-  (button :class "bar-windows"
-          :onclick "rofi_windows"
+(defwidget bar_windows []
+  (button :class "bar bar-windows"
+          :onclick "evil_rofi_windows"
+    ""
   )
 )
 
-; —————— CALENDAR / TIME —————————————————————————
+;—————————————————————————————————————————————————
+; —————— CLIPBOARD ———————————————————————————————
 
-(defpoll time_full :interval "30s"
-  "date '+%H:%M %d/%m/%Y'"
-)
-
-(defpoll time_day :interval "1h"
-  "date '%d'"
-)
-
-
-(defpoll time_month :interval "1h"
-  "date '%m'"
-)
-
-(defpoll time_year :interval "1h"
-  "date '%Y'"
-)
-
-(defwidget bar_calendar [screen]
-  (button :class "bar-calendar"
-          :onclick "eww open pop_calendar_${screen}"
-    (box :class "bar-calendar-content"
-         :orientation "h"
-         :space-evenly false
-         :halign "center"
-         :valign "center"
-    time_full
-    )
+(defwidget bar_clipboard []
+  (button :class "bar bar-clipboard"
+          :onclick "clipmenu"
+    "󰅍"
   )
 )
 
-(defwidget pop_calendar
-  (box :class "pop-calendar"
-       :orientation "v"
-       :space-evenly false
-       :halign "center"
-       :valign "center"
-    (calendar :class "pop-calendar-calendar"
-              :day time_day
-              :month time_month
-              :year time_year
-              :show-details false
-              :show-heading true
-              :show-dat-names true
-              :show-week-numbers true
-    )
-  )
-)
-
-; —————— AUDIO - BAR + POPUP —————————————————————
-
-(defpoll volume :interval "1m"
-  `get_volume`
-)
-
-(defwidget bar_audio [screen]
-  (button :class "bar-audio"
-          :onclick "eww open pop_audio_${screen}"
-    (box :class "bar-audio-content"
-         :orientation "h"
-         :space-evenly false
-         :halign "center"
-         :valign "center"
-      (box :class "bar-audio-label"
-           :orientation "h"
-           :halign "start"
-           :valign "center"
-        "${volume == 0 ? "🔇" : {volume < 30 ? "🔈" : {volume < 60 ? "🔉" : "🔊"}}}"
-      )
-      (scale :class "bar-audio-scale"
-             :halign "end"
-             :valign "center"
-             :min 0
-             :max 101
-             :active true
-             :value volume
-             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
-      )
-    )
-  )
-)
-
-(defpoll audio_sinks :interval "5m"
-  `evil_gen_audio_sinks_eww`
-)
-
-(defpoll audio_sources :interval "5m"
-  `evil_gen_audio_sources_eww`
-)
-
-(defwidget pop_audio
-  (box :class "pop_audio"
-       :orientation "v"
-       :space-evenly false
-       :halign "center"
-       :valign "start"
-    (box :class "pop_audio_sinks"
-         :orientation "v"
-         :space-evenly true
-         :halign "center"
-         :valign "start"
-      (literal :content audio_sinks)
-    )
-    (box :class "pop_audio_sources"
-         :orientation "v"
-         :space-evenly true
-         :halign "center"
-         :valign "start"
-      (literal :content audio_sources)
-    )
-  )
-)
-
+;—————————————————————————————————————————————————

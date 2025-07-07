@@ -1,3 +1,19 @@
 #!/usr/bin/env bash
 
-#TODO
+mapfile -t audio_sinks < <(evil_get_audio_sinks)
+
+for sink in $(echo "${audio_sinks[*]}")
+do
+  sarr=($(echo $sink | awk '{str=$1; gsub("::", " ", str); print str}'))
+
+  IS_ACTIVE=""
+
+  if [[ "${sarr[1]}" == "${pactl get-default-sink}" ]]; then
+      IS_ACTIVE="active"
+  fi
+
+  printf "(button :class \"audio_entry %s\"\n" ${IS_ACTIVE}
+  printf "        :onclick \"pactl set-default-sink %s && eww update audio_sinks=evil_gen_audio_sinks_eww\"\n" ${sarr[1]}
+  printf "  \"%s\"" ${sarr[0]}
+  printf ")\n"
+done

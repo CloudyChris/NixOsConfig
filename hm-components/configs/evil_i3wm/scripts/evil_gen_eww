@@ -8,43 +8,152 @@ printf "\n\n"
 for monitor in $(echo "${monitors[*]}")
 do
     marr=($(echo $monitor | awk '{str=$1; gsub("::", " ", str); print str}'))
+    #########################################################################
+    ############################### TOPBAR ##################################
+    ######### BAR ELEMENTS
+
+    printf "(defwindow bar_systray_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dock\"\n"
+    printf "                  :geometry (geometry :x \"5%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"15%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"top\" :distance \"30px\")\n"
+    printf "  (bar_systray)\n"
+    printf ")\n\n"
+
+    printf "(defwindow bar_calendar_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"45%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"10%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"top\" :distance \"30px\")\n"
+    printf "  (bar_calendar :screen %s)\n" ${marr[0]}
+    printf ")\n\n"
+
+    printf "(defwindow bar_audio_sinks_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"70%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"10%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"top\" :distance \"30px\")\n"
+    printf "  (bar_audio_sinks :screen %s)\n" ${marr[0]}
+    printf ")\n\n"
+
+    printf "(defwindow bar_audio_sources_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"80%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"10%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"top\" :distance \"30px\")\n"
+    printf "  (bar_audio_sources :screen %s)\n" ${marr[0]}
+    printf ")\n\n"
+
+    printf "(defwindow bar_sysmenu_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"90%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"5%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"top\" :distance \"30px\")\n"
+    printf "  (bar_sysmenu :screen %s)\n" ${marr[0]}
+    printf ")\n\n"
+
+    ######### POPUPS
     printf "(defwindow pop_calendar_%s :monitor %s\n" ${marr[0]} ${marr[0]}
-    printf "                  :windowtype \"popup\"\n"
-    printf "                  :geometry (geometry :anchor \"center center\")\n"
-    printf "                  :wm-ignore true\n"
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"40%%\"\n"
+    printf "                                      :y \"30px\"\n"
+    printf "                                      :width \"20%%\"\n"
+    printf "                                      :height \"20%%\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
     printf "  (pop_calendar)\n"
     printf ")\n\n"
 
-    printf "(defwindow pop_audio_%s :monitor %s\n" ${marr[0]} ${marr[0]}
-    printf "                  :windowtype \"popup\"\n"
-    printf "                  :geometry (geometry :anchor \"center center\")\n"
-    printf "                  :wm-ignore true\n"
-    printf "  (pop_audio)\n"
-    printf ")\n\n"
-
-    printf "(defwindow topbar_%s :monitor %s\n" ${marr[0]} ${marr[0]}
-    printf "                  :windowtype \"dock\"\n"
-    printf "                  :geometry (geometry :x \"0%%\"\n"
-    printf "                                      :y \"0%%\"\n"
-    printf "                                      :width \"90%%\"\n"
-    printf "                                      :height \"10px\"\n"
-    printf "                                      :anchor \"top center\"\n"
+    printf "(defwindow pop_audio_sinks_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"65%%\"\n"
+    printf "                                      :y \"30px\"\n"
+    printf "                                      :width \"20%%\"\n"
+    printf "                                      :height \"20%%\"\n"
+    printf "                                      :anchor \"top left\"\n"
     printf "                            )\n"
     printf "                  :wm-ignore false\n"
-    printf "                  :reserve (struts :side \"top\" :distance \"4%%\")\n"
-    printf "  (topbar :screen %s)\n" ${marr[0]}
+    printf "  (pop_audio_sinks)\n"
     printf ")\n\n"
 
-    printf "(defwindow bottombar_%s :monitor %s\n" ${marr[0]} ${marr[0]}
-    printf "                     :windowtype \"dock\"\n"
-    printf "                     :geometry (geometry :x \"0%%\"\n"
-    printf "                                         :y \"0%%\"\n"
-    printf "                                         :width \"90%%\"\n"
-    printf "                                         :height \"10px\"\n"
-    printf "                                         :anchor \"bottom center\"\n"
-    printf "                               )\n"
-    printf "                     :wm-ignore false\n"
-    printf "                     :reserve (struts :side \"bottom\" :distance \"4%%\")\n"
-    printf "  (bottombar :screen %s)\n" ${marr[0]}
+    printf "(defwindow pop_audio_sources_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"75%%\"\n"
+    printf "                                      :y \"30px\"\n"
+    printf "                                      :width \"20%%\"\n"
+    printf "                                      :height \"20%%\"\n"
+    printf "                                      :anchor \"top left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "  (pop_audio_sources)\n"
+    printf ")\n\n"
+
+    #########################################################################
+    ############################ BOTTOMBAR ##################################
+    ######### BAR ELEMENTS
+
+    printf "(defwindow bar_workspaces_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dock\"\n"
+    printf "                  :geometry (geometry :x \"5%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"20%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"bottom left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"bottom\" :distance \"30px\")\n"
+    printf "  (bar_workspaces :screen %s)\n" ${marr[0]}
+    printf ")\n\n"
+
+    printf "(defwindow bar_windows_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"70%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"5%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"bottom left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"bottom\" :distance \"30px\")\n"
+    printf "  (bar_windows)\n"
+    printf ")\n\n"
+
+    printf "(defwindow bar_clipboard_%s :monitor %s\n" ${marr[0]} ${marr[0]}
+    printf "                  :windowtype \"dialogue\"\n"
+    printf "                  :geometry (geometry :x \"80%%\"\n"
+    printf "                                      :y \"5px\"\n"
+    printf "                                      :width \"5%%\"\n"
+    printf "                                      :height \"20px\"\n"
+    printf "                                      :anchor \"bottom left\"\n"
+    printf "                            )\n"
+    printf "                  :wm-ignore false\n"
+    printf "                  :reserve (struts :side \"bottom\" :distance \"30px\")\n"
+    printf "  (bar_clipboard)\n"
     printf ")\n\n"
 done

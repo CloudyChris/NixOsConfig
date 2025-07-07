@@ -1,3 +1,19 @@
 #!/usr/bin/env bash
 
-#TODO
+mapfile -t audio_sources < <(evil_get_audio_source)
+
+for source in $(echo "${audio_sources[*]}")
+do
+  sarr=($(echo $source | awk '{str=$1; gsub("::", " ", str); print str}'))
+
+  IS_ACTIVE=""
+
+  if [[ "${sarr[1]}" == "${pactl get-default-source}" ]]; then
+      IS_ACTIVE="active"
+  fi
+
+  printf "(button :class \"audio-entry %s\"\n" ${IS_ACTIVE}
+  printf "        :onclick \"pactl set-default-source %s && eww update audio_sources=evil_gen_audio_sources_eww\"\n" ${sarr[1]}
+  printf "  \"%s\"" ${sarr[0]}
+  printf ")\n"
+done

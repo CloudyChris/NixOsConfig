@@ -48,8 +48,14 @@
     force = true;
   };
 
-  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_volume" = {
-    source = ./evil_get_volume;
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_sink_volume" = {
+    source = ./evil_get_sink_volume;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_source_volume" = {
+    source = ./evil_get_source_volume;
     executable = true;
     force = true;
   };

@@ -14,6 +14,15 @@ evil_gen_eww > "$XDG_CONFIG_HOME/eww/eww.yuck"
 evil_gen_i3 > "$XDG_CONFIG_HOME/i3/config"
 
 i3-msg "reload"
+
+mapfile -t monitors < <(evil_get_monitors)
+
+for monitor in $(echo "${monitors[*]}")
+do
+    marr=($(echo $monitor | awk '{str=$1; gsub("::", " ", str); print str}'))
+    printf "workspace %s:1\n" $((marr[0]))
+done
+
 eww kill
 eww daemon
 evil_start_i3_bar
