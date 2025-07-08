@@ -71,7 +71,8 @@
          :orientation "h"
          :halign "center"
          :valign "center"
-         :space-evenly false
+         :space-evenly true
+         :spacing 10
       "󰶺"
       (systray :orientation "h"
                :space-evenly true
