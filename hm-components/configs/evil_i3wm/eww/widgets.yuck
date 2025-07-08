@@ -72,13 +72,14 @@
          :halign "center"
          :valign "center"
          :space-evenly false
-      "󰭩"
+      "󰶺"
       (systray :orientation "h"
                :space-evenly true
                :spacing 5
                :icon-size 20
                :prepend-new false
       )
+      "󰶻"
     )
 )
 
