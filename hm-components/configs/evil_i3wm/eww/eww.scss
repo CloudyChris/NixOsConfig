@@ -6,22 +6,51 @@
   background-color: $background;
   border-radius: 20px;
   color: $accent-1;
-  padding: 5px;
+  padding: 2px;
 }
 
 .bar button {
   background-color: $background;
-  border-color: $accent-1;
-  border-radius: 20px;
   color: $accent-1;
   padding: 5px;
+}
+
+.top-bar {
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  color: $accent-1;
+}
+
+.bottom-bar {
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  color: $accent-1;
 }
 
 .pop {
   background-color: $background;
   border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
   color: $accent-1;
-  padding: 5px;
+  padding: 10px;
+}
+
+.pop-sysmenu-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.shy {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .bar-audio scale trough highlight {
@@ -35,26 +64,22 @@
   all: unset;
   background-color: $foreground-d;
   border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
+  min-height: 10px;
+  min-width: 100px;
   margin-left: 5px;
   margin-right: 5px;
 }
 
 .workspace {
-  border-color: $foreground-d;
-  color: $foreground-d;
-  padding: 5px;
-  &:hover {
-    border-color: $accent-1;
-    color: $accent-1;
-  }
+  color: $accent-1;
 }
 
 .audio-entry {
   background-color: $background;
   border-color: $foreground-d;
   border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
   color: $foreground-d;
   &.active {
     border-color: $accent-1;

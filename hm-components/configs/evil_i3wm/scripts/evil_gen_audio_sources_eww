@@ -8,12 +8,12 @@ do
 
   IS_ACTIVE=""
 
-  if [[ "${sarr[1]}" == "${pactl get-default-source}" ]]; then
+  if [[ "${sarr[1]}" == "$(pactl get-default-source)" ]]; then
       IS_ACTIVE="active"
   fi
 
   printf "(button :class \"audio-entry %s\"\n" ${IS_ACTIVE}
-  printf "        :onclick \"pactl set-default-source %s && eww update audio_sources=evil_gen_audio_sources_eww\"\n" ${sarr[1]}
+  printf "        :onclick \"pactl set-default-source %s && eww update\"\n" ${sarr[1]}
   printf "  \"%s\"" ${sarr[0]}
   printf ")\n"
 done
