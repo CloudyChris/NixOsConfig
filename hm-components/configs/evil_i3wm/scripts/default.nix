@@ -30,6 +30,12 @@
     force = true;
   };
 
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_active_workspace" = {
+    source = ./evil_get_active_workspace;
+    executable = true;
+    force = true;
+  };
+
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_audio_sinks" = {
     source = ./evil_get_audio_sinks;
     executable = true;

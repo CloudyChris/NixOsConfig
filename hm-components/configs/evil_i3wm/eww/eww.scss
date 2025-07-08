@@ -71,7 +71,10 @@
 }
 
 .workspace {
-  color: $accent-1;
+  color: $foreground-d;
+  &.active-workspace {
+    color: $accent-1;
+  }
 }
 
 .audio-entry {

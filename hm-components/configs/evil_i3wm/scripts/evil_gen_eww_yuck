@@ -78,4 +78,10 @@ do
     printf "  (bottom_bar :screen %s)\n" ${marr[0]}
     printf ")\n\n"
 
+    #########################################################################
+    ###################### POLL VARS PER SCREEN #############################
+
+    #printf "(defpoll workspace_win_%s :interval 10s\n" ${marr[0]}
+    #printf "   ``\n"
+
 done
