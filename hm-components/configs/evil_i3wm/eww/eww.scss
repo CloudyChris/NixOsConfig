@@ -38,6 +38,18 @@
   color: $accent-1;
 }
 
+.top-bar-center {
+  all: unset;
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: $accent-1;
+}
+
 .top-bar-right {
   all: unset;
   border-radius: 20px;
@@ -75,14 +87,7 @@
   border-width: 1px;
   border-style: solid;
   color: $accent-1;
-  padding: 10px;
-}
-
-.pop-sysmenu-button {
-  all: unset;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  padding: 5px;
 }
 
 .bar-systray {
@@ -97,6 +102,10 @@
   border-radius: 20px;
   border-width: 1px;
   color: $accent-1;
+}
+
+.pop-calendar {
+  padding: 5px;
 }
 
 .bar-audio-container {
@@ -133,6 +142,16 @@
   margin-right: 5px;
 }
 
+.pop-audio-content {
+  padding: 5px;
+}
+
+.pop-audio-content button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
 .bar-sysmenu {
   all: unset;
   background-color: $background;
@@ -144,6 +163,14 @@
   padding: 2px;
 }
 
+.pop-sysmenu-button {
+  all: unset;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+
 .bar-workspaces {
   all: unset;
   border-radius: 20px;
@@ -151,15 +178,9 @@
 }
 
 .workspace {
-  all: unset;
-  background-color: $background;
-  color: $foreground-d;
-}
-
-.active-workspace {
-  all: unset;
   color: $accent-1;
 }
+
 
 .bar-windows {
   all: unset;
@@ -183,15 +204,24 @@
   color: $foreground-d;
 }
 
-.active-audio-entry {
+.audio-entry-active {
   all: unset;
+  background-color: $background;
   border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
   color: $accent-1;
 }
 
-.shy {
+.shy-h {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.shy-v {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .spacious {

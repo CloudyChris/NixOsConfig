@@ -52,7 +52,7 @@
          :halign "end"
          :valign "center"
          :space-evenly false
-      (box :class "bar bar-audio-container shy"
+      (box :class "bar bar-audio-container shy-h"
            :orientation "h"
            :space-evenly true
            :spacing 10
@@ -67,7 +67,7 @@
 ; —————— SYSTRAY —————————————————————————————————
 
 (defwidget bar_systray []
-    (box :class "bar bar-systray shy"
+    (box :class "bar bar-systray shy-h"
          :orientation "h"
          :halign "center"
          :valign "center"
@@ -88,14 +88,44 @@
   "date '+%H:%M %d/%m/%Y'"
 )
 
-(defwidget bar_calendar [screen]
-(box :class "bar bar-calendar"
-        :orientation "h"
-        :space-evenly false
-        :halign "center"
-        :valign "center"
-time_full
+(defpoll time_day :interval "1h"
+  "date '%d'"
 )
+
+
+(defpoll time_month :interval "1h"
+  "date '%m'"
+)
+
+(defpoll time_year :interval "1h"
+  "date '%Y'"
+)
+
+(defwidget bar_calendar [screen]
+    (button :class "bar bar-calendar"
+            :onclick "eww open --toggle pop_calendar_${screen}"
+        time_full
+    )
+)
+
+(defwidget pop_calendar []
+  (box :class "pop pop-calendar"
+       :orientation "v"
+       :space-evenly false
+       :halign "center"
+       :valign "center"
+       :vexpand true
+       :hexpand true
+    (calendar :class "pop-calendar-calendar"
+              :day time_day
+              :month time_month
+              :year time_year
+              :show-details false
+              :show-heading true
+              :show-dat-names true
+              :show-week-numbers true
+    )
+  )
 )
 
 ;—————————————————————————————————————————————————
@@ -118,7 +148,7 @@ time_full
 )
 
 (defwidget bar_audio_sinks [screen]
-    (box :class "bar bar-audio shy spacius-h"
+    (box :class "bar bar-audio shy-h spacius-h"
             :orientation "h"
             :space-evenly false
             :halign "center"
@@ -141,14 +171,14 @@ time_full
         (button :class "bar-audio-pop"
                 :halign "end"
                 :valign "center"
-                :onclick "eww open --toggle pop_audio_sinks_${screen}"
+                :onclick "eww update && eww open --toggle pop_audio_sinks_${screen}"
             ""
         )
     )
 )
 
 (defwidget bar_audio_sources [screen]
-    (box :class "bar bar-audio shy spacius-h"
+    (box :class "bar bar-audio shy-h spacius-h"
             :orientation "h"
             :space-evenly false
             :halign "center"
@@ -171,47 +201,33 @@ time_full
         (button :class "bar-audio-pop"
                 :halign "end"
                 :valign "center"
-                :onclick "eww open --toggle pop_audio_sources_${screen}"
+                :onclick "eww update && eww open --toggle pop_audio_sources_${screen}"
             ""
         )
     )
 )
 
-(defwidget pop_audio_sinks []
-  (box :class "pop pop_audio"
+(defwidget pop_audio_sinks [screen]
+  (box :class "pop pop-audio"
        :orientation "v"
        :space-evenly false
        :halign "center"
        :valign "start"
-    (scroll :class "pop_audio_scroll"
-            :hscroll false
-            :vscroll true
-        (box :class "pop_audio_content"
-             :orientation "v"
-             :halign "center"
-             :valign "center"
-             :space-evenly: true
-          (literal :content audio_sinks)
-        )
-    )
+       :vexpand true
+       :hexpand true
+    (literal :content audio_sinks)
   )
 )
 
-(defwidget pop_audio_sources []
-  (box :class "pop pop_audio"
+(defwidget pop_audio_sources [screen]
+  (box :class "pop pop-audio"
        :orientation "v"
        :space-evenly false
        :halign "center"
        :valign "start"
-    (scroll :class "pop_audio_scroll"
-        (box :class "pop_audio_content"
-             :orientation "v"
-             :halign "center"
-             :valign "center"
-             :space-evenly: true
-          (literal :content audio_sources)
-        )
-    )
+       :vexpand true
+       :hexpand true
+    (literal :content audio_sources)
   )
 )
 
@@ -219,7 +235,7 @@ time_full
 ; —————— SYSMENU —————————————————————————————————
 
 (defwidget bar_sysmenu [screen]
-  (box :class "bar bar-sysmenu shy"
+  (box :class "bar bar-sysmenu shy-h"
        :orientation "h"
     (button :onclick "eww open --toggle pop_sysmenu_${screen}"
         "⏻"
@@ -301,20 +317,20 @@ time_full
 )
 
 (defwidget workspace [screen name]
-  (button :class "workspace ${ active_workspaces=~"/${screen}:${name}/" ? "active-workspace" : "" }"
+  (button :class "workspace"
           :onclick "i3-msg \"workspace ${screen}:${name}\" && eww update"
           "${name}"
   )
 )
 
 (defwidget bar_workspaces [screen]
-  (box :class "bar bar-workspaces shy"
+  (box :class "bar bar-workspaces shy-h"
        :orientation "h"
        :space-evenly true
        :halign "start"
        :valign "center"
        :spacing 10
-    ""
+    ""
     (workspace :screen screen
                :name 1
     )
@@ -337,7 +353,7 @@ time_full
 ; —————— WINDOWS —————————————————————————————————
 
 (defwidget bar_windows []
-  (box :class "bar bar-windows shy spacious-h"
+  (box :class "bar bar-windows shy-h"
        :orientation "h"
        :space-evenly false
        :halign "start"
@@ -352,7 +368,7 @@ time_full
 ; —————— CLIPMENU ————————————————————————————————
 
 (defwidget bar_clipmenu []
-  (box :class "bar bar-clipmenu shy spacious-h"
+  (box :class "bar bar-clipmenu shy-h"
        :orientation "h"
        :space-evenly false
        :halign "end"

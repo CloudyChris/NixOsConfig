@@ -2,18 +2,26 @@
 
 mapfile -t audio_sinks < <(evil_get_audio_sinks)
 
-for sink in $(echo "${audio_sinks[*]}")
+printf "(box :class \"pop-audio-content\"\n"
+printf "     :orientation \"v\"\n"
+printf "     :halign \"center\"\n"
+printf "     :valign \"center\"\n"
+printf "     :space-evenly: true\n"
+
+for audio_sink in $(echo "${audio_sinks[*]}")
 do
-  sarr=($(echo $sink | awk '{str=$1; gsub("::", " ", str); print str}'))
+  sarr=($(echo $audio_sink | awk '{str=$1; gsub("::", " ", str); print str}'))
 
   IS_ACTIVE=""
 
   if [[ "${sarr[1]}" == "$(pactl get-default-sink)" ]]; then
-      IS_ACTIVE="active-audio-entry"
+      IS_ACTIVE="-active"
   fi
 
-  printf "(button :class \"audio_entry %s\"\n" ${IS_ACTIVE}
-  printf "        :onclick \"pactl set-default-sink %s && eww update\"\n" ${sarr[1]}
+  printf "(button :class \"audio-entry%s\"\n" ${IS_ACTIVE}
+  printf "        :onclick \"pactl set-default-sink %s && eww update && eww close pop_audio_sinks_\${screen}\"\n" ${sarr[1]}
   printf "  \"%s\"" ${sarr[0]}
   printf ")\n"
 done
+
+printf ")\n\n"
