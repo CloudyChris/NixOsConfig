@@ -14,7 +14,7 @@
         width = 300;
         height = 80;
         origin = "top-right";
-        offset = "10x48";
+        offset = "10x70";
         corner_radius = 5;
         scale = 0;
         notification_limit = 3;
