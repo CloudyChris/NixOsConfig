@@ -3,37 +3,73 @@
 }
 
 .bar {
+  all: unset;
   background-color: $background;
+  border-color: $accent-1;
   border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
   color: $accent-1;
   padding: 2px;
 }
 
 .bar button {
+  all: unset;
   background-color: $background;
+  border-radius: 20px;
+  border-width: 1px;
   color: $accent-1;
   padding: 2px;
 }
 
 .top-bar {
-  background-color: $background;
-  border-color: $accent-1;
-  border-radius: 40px;
+  all: unset;
+  background-color: rgba($background, 0);
+  border-radius: 20px;
   border-width: 1px;
-  border-style: solid;
   color: $accent-1;
 }
 
 .bottom-bar {
+  all: unset;
+  background-color: rgba($background, 0);
+  border-radius: 20px;
+  border-width: 1px;
+  color: $accent-1;
+}
+
+.top-bar-right {
+  all: unset;
+  border-radius: 20px;
+  border-width: 1px;
+  color: $accent-1;
+}
+
+.bottom-bar-center {
+  all: unset;
   background-color: $background;
   border-color: $accent-1;
-  border-radius: 40px;
+  border-radius: 20px;
   border-width: 1px;
   border-style: solid;
+  color: $accent-1;
+  padding: 5px;
+}
+
+.bottom-bar-right {
+  all: unset;
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  padding-top: 2px;
+  padding-bottom: 2px;
   color: $accent-1;
 }
 
 .pop {
+  all: unset;
   background-color: $background;
   border-radius: 20px;
   border-width: 1px;
@@ -43,14 +79,41 @@
 }
 
 .pop-sysmenu-button {
+  all: unset;
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
 }
 
-.shy {
-  margin-left: 20px;
-  margin-right: 20px;
+.bar-systray {
+  all: unset;
+  border-radius: 20px;
+  border-width: 1px;
+  color: $accent-1;
+}
+
+.bar-calendar {
+  all: unset;
+  border-radius: 20px;
+  border-width: 1px;
+  color: $accent-1;
+}
+
+.bar-audio-container {
+  all: unset;
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  color: $accent-1;
+}
+
+.bar-audio {
+  all: unset;
+  border-radius: 20px;
+  border-width: 1px;
+  color: $accent-1;
 }
 
 .bar-audio scale trough highlight {
@@ -70,22 +133,77 @@
   margin-right: 5px;
 }
 
+.bar-sysmenu {
+  all: unset;
+  background-color: $background;
+  border-color: $accent-1;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  color: $accent-1;
+  padding: 2px;
+}
+
+.bar-workspaces {
+  all: unset;
+  border-radius: 20px;
+  border-width: 1px;
+}
+
 .workspace {
+  all: unset;
+  background-color: $background;
   color: $foreground-d;
-  &.active-workspace {
-    color: $accent-1;
-  }
+}
+
+.active-workspace {
+  all: unset;
+  color: $accent-1;
+}
+
+.bar-windows {
+  all: unset;
+  border-radius: 20px;
+  color: $accent-1;
+}
+
+.bar-clipmenu {
+  all: unset;
+  border-radius: 20px;
+  color: $accent-1;
 }
 
 .audio-entry {
+  all: unset;
   background-color: $background;
   border-color: $foreground-d;
   border-radius: 20px;
   border-width: 1px;
   border-style: solid;
   color: $foreground-d;
-  &.active {
-    border-color: $accent-1;
-    color: $accent-1;
-  }
+}
+
+.active-audio-entry {
+  all: unset;
+  border-color: $accent-1;
+  color: $accent-1;
+}
+
+.shy {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.spacious {
+  padding: 5px;
+}
+
+.spacious-h {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.spacious-v {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

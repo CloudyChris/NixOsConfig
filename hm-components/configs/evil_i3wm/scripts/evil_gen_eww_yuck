@@ -52,7 +52,7 @@ do
 
     printf "(defwindow pop_sysmenu_%s :monitor %s\n" ${marr[0]} ${marr[0]}
     printf "                  :windowtype \"dialog\"\n"
-    printf "                  :geometry (geometry :x \"-1%%\"\n"
+    printf "                  :geometry (geometry :x \"-1.5%%\"\n"
     printf "                                      :y \"70px\"\n"
     printf "                                      :width \"50px\"\n"
     printf "                                      :height \"200px\"\n"
@@ -77,11 +77,5 @@ do
     printf "                  :wm-ignore false\n"
     printf "  (bottom_bar :screen %s)\n" ${marr[0]}
     printf ")\n\n"
-
-    #########################################################################
-    ###################### POLL VARS PER SCREEN #############################
-
-    #printf "(defpoll workspace_win_%s :interval 10s\n" ${marr[0]}
-    #printf "   ``\n"
 
 done

@@ -27,7 +27,7 @@
 )
 
 (defwidget top_left [screen]
-    (box :class "bar top-bar-left"
+    (box :class "bar top-bar-left spacious-h"
          :orientation "h"
          :halign "start"
          :valign "center"
@@ -37,7 +37,7 @@
 )
 
 (defwidget top_center [screen]
-    (box :class "bar top-bar-center"
+    (box :class "bar top-bar-center spacious-h"
          :orientation "h"
          :halign "center"
          :valign "center"
@@ -47,45 +47,20 @@
 )
 
 (defwidget top_right [screen]
-    (box :class "bar top-bar-right"
+    (box :class "bar top-bar-right spacious-h"
          :orientation "h"
          :halign "end"
          :valign "center"
          :space-evenly false
-      (bar_audio_sinks :screen screen)
-      (bar_audio_sources :screen screen)
+      (box :class "bar bar-audio-container shy"
+           :orientation "h"
+           :space-evenly true
+           :spacing 10
+
+        (bar_audio_sinks :screen screen)
+        (bar_audio_sources :screen screen)
+      )
       (bar_sysmenu :screen screen)
-    )
-)
-
-(defwidget bottom_left [screen]
-    (box :class "bar bottom-bar-left"
-         :orientation "h"
-         :halign "start"
-         :valign "center"
-         :space-evenly false
-      (bar_workspaces :screen screen)
-    )
-)
-
-(defwidget bottom_center [screen]
-    (box :class "bar bottom-bar-center"
-         :orientation "h"
-         :halign "center"
-         :valign "center"
-         :space-evenly false
-      ""
-    )
-)
-
-(defwidget bottom_right [screen]
-    (box :class "bar bottom-bar-right"
-         :orientation "h"
-         :halign "end"
-         :valign "center"
-         :space-evenly false
-      (bar_windows)
-      (bar_clipmenu)
     )
 )
 
@@ -143,7 +118,7 @@ time_full
 )
 
 (defwidget bar_audio_sinks [screen]
-    (box :class "bar bar-audio shy"
+    (box :class "bar bar-audio shy spacius-h"
             :orientation "h"
             :space-evenly false
             :halign "center"
@@ -173,7 +148,7 @@ time_full
 )
 
 (defwidget bar_audio_sources [screen]
-    (box :class "bar bar-audio shy"
+    (box :class "bar bar-audio shy spacius-h"
             :orientation "h"
             :space-evenly false
             :halign "center"
@@ -182,7 +157,7 @@ time_full
                 :halign "start"
                 :valign "center"
                 :onclick "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-            {source_volume == 0 ? "" : ""}
+            {source_volume == 0 ? "󰍭" : "󰍬"}
         )
         (scale :class "bar-audio-scale"
                 :halign "center"
@@ -244,9 +219,11 @@ time_full
 ; —————— SYSMENU —————————————————————————————————
 
 (defwidget bar_sysmenu [screen]
-  (button :class "bar bar-sysmenu shy"
-          :onclick "eww open --toggle pop_sysmenu_${screen}"
-    "⏻"
+  (box :class "bar bar-sysmenu shy"
+       :orientation "h"
+    (button :onclick "eww open --toggle pop_sysmenu_${screen}"
+        "⏻"
+    )
   )
 )
 
@@ -285,11 +262,47 @@ time_full
 
 ;—————————————————————————————————————————————————
 ; —————— BOTTOM BAR STUFF ——————————————————————————————————————————————————————
+
+(defwidget bottom_left [screen]
+    (box :class "bar bottom-bar-left spacious-h"
+         :orientation "h"
+         :halign "start"
+         :valign "center"
+         :space-evenly false
+      (bar_workspaces :screen screen)
+    )
+)
+
+(defwidget bottom_center [screen]
+    (box :class "bar bottom-bar-center"
+         :orientation "h"
+         :halign "center"
+         :valign "center"
+         :space-evenly false
+      ""
+    )
+)
+
+(defwidget bottom_right [screen]
+    (box :class "bar bottom-bar-right spacious-h"
+         :orientation "h"
+         :halign "end"
+         :valign "center"
+         :space-evenly false
+      (bar_windows)
+      (bar_clipmenu)
+    )
+)
+
 ; —————— WORKSPACES ——————————————————————————————
 
+(defpoll active_workspaces :interval "10m"
+    `evil_get_active_workspace | perl -pe 's/\n/ /'`
+)
+
 (defwidget workspace [screen name]
-  (button :class "workspace"
-          :onclick "i3-msg \"workspace ${screen}:${name}\""
+  (button :class "workspace ${ active_workspaces=~"/${screen}:${name}/" ? "active-workspace" : "" }"
+          :onclick "i3-msg \"workspace ${screen}:${name}\" && eww update"
           "${name}"
   )
 )
@@ -301,6 +314,7 @@ time_full
        :halign "start"
        :valign "center"
        :spacing 10
+    ""
     (workspace :screen screen
                :name 1
     )
@@ -323,9 +337,14 @@ time_full
 ; —————— WINDOWS —————————————————————————————————
 
 (defwidget bar_windows []
-  (button :class "bar bar-windows shy"
-          :onclick "evil_rofi_windows"
-    ""
+  (box :class "bar bar-windows shy spacious-h"
+       :orientation "h"
+       :space-evenly false
+       :halign "start"
+       :valign "center"
+    (button :onclick "evil_rofi_windows"
+        ""
+    )
   )
 )
 
@@ -333,9 +352,14 @@ time_full
 ; —————— CLIPMENU ————————————————————————————————
 
 (defwidget bar_clipmenu []
-  (button :class "bar bar-clipmenu shy"
-          :onclick "clipmenu"
-    "󰅍"
+  (box :class "bar bar-clipmenu shy spacious-h"
+       :orientation "h"
+       :space-evenly false
+       :halign "end"
+       :valign "center"
+    (button :onclick "clipmenu"
+        "󰅍"
+    )
   )
 )
 

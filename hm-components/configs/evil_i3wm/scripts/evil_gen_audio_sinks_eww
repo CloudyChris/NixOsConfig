@@ -9,7 +9,7 @@ do
   IS_ACTIVE=""
 
   if [[ "${sarr[1]}" == "$(pactl get-default-sink)" ]]; then
-      IS_ACTIVE="active"
+      IS_ACTIVE="active-audio-entry"
   fi
 
   printf "(button :class \"audio_entry %s\"\n" ${IS_ACTIVE}
