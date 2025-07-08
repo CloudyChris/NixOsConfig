@@ -10,7 +10,7 @@ hide_edge_borders none
 #~ Gaps
 gaps inner 10px
 gaps horizontal 10px
-gaps vertical 60px
+gaps vertical 55px
 
 #~ Colors
 set_from_resource $black0 i3wm.black0 #191d24

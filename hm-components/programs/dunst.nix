@@ -14,8 +14,8 @@
         width = 300;
         height = 80;
         origin = "top-right";
-        offset = "10x60";
-        corner_radius = 20;
+        offset = "10x55";
+        corner_radius = 40;
         scale = 0;
         notification_limit = 3;
         progress_bar = true;
