@@ -382,3 +382,17 @@
 )
 
 ;—————————————————————————————————————————————————
+
+; —————— STANDALONE POPUPS —————————————————————————————————————————————————————
+
+(defpoll i3_mode_info :interval "1m"
+                      :initial "default"
+`evil_get_i3_mode`
+)
+
+(defwidget pop_whichkey []
+  (box :class "pop pop-whichkey"
+       :orientation "h"
+    i3_mode_info
+  )
+)

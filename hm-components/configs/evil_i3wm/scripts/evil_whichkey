@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+PARSED_ARGUMENTS=$(getopt -n evil_whichkey -o cos --long close,open,switch -- "$@")
+
+eval set -- "$PARSED_ARGUMENTS"
+
+MONITOR=$(evil_get_current_monitor | tr "::" " " | awk '{print $1}')
+
+while :
+do
+  case "$1" in
+    -c | --close)
+      eval "eww close pop_whichkey_${MONITOR}"
+      shift
+      ;;
+    -o | --open)
+      eval "eww update && eww open pop_whichkey_${MONITOR}"
+      shift
+      ;;
+    -s | --switch)
+      eval "eww close pop_whichkey_${MONITOR} && eww update && eww open pop_whichkey_${MONITOR}"
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *)
+      echo "You're an idiot sandwitch"
+      ;;
+  esac
+done

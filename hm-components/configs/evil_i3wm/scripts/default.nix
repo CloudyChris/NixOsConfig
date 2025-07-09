@@ -54,6 +54,12 @@
     force = true;
   };
 
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_i3_mode" = {
+    source = ./evil_get_i3_mode;
+    executable = true;
+    force = true;
+  };
+
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_get_monitors" = {
     source = ./evil_get_monitors;
     executable = true;
@@ -116,6 +122,12 @@
 
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_configure" = {
     source = ./evil_configure;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_whichkey" = {
+    source = ./evil_whichkey;
     executable = true;
     force = true;
   };
