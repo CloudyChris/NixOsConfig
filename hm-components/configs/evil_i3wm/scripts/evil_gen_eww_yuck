@@ -30,8 +30,8 @@ do
     printf "                  :windowtype \"dialog\"\n"
     printf "                  :geometry (geometry :x \"0%%\"\n"
     printf "                                      :y \"60px\"\n"
-    printf "                                      :width \"20%%\"\n"
-    printf "                                      :height \"20%%\"\n"
+    printf "                                      :width \"300px\"\n"
+    printf "                                      :height \"200px\"\n"
     printf "                                      :anchor \"top center\"\n"
     printf "                            )\n"
     printf "                  :wm-ignore true\n"
@@ -40,10 +40,10 @@ do
 
     printf "(defwindow pop_audio_sinks_%s :monitor %s\n" ${marr[0]} ${marr[0]}
     printf "                  :windowtype \"dialog\"\n"
-    printf "                  :geometry (geometry :x \"-7%%\"\n"
+    printf "                  :geometry (geometry :x \"-12%%\"\n"
     printf "                                      :y \"60px\"\n"
-    printf "                                      :width \"20%%\"\n"
-    printf "                                      :height \"20%%\"\n"
+    printf "                                      :width \"200px\"\n"
+    printf "                                      :height \"150px\"\n"
     printf "                                      :anchor \"top right\"\n"
     printf "                            )\n"
     printf "                  :wm-ignore true\n"
@@ -52,10 +52,10 @@ do
 
     printf "(defwindow pop_audio_sources_%s :monitor %s\n" ${marr[0]} ${marr[0]}
     printf "                  :windowtype \"dialog\"\n"
-    printf "                  :geometry (geometry :x \"2.5%%\"\n"
+    printf "                  :geometry (geometry :x \"-4%%\"\n"
     printf "                                      :y \"60px\"\n"
-    printf "                                      :width \"20%%\"\n"
-    printf "                                      :height \"20%%\"\n"
+    printf "                                      :width \"200px\"\n"
+    printf "                                      :height \"150px\"\n"
     printf "                                      :anchor \"top right\"\n"
     printf "                            )\n"
     printf "                  :wm-ignore true\n"

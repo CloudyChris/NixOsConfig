@@ -19,7 +19,6 @@
 (defwidget bottom_bar [screen]
     (centerbox :class "bar top-bar"
          :orientation "h"
-         :space-evenly false
       (bottom_left :screen screen)
       (bottom_center :screen screen)
       (bottom_right :screen screen)
@@ -135,10 +134,12 @@
 ; —————— AUDIO - BAR + POPUP —————————————————————
 
 (defpoll sink_volume :interval "1s"
+                     :initial "0"
   `evil_get_sink_volume`
 )
 
 (defpoll source_volume :interval "1s"
+                     :initial "0"
   `evil_get_source_volume`
 )
 
@@ -298,7 +299,9 @@
          :halign "center"
          :valign "center"
          :space-evenly false
-      ""
+      (button :onclick "evil_rofi_drun"
+        ""
+      )
     )
 )
 
@@ -314,10 +317,6 @@
 )
 
 ; —————— WORKSPACES ——————————————————————————————
-
-(defpoll active_workspaces :interval "10m"
-    `evil_get_active_workspace | perl -pe 's/\n/ /'`
-)
 
 (defwidget workspace [screen name]
   (button :class "workspace"
