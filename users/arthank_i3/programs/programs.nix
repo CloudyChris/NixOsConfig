@@ -9,6 +9,7 @@
     eza
     rofi
     neovim
+    nitrogen
 
     # file manager
     xfce.thunar

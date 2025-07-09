@@ -32,9 +32,11 @@
 
     # SERVICES
     ../../components/services/cups.nix
+    ../../components/services/flatpak.nix
     ../../components/services/nginx.nix
     ../../components/services/openssh.nix
     ../../components/services/ratbagd.nix
+    ../../components/services/transmission.nix
 
     # UTIL
     ../../components/util/appimage.nix
@@ -55,7 +57,6 @@
     ##########################################
     ./programs.nix
     ./flatpak.nix
-    ./transmission.nix
   ];
 
   users.users = {

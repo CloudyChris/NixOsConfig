@@ -2,11 +2,6 @@
   imports = [inputs.nix-flatpak.nixosModules.nix-flatpak];
 
   services.flatpak = {
-    enable = true;
-    remotes = lib.mkOptionDefault [{
-      name = "flathub-beta";
-      location = "https://flathub.org/beta-repo/flathub-beta.flatpakrepo";
-    }];
     packages = [
       {
         flatpakref = "https://sober.vinegarhq.org/sober.flatpakref";

@@ -6,7 +6,7 @@
   services.transmission = {
     enable = true;
     webHome = pkgs.flood-for-transmission;
-    downloadDirPermissions = "777";
+    downloadDirPermissions = "666";
     settings = {
       umask = 0;
       download-dir = "${config.services.transmission.home}/Downloads";

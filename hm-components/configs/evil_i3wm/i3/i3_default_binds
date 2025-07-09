@@ -17,55 +17,55 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl prev
 
 #################################################################################################################### Evil Keybinds
-set $mode_leader Leader: [a]udio [b]luetooth [c]lient [h]elp [i]3wm [l]ayout [o]pen [r]un [s]ysmenu [v]iew [w]orkspace
+set $mode_leader Leader: [c]lient [h]elp [i]3wm [l]ayout [o]pen [r]un [s]ysmenu [v]iew [w]orkspace [Esc]
 
-set $mode_client Client: [f]ullscreen [k]ill f[l]oat [m]ove [s]mark [u]nmark
-set $mode_i3wm i3wm: [c]ommand [e]xit re[l]oad [r]estart
-set $mode_layout Layout: [h]orizontal-split [v]ertical-split [s]plit-toggle [t]abbed [c]ycle
-set $mode_open Open: [b]rowser [e]ditor [f]iles [h]top [p]rograms [s]team [t]erminal
-set $mode_run Run: [r]un as-[s]uperuser
-set $mode_sysmenu System Menu: [h]ibernate [l]ock log-[o]ut [p]oweroff [r]estart [s]leep
-set $mode_view View: [c]lipboard-history [k]eyboard-layouts [s]cratchpad-containers
-set $mode_workspace Workspace: [m]ove [n]ext [p]revious [1] [2] [3] [4] [5]
+set $mode_client Client: [f]ullscreen [k]ill f[l]oat [m]ove [r]esize [s]mark [u]nmark [Esc]
+set $mode_i3wm i3wm: [c]ommand [e]xit re[l]oad [r]estart [Esc]
+set $mode_layout Layout: [h]orizontal-split [v]ertical-split [s]plit-toggle [t]abbed [c]ycle [Esc]
+set $mode_open Open: [b]rowser [e]ditor [f]iles [h]top [p]rograms [s]team [t]erminal [Esc]
+set $mode_run Run: [r]un as-[s]uperuser [Esc]
+set $mode_sysmenu System Menu: [h]ibernate [l]ock log-[o]ut [p]oweroff [r]estart [s]leep [Esc]
+set $mode_view View: [c]lipboard-history [Esc]
+set $mode_workspace Workspace: [m]ove [n]ext [p]revious [1] [2] [3] [4] [5] [Esc]
 
-set $mode_client_move Move client: [l]eft [r]ight [u]p [d]own to-[s]creen to-[workspace]
-set $mode_client_after_move And: [g]o [s]tay
-set $mode_client_resize Resize client: [←] [→] [↑] [↓]
+set $mode_client_move Move client: [l]eft [r]ight [u]p [d]own to-[s]creen to-[w]orkspace [Esc]
+set $mode_client_after_move And: [g]o [s]tay [Esc]
+set $mode_client_resize Resize client: [←] [→] [↑] [↓] [Esc]
 
-bindsym Mod4+space mode "$mode_leader"; evil_whichkey -o
+bindsym Mod4+space mode "$mode_leader"; exec "evil_whichkey -o"
 
 mode "$mode_leader" {
-    bindsym c mode "$mode_client"; evil_whichkey -s
-    bindsym h mode default; evil_whichkey -c; exec "notify-send \\"Help not implemented\\""
-    bindsym i mode "$mode_i3wm"; evil_whichkey -s
-    bindsym l mode "$mode_layout"; evil_whichkey -s
-    bindsym o mode "$mode_open"; evil_whichkey -s
-    bindsym r mode default; evil_whichkey -c; exec "evil_rofi_run"
-    bindsym s mode "$mode_sysmenu"; evil_whichkey -s
-    bindsym v mode "$mode_view"; evil_whichkey -s
-    bindsym w mode "$mode_workspace"; evil_whichkey -s
-    bindsym Escape mode default; evil_whichkey -c
+    bindsym c mode "$mode_client"; exec "evil_whichkey -s"
+    bindsym h mode default; exec "evil_whichkey -c"; exec "notify-send \\"Help not implemented\\""
+    bindsym i mode "$mode_i3wm"; exec "evil_whichkey -s"
+    bindsym l mode "$mode_layout"; exec "evil_whichkey -s"
+    bindsym o mode "$mode_open"; exec "evil_whichkey -s"
+    bindsym r mode default; exec "evil_whichkey -c"; exec "evil_rofi_run"
+    bindsym s mode "$mode_sysmenu"; exec "evil_whichkey -s"
+    bindsym v mode "$mode_view"; exec "evil_whichkey -s"
+    bindsym w mode "$mode_workspace"; exec "evil_whichkey -s"
+    bindsym Escape mode default; exec "evil_whichkey -c"
 }
 
 mode "$mode_client" {
-    bindsym f mode default; evil_whichkey -c; fullscreen toggle
-    bindsym k mode default; evil_whichkey -c; kill
-    bindsym l mode default; evil_whichkey -c; floating toggle
-    bindsym m mode "$mode_client_move"; evil_whichkey -s
-    bindsym r mode "$mode_client_resize"; evil_whichkey -s
+    bindsym f mode default; exec "evil_whichkey -c"; fullscreen toggle
+    bindsym k mode default; exec "evil_whichkey -c"; kill
+    bindsym l mode default; exec "evil_whichkey -c"; floating toggle
+    bindsym m mode "$mode_client_move"; exec "evil_whichkey -s"
+    bindsym r mode "$mode_client_resize"; exec "evil_whichkey -s"
     # TODO 2
-    bindsym s mode default; evil_whichkey -c; exec "notify-send \\"Mark menu not implemented\\""
-    bindsym u mode default; evil_whichkey -c; exec "notify-send \\"Unmark menu not implemented\\""
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym s mode default; exec "evil_whichkey -c"; exec "notify-send \\"Mark menu not implemented\\""
+    bindsym u mode default; exec "evil_whichkey -c"; exec "notify-send \\"Unmark menu not implemented\\""
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_i3wm" {
     # TODO 1
-    bindsym c mode default; evil_whichkey -c; exec "notify-send \\"i3 command dialogue not implemented\\""
-    bindsym e mode default; evil_whichkey -c; exit
-    bindsym l mode default; evil_whichkey -c; reload
-    bindsym r mode default; evil_whichkey -c; restart
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym c mode default; exec "evil_whichkey -c"; exec "notify-send \\"i3 command dialogue not implemented\\""
+    bindsym e mode default; exec "evil_whichkey -c"; exit
+    bindsym l mode default; exec "evil_whichkey -c"; reload
+    bindsym r mode default; exec "evil_whichkey -c"; restart
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_layout" {
@@ -74,44 +74,44 @@ mode "$mode_layout" {
     bindsym s split toggle
     bindsym t layout tabbed
     bindsym c layout toggle
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_open" {
-    bindsym b mode default; evil_whichkey -c; exec $BROWSER
-    bindsym e mode default; evil_whichkey -c; exec $EDITOR
-    bindsym f mode default; evil_whichkey -c; exec $FILEX
-    bindsym h mode default; evil_whichkey -c; exec "$TERMINAL -e htop"
-    bindsym p mode default; evil_whichkey -c; exec "evil_rofi_drun"
-    bindsym s mode default; evil_whichkey -c; exec steam
-    bindsym t mode default; evil_whichkey -c; exec $TERMINAL
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym b mode default; exec "evil_whichkey -c"; exec $BROWSER
+    bindsym e mode default; exec "evil_whichkey -c"; exec $EDITOR
+    bindsym f mode default; exec "evil_whichkey -c"; exec $FILEX
+    bindsym h mode default; exec "evil_whichkey -c"; exec "$TERMINAL -e htop"
+    bindsym p mode default; exec "evil_whichkey -c"; exec "evil_rofi_drun"
+    bindsym s mode default; exec "evil_whichkey -c"; exec steam
+    bindsym t mode default; exec "evil_whichkey -c"; exec $TERMINAL
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_sysmenu" {
-    bindsym h mode default; evil_whichkey -c; exec "i3lock && systemctl hibernate"
-    bindsym l mode default; evil_whichkey -c; exec "i3lock"
-    bindsym o mode default; evil_whichkey -c; exec "i3-msg exit"
-    bindsym p mode default; evil_whichkey -c; systemctl poweroff
-    bindsym r mode default; evil_whichkey -c; systemctl reboot
-    bindsym s mode default; evil_whichkey -c; exec "i3lock && systemctl suspend"
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym h mode default; exec "evil_whichkey -c"; exec "i3lock && systemctl hibernate"
+    bindsym l mode default; exec "evil_whichkey -c"; exec "i3lock"
+    bindsym o mode default; exec "evil_whichkey -c"; exec "i3-msg exit"
+    bindsym p mode default; exec "evil_whichkey -c"; systemctl poweroff
+    bindsym r mode default; exec "evil_whichkey -c"; systemctl reboot
+    bindsym s mode default; exec "evil_whichkey -c"; exec "i3lock && systemctl suspend"
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_view" {
-    bindsym c mode default; evil_whichkey -c; exec "clipmenu"
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym c mode default; exec "evil_whichkey -c"; exec "clipmenu"
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_workspace" {
-    bindsym n mode default; evil_whichkey -c; workspace next
-    bindsym p mode default; evil_whichkey -c; workspace prev
-    bindsym 1 mode default; evil_whichkey -c; exec "evil_i3_workspace 1"
-    bindsym 2 mode default; evil_whichkey -c; exec "evil_i3_workspace 2"
-    bindsym 3 mode default; evil_whichkey -c; exec "evil_i3_workspace 3"
-    bindsym 4 mode default; evil_whichkey -c; exec "evil_i3_workspace 4"
-    bindsym 5 mode default; evil_whichkey -c; exec "evil_i3_workspace 5"
-    bindsym Escape mode "$mode_leader"; evil_whichkey -s
+    bindsym n mode default; exec "evil_whichkey -c"; workspace next
+    bindsym p mode default; exec "evil_whichkey -c"; workspace prev
+    bindsym 1 mode default; exec "evil_whichkey -c"; exec "evil_i3_workspace 1"
+    bindsym 2 mode default; exec "evil_whichkey -c"; exec "evil_i3_workspace 2"
+    bindsym 3 mode default; exec "evil_whichkey -c"; exec "evil_i3_workspace 3"
+    bindsym 4 mode default; exec "evil_whichkey -c"; exec "evil_i3_workspace 4"
+    bindsym 5 mode default; exec "evil_whichkey -c"; exec "evil_i3_workspace 5"
+    bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
 
 mode "$mode_client_move" {
@@ -121,16 +121,16 @@ mode "$mode_client_move" {
     bindsym d move down
     # TODO 2
     # the menu these open should set a var somewhere to be used by mode_client_after_move
-    bindsym s mode default; evil_whichkey -c; exec "notify-send \\"Move to screen menu not implemented\\""
-    bindsym w mode default; evil_whichkey -c; exec "notify-send \\"Move to workspace menu not implemented\\""
-    bindsym Escape mode "$mode_client"; evil_whichkey -s
+    bindsym s mode default; exec "evil_whichkey -c"; exec "notify-send \\"Move to screen menu not implemented\\""
+    bindsym w mode default; exec "evil_whichkey -c"; exec "notify-send \\"Move to workspace menu not implemented\\""
+    bindsym Escape mode "$mode_client"; exec "evil_whichkey -s"
 }
 
 mode "$mode_client_after_move" {
     # TODO 1
-    bindsym g mode default; evil_whichkey -c; exec "notify-send \\"Client move to screen and workspace menus not implemented\\""
-    bindsym s mode default; evil_whichkey -c
-    bindsym Escape mode "$mode_move"; evil_whichkey -s
+    bindsym g mode default; exec "evil_whichkey -c"; exec "notify-send \\"Client move to screen and workspace menus not implemented\\""
+    bindsym s mode default; exec "evil_whichkey -c"
+    bindsym Escape mode "$mode_move"; exec "evil_whichkey -s"
 }
 
 mode "$mode_client_resize" {
@@ -138,5 +138,5 @@ mode "$mode_client_resize" {
     bindsym Right resize grow width 10 px or 10 ppt
     bindsym Up resize grow height 10 px or 10 ppt
     bindsym Down resize shrink height 10px or 10 ppt
-    bindsym Escape mode "$mode_client"; evil_whichkey -s
+    bindsym Escape mode "$mode_client"; exec "evil_whichkey -s"
 }

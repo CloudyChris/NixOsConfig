@@ -96,12 +96,12 @@ do
     printf "(defwindow pop_whichkey_%s :monitor %s\n" ${marr[0]} ${marr[0]}
     printf "                  :windowtype \"dialog\"\n"
     printf "                  :geometry (geometry :x \"0%%\"\n"
-    printf "                                      :y \"-5px\"\n"
+    printf "                                      :y \"-15px\"\n"
     printf "                                      :width \"40%%\"\n"
     printf "                                      :height \"20px\"\n"
     printf "                                      :anchor \"bottom center\"\n"
     printf "                            )\n"
-    printf "                  :wm-ignore false\n"
+    printf "                  :wm-ignore true\n"
     printf "  (pop_whichkey)\n"
     printf ")\n\n"
 done
