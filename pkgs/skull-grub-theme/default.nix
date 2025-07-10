@@ -13,7 +13,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     owner = "CloudyChris";
     repo = "skull-grub-theme";
     rev = "efec4d3e2b4557d2709900fb202fceac03c50e66";
-    hash = "sha256-8zpQbA2Cp1KL3m6lJ39F0EObguF6hUwTrfnQEzn3Lsw=";
+    hash = "sha256-pHM8yd4GldeZLFElYjXa7wXmV4JfpcnbJsn7OZ1DwQw=";
   };
 
   dontBuild = true;

@@ -41,7 +41,7 @@
         device = "nodev";
         fsIdentifier = "label";
         backgroundColor = "#191d24";
-        gfxmodeEfi = "25601440";
+        gfxmodeEfi = "2560x1440";
       };
       timeout = 5;
       efi.canTouchEfiVariables = true;
