@@ -92,8 +92,8 @@ mode "$mode_sysmenu" {
     bindsym h mode default; exec "evil_whichkey -c"; exec "i3lock && systemctl hibernate"
     bindsym l mode default; exec "evil_whichkey -c"; exec "i3lock"
     bindsym o mode default; exec "evil_whichkey -c"; exec "i3-msg exit"
-    bindsym p mode default; exec "evil_whichkey -c"; systemctl poweroff
-    bindsym r mode default; exec "evil_whichkey -c"; systemctl reboot
+    bindsym p mode default; exec "evil_whichkey -c"; exec "systemctl poweroff"
+    bindsym r mode default; exec "evil_whichkey -c"; exec "systemctl reboot"
     bindsym s mode default; exec "evil_whichkey -c"; exec "i3lock && systemctl suspend"
     bindsym Escape mode "$mode_leader"; exec "evil_whichkey -s"
 }
