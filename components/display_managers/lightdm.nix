@@ -7,7 +7,7 @@
 
   services.xserver.displayManager.lightdm = {
     enable = true;
-    background = "#191d24";
+    background = "#191924";
     greeters.gtk = {
       enable = true;
       theme = {

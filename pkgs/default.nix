@@ -6,6 +6,7 @@
   # pkgs
   nord-sddm = pkgs.callPackage ./nord-sddm {};
   nordic-cursor-theme = pkgs.callPackage ./nordic-cursor-theme {};
+  skull-grub-theme = pkgs.callPackage ./skull-grub-theme {};
 
   # lua
   extraLuaPackages = pkgs.callPackage ./lua {};
