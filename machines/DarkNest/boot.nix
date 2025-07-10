@@ -42,6 +42,8 @@
         fsIdentifier = "label";
         backgroundColor = "#191d24";
         gfxmodeEfi = "2560x1440";
+        splashImage = "../../assets/wallpapers/1.png";
+        splashMode = "stretch";
       };
       timeout = 5;
       efi.canTouchEfiVariables = true;
