@@ -4,7 +4,7 @@ bindsym Mod1+Tab exec "evil_rofi_windows"
 #~ Take a screenshot
 bindsym Print exec "evil_screenshot_fullscreen"
 bindsym Ctrl+Print exec "evil_screenshot_region"
-bindsym Mod1+Print exec "evil_screenshot_window"
+bindsym Shift+Print exec "evil_screenshot_window"
 
 #~ Audio Keybinds
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
