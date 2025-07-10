@@ -1,5 +1,11 @@
 { config, ... }:
 {
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_configure" = {
+    source = ./evil_configure;
+    executable = true;
+    force = true;
+  };
+
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_gen_audio_sinks_eww" = {
     source = ./evil_gen_audio_sinks_eww;
     executable = true;
@@ -114,14 +120,26 @@
     force = true;
   };
 
-  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_start_i3_bar" = {
-    source = ./evil_start_i3_bar;
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_screenshot_fullscreen" = {
+    source = ./evil_screenshot_fullscreen;
     executable = true;
     force = true;
   };
 
-  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_configure" = {
-    source = ./evil_configure;
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_screenshot_region" = {
+    source = ./evil_screenshot_region;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_screenshot_window" = {
+    source = ./evil_screenshot_window;
+    executable = true;
+    force = true;
+  };
+
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_start_i3_bar" = {
+    source = ./evil_start_i3_bar;
     executable = true;
     force = true;
   };
