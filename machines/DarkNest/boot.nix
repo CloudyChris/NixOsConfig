@@ -35,7 +35,7 @@
     loader = {
       grub = {
         enable = true;
-        theme = "${pkgs.skull-grub-theme}/";
+        theme = "${pkgs.libsForQt5.breeze-grub}/grub/themes/breeze";
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
