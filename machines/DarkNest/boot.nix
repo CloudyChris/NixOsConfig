@@ -41,8 +41,7 @@
         device = "nodev";
         fsIdentifier = "label";
         backgroundColor = "#191d24";
-        gfxmodeEfi = "2560x1440";
-        splashImage = "../../assets/wallpapers/1.png";
+        splashImage = ../../assets/grub/bg_2560x1440.png;
         splashMode = "stretch";
       };
       timeout = 5;

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+FWIN=$(xprop -root _NET_ACTIVE_WINDOW | awk '{print $5}')
+
+eval "magick import -window ${FWIN} clipboard:"

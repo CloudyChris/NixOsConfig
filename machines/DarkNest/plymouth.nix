@@ -3,10 +3,10 @@
   boot.plymouth = {
     enable = true;
     font = config.console.font;
-    theme = "owl";
+    theme = "seal_3";
     themePackages = with pkgs; [
       (adi1090x-plymouth-themes.override {
-        selected_themes = ["owl"];
+        selected_themes = ["seal" "seal_2" "seal_3" "owl"];
       })
     ];
   };
