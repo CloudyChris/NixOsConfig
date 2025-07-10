@@ -35,7 +35,7 @@
     loader = {
       grub = {
         enable = true;
-        theme = "${pkgs.skull-grub-theme}";
+        theme = "${pkgs.skull-grub-theme}/";
         useOSProber = true;
         efiSupport = true;
         device = "nodev";
