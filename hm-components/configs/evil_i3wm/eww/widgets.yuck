@@ -364,7 +364,7 @@
 (defwidget bar_whichkey []
   (box :class "pop pop-whichkey"
        :orientation "h"
-    "${i3_mode_info == "default" ? ""}"
+    {i3_mode_info == "default" ? "" : i3_mode_info}
   )
 )
 
