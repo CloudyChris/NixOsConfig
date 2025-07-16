@@ -358,13 +358,13 @@
 
 (defpoll i3_mode_info :interval "1m"
                       :initial "default"
-`evil_get_i3_mode`
+`evil_get_i3_mode | awk '{$0=="default" ? "" : $0}')`
 )
 
 (defwidget bar_whichkey []
-  (box :class "pop pop-whichkey"
+  (box :class "bar bar-whichkey"
        :orientation "h"
-    {i3_mode_info == "default" ? "" : i3_mode_info}
+    i3_mode_info
   )
 )
 
