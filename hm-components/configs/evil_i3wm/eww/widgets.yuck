@@ -299,9 +299,7 @@
          :halign "center"
          :valign "center"
          :space-evenly false
-      (button :onclick "evil_rofi_drun"
-        ""
-      )
+      (bar_whichkey)
     )
 )
 
@@ -313,6 +311,9 @@
          :space-evenly false
       (bar_windows)
       (bar_clipmenu)
+      (button :onclick "evil_rofi_drun"
+        ""
+      )
     )
 )
 
@@ -333,6 +334,7 @@
        :valign "center"
        :spacing 10
     ""
+    " "
     (workspace :screen screen
                :name 1
     )
@@ -348,6 +350,21 @@
     (workspace :screen screen
                :name 5
     )
+  )
+)
+
+;—————————————————————————————————————————————————
+; —————— WHICHKEY ————————————————————————————————
+
+(defpoll i3_mode_info :interval "1m"
+                      :initial "default"
+`evil_get_i3_mode`
+)
+
+(defwidget bar_whichkey []
+  (box :class "pop pop-whichkey"
+       :orientation "h"
+    "${i3_mode_info == "default" ? ""}"
   )
 )
 
@@ -382,17 +399,3 @@
 )
 
 ;—————————————————————————————————————————————————
-
-; —————— STANDALONE POPUPS —————————————————————————————————————————————————————
-
-(defpoll i3_mode_info :interval "1m"
-                      :initial "default"
-`evil_get_i3_mode`
-)
-
-(defwidget pop_whichkey []
-  (box :class "pop pop-whichkey"
-       :orientation "h"
-    i3_mode_info
-  )
-)

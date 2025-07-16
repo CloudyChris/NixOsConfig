@@ -56,7 +56,6 @@
 
     ##########################################
     ./programs.nix
-    ./flatpak.nix
   ];
 
   users.users = {
