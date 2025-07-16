@@ -358,7 +358,7 @@
 
 (defpoll i3_mode_info :interval "1m"
                       :initial "default"
-`evil_get_i3_mode | awk '{$0=="default" ? "" : $0}')`
+`evil_get_i3_mode | awk '{print $0=="default" ? "" : $0}'`
 )
 
 (defwidget bar_whichkey []

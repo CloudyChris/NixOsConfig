@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-I3_MODE=$(evil_get_i3_mode | awk '{$0=="default" ? "" : $0}')
+I3_MODE=$(evil_get_i3_mode | awk '{print $0=="default" ? "" : $0}')
 
 eval "eww update i3_mode_info=${I3_MODE}"
