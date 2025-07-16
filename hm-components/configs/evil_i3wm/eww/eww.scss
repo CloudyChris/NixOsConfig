@@ -182,6 +182,11 @@
   color: $accent-1;
 }
 
+.bar-whichkey {
+  all: unset;
+  border-radius: 20px;
+  padding: 7px;
+}
 
 .bar-windows {
   all: unset;
@@ -190,6 +195,12 @@
 }
 
 .bar-clipmenu {
+  all: unset;
+  border-radius: 20px;
+  color: $accent-1;
+}
+
+.bar-programs {
   all: unset;
   border-radius: 20px;
   color: $accent-1;
@@ -213,12 +224,6 @@
   border-width: 1px;
   border-style: solid;
   color: $accent-1;
-}
-
-.bar-whichkey {
-  all: unset;
-  border-radius: 20px;
-  padding: 7px;
 }
 
 .shy-h {

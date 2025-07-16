@@ -311,9 +311,10 @@
          :space-evenly false
       (bar_windows)
       (bar_clipmenu)
-      (button :class "bar bar-programs shy-h"
-              :onclick "evil_rofi_drun"
-        ""
+      (box :class "bar bar-programs shy-h"
+        (button :onclick "evil_rofi_drun"
+            ""
+        )
       )
     )
 )
