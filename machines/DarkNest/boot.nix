@@ -11,8 +11,17 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_uvm"
+        "nvidia_modeset"
       ];
-      kernelModules = [];
+      kernelModules = [
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_uvm"
+        "nvidia_modeset"
+      ];
       verbose = false;
       systemd = {
         enable = true;
@@ -22,12 +31,16 @@
     kernelParams = [
       "quiet"
       "splash"
+      "vt.global_cursor_default=GRUB_CMDLINE_LINUX_DEFAULT"
       "boot.shell_on_fail"
       "loglevel=3"
       "rd.systemd.show_status=auto"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "nowatchdog"
+      "noapic"
+      "nolapic"
+      "acpi=off"
       "modprobe.blacklist=iTCO_wdt" # Turn off Intel hardware watchdog
       #"modprobe.blacklist=sp5100_tco" # Turn off AMD hardware watchdog
     ];
@@ -40,9 +53,11 @@
         efiSupport = true;
         device = "nodev";
         fsIdentifier = "label";
-        backgroundColor = "#191d24";
-        splashImage = ../../assets/grub/bg_2560x1440.png;
+        backgroundColor = "#000000";
+        splashImage = "/run/plymouth/themes/${config.boot.plymouth.theme}/progress-0.png";
         splashMode = "stretch";
+        timeoutStyle = "hidden";
+        gfxmodeEfi = "2560x1440";
       };
       timeout = 5;
       efi.canTouchEfiVariables = true;
