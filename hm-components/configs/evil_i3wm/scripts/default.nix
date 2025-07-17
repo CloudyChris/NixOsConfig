@@ -90,6 +90,12 @@
     force = true;
   };
 
+  home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_nix_boot" = {
+    source = ./evil_nix_boot;
+    executable = true;
+    force = true;
+  };
+
   home.file."${config.home.homeDirectory}/.config/evil_i3wm/scripts/evil_nix_rebuild" = {
     source = ./evil_nix_rebuild;
     executable = true;

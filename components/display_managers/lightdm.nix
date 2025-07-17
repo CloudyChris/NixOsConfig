@@ -35,6 +35,8 @@
     };
   };
 
-  # BECAUSE NIX TRIES TO START SHIT ON SWITCH, THIS BREAKS STUFF ON SWITCH
-  # systemd.services.display-manager.conflicts = lib.mkIf (config.boot.plymouth.enable) [ "plymouth-quit.service" ];
+  # IF THIS IS NOT COMMENTED, ONLY BUILD WITH BOOT
+  systemd.services.display-manager.post-start = lib.mkIf (config.boot.plymouth.enable) ''
+    plymouth --quit
+  '';
 }
