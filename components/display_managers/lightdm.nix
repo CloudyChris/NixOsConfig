@@ -35,5 +35,5 @@
     };
   };
 
-  systemd.services.display-manager.conflicts = lib.mkIfi (config.boot.plymouth.enable) [ "plymouth-quit.service" ];
+  systemd.services.display-manager.conflicts = lib.mkIf (config.boot.plymouth.enable) [ "plymouth-quit.service" ];
 }
