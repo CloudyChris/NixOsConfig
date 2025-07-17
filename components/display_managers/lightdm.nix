@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, config, lib, ...}:
 {
 
   imports = [
@@ -34,4 +34,6 @@
       clock-format = "%H:%M";
     };
   };
+
+  systemd.services.display-manager.conflicts = lib.mkIfi (config.boot.plymouth.enable) [ "plymouth-quit.service" ];
 }
