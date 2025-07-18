@@ -11,10 +11,10 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-        #"nvidia"
-        #"nvidia_drm"
-        #"nvidia_uvm"
-        #"nvidia_modeset"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_uvm"
+        "nvidia_modeset"
       ];
       kernelModules = [];
       verbose = false;
@@ -51,7 +51,7 @@
         timeoutStyle = "hidden";
         gfxmodeEfi = "2560x1440";
       };
-      timeout = 5;
+      timeout = 1;
       efi.canTouchEfiVariables = true;
     };
   };

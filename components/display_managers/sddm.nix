@@ -16,4 +16,6 @@
     # theme
     nord-sddm
   ];
+
+  systemd.services.plymouth-quit.after = [ "display-manager.service" ];
 }
