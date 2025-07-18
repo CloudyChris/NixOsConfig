@@ -26,6 +26,7 @@
     kernelParams = [
       "quiet"
       "splash"
+      "vt.global_cursor_default=GRUB_CMDLINE_LINUX_DEFAULT"
       "boot.shell_on_fail"
       "loglevel=3"
       "rd.systemd.show_status=auto"
