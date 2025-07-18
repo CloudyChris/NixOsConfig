@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   boot.plymouth = {
-    enable = false;
+    enable = true;
     font = config.console.font;
     theme = "seal_3";
     themePackages = with pkgs; [

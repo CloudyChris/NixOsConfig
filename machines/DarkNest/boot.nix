@@ -16,12 +16,7 @@
         "nvidia_uvm"
         "nvidia_modeset"
       ];
-      kernelModules = [
-        "nvidia"
-        "nvidia_drm"
-        "nvidia_uvm"
-        "nvidia_modeset"
-      ];
+      kernelModules = [];
       verbose = false;
       systemd = {
         enable = true;
