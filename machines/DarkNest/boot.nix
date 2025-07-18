@@ -11,10 +11,10 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-        #"nvidia"
-        #"nvidia_drm"
-        #"nvidia_uvm"
-        #"nvidia_modeset"
+        "nvidia"
+        "nvidia_drm"
+        "nvidia_uvm"
+        "nvidia_modeset"
       ];
       kernelModules = [];
       verbose = false;
@@ -26,16 +26,12 @@
     kernelParams = [
       "quiet"
       "splash"
-      "vt.global_cursor_default=GRUB_CMDLINE_LINUX_DEFAULT"
       "boot.shell_on_fail"
       "loglevel=3"
       "rd.systemd.show_status=auto"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "nowatchdog"
-      "noapic"
-      "nolapic"
-      "acpi=off"
       "modprobe.blacklist=iTCO_wdt" # Turn off Intel hardware watchdog
       #"modprobe.blacklist=sp5100_tco" # Turn off AMD hardware watchdog
     ];
