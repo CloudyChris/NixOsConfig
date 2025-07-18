@@ -25,10 +25,9 @@
       indicators = [
         "~host"
         "~spacer"
-        "~language"
-        "~spacer"
         "~clock"
         "~spacer"
+        "~language"
         "~session"
       ];
       clock-format = "%H:%M";
@@ -36,7 +35,7 @@
   };
 
   # IF THIS IS NOT COMMENTED, ONLY BUILD WITH BOOT
-  systemd.services.display-manager.postStart = lib.mkIf (config.boot.plymouth.enable) ''
+  systemd.services.display-manager.preStart = lib.mkIf (config.boot.plymouth.enable) ''
     plymouth --quit
   '';
 }
