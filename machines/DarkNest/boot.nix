@@ -11,10 +11,10 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-        "nvidia"
-        "nvidia_drm"
-        "nvidia_uvm"
-        "nvidia_modeset"
+        #"nvidia"
+        #"nvidia_drm"
+        #"nvidia_uvm"
+        #"nvidia_modeset"
       ];
       kernelModules = [];
       verbose = false;
@@ -49,7 +49,7 @@
         device = "nodev";
         fsIdentifier = "label";
         backgroundColor = "#000000";
-        splashImage = "/run/plymouth/themes/${config.boot.plymouth.theme}/progress-0.png";
+        splashImage = "${pkgs.adi1090x-plymouth-themes.out}/share/plymouth/themes/${config.boot.plymouth.theme}/progress-0.png";
         splashMode = "stretch";
         timeoutStyle = "hidden";
         gfxmodeEfi = "2560x1440";

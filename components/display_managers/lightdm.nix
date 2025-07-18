@@ -33,9 +33,4 @@
       clock-format = "%H:%M";
     };
   };
-
-  # IF THIS IS NOT COMMENTED, ONLY BUILD WITH BOOT
-  #systemd.services.display-manager.preStart = lib.mkIf (config.boot.plymouth.enable) ''
-  #  plymouth --quit
-  #'';
 }

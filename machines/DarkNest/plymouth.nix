@@ -10,4 +10,6 @@
       })
     ];
   };
+
+  systemd.services.display-manager.conflicts = [ "plymouth-quit.service" ];
 }
