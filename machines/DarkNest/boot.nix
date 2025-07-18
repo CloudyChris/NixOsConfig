@@ -11,10 +11,10 @@
         "usb_storage"
         "usbhid"
         "sd_mod"
-        "nvidia"
-        "nvidia_drm"
-        "nvidia_uvm"
-        "nvidia_modeset"
+        #"nvidia"
+        #"nvidia_drm"
+        #"nvidia_uvm"
+        #"nvidia_modeset"
       ];
       kernelModules = [];
       verbose = false;

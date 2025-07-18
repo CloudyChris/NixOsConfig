@@ -33,4 +33,6 @@
       clock-format = "%H:%M";
     };
   };
+
+  systemd.services.plymouth-quit.after = [ "display-manager.service" ];
 }
