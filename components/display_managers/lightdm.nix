@@ -36,7 +36,7 @@
   };
 
   # IF THIS IS NOT COMMENTED, ONLY BUILD WITH BOOT
-  systemd.services.display-manager.post-start = lib.mkIf (config.boot.plymouth.enable) ''
+  systemd.services.display-manager.postStart = lib.mkIf (config.boot.plymouth.enable) ''
     plymouth --quit
   '';
 }
