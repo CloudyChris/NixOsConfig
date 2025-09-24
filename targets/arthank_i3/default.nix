@@ -76,6 +76,7 @@
         "gamemode"
         "render"
         "rtkit"
+        "transmission"
       ];
     };
   };
