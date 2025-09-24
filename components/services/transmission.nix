@@ -17,4 +17,6 @@
       trash-original-torrent-files = true;
     };
   };
+
+  systemd.services.transmission.environment.TRANSMISSION_WEB_HOME = "${pkgs.flood-for-transmission}";
 }
