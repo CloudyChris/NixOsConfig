@@ -1,3 +1,4 @@
 #~ Startup
 exec eww daemon
 exec_always evil_configure
+exec blueman-applet
